@@ -1,1 +1,2 @@
-
+<meta http-equiv="refresh" content="0; url={{ page.link }}">
+<p>正在为您跳转到报道原文... <a href="{{ page.link }}">点击此处手动跳转</a></p>
