@@ -104,64 +104,36 @@
             </div>
     </section>
 
-<section class="section" id="articles" style="position: relative;">
+<section class="section" id="articles" style="position: relative; overflow: hidden; padding: 60px 0;">
         <div class="section-header">
             <h2>Featured Articles</h2>
         </div>
 
-        <div style="position: relative; max-width: 1400px; margin: 0 auto;">
+        <div style="position: relative; width: 100%;">
             
-            <button id="nextBtn" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255,255,255,0.9); box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: 0.3s;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+            <button id="slideRight" style="position: absolute; right: 30px; top: 40%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 100; display: flex; align-items: center; justify-content: center; transition: 0.3s;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
             </button>
 
-            <div id="articleSlider" class="slider" style="display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 24px; padding: 10px 5% 40px; scrollbar-width: none;">
+            <div id="artSlider" style="display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 30px; padding: 0 5% 20px; scrollbar-width: none; -ms-overflow-style: none;">
                 
-                <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754" target="_blank" class="card-info" style="min-width: 320px; height: 480px; text-decoration: none; color: inherit; padding: 0; overflow: hidden; display: flex; flex-direction: column; flex-shrink: 0; border-radius: 20px; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
-                    <img src="assets/images/art1.jpg" style="width: 100%; height: 220px; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1504711432869-efd597cdd04d?w=500'">
-                    <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
-                        <span class="tag">China Report</span>
-                        <h3 class="title" style="font-size: 20px; margin: 12px 0;">Young Chinese redefining inbound tourism</h3>
-                        <p class="desc" style="font-size: 14px; color: #6e6e73; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">How young generations in China are reshaping traditional inbound tourism patterns through innovative travel modes...</p>
-                        <span class="link" style="margin-top: auto; color: #0066cc;">Read More ↗</span>
-                    </div>
+                <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754" target="_blank" style="min-width: 320px; width: 320px; text-decoration: none; color: inherit; flex-shrink: 0;">
+                    <img src="assets/images/art1.jpg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+                    <span class="tag" style="color: #0066cc; font-size: 12px; font-weight: 700; text-transform: uppercase;">China Report</span>
+                    <h3 style="font-size: 22px; margin: 10px 0; line-height: 1.2; height: 54px; overflow: hidden;">Young Chinese redefining inbound tourism</h3>
+                    <p style="font-size: 15px; color: #6e6e73; line-height: 1.5; height: 70px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">How young generations in China are reshaping traditional inbound tourism patterns through innovative travel modes...</p>
                 </a>
 
-                </div>
-        </div>
-    </section>
+                <a href="https://lareinawu.substack.com/p/an-unexpected-reply" target="_blank" style="min-width: 320px; width: 320px; text-decoration: none; color: inherit; flex-shrink: 0;">
+                    <img src="assets/images/art2.jpg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+                    <span class="tag" style="color: #0066cc; font-size: 12px; font-weight: 700; text-transform: uppercase;">Personal Narrative</span>
+                    <h3 style="font-size: 22px; margin: 10px 0; line-height: 1.2; height: 54px; overflow: hidden;">An Unexpected Reply</h3>
+                    <p style="font-size: 15px; color: #6e6e73; line-height: 1.5; height: 70px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">Sometimes, the most profound connections come from the letters we never expected to be answered...</p>
+                </a>
 
-    <script>
-        const slider = document.getElementById('articleSlider');
-        const nextBtn = document.getElementById('nextBtn');
-
-        nextBtn.addEventListener('click', () => {
-            // 每次点击向右滑动 344px (卡片宽度 320px + 间距 24px)
-            const scrollAmount = 344;
-            // 如果滑到底了，就回到开头
-            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
-                slider.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            }
-        });
-
-        // 鼠标移入显示箭头，移出隐藏（可选）
-        nextBtn.style.opacity = "0.7";
-        nextBtn.onmouseover = () => nextBtn.style.opacity = "1";
-        nextBtn.onmouseout = () => nextBtn.style.opacity = "0.7";
-    </script>
-        </div>
-    </section>
-    <section class="section" id="podcast">
-        <div class="section-header"><h2>Podcast Episodes</h2></div>
-        <div class="slider">
-            <div class="card info-card" style="background: #1d1d1f; color: white;">
-                <div><span class="tag" style="color: #636366;">Episode 01</span><h3 class="title">The Voice of the Streets</h3><p class="desc" style="color: #86868b;">Conversations with local artists about urban change...</p></div>
-                <a href="#" class="link">Listen on Spotify ↗</a>
-            </div>
-            </div>
-    </section>
+                <a href="https://www.thecitizen.org.au/articles/navigating-the-challenges-and-rewards-of-life-studying-abroad" target="_blank" style="min-width: 320px; width: 320px; text-decoration: none; color: inherit; flex-shrink: 0;">
+                    <img src="assets/images/art3.jpg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+                    <span class="tag" style="color: #0066cc; font-size: 12
 
     <section class="section" id="design">
         <div class="section-header"><h2>Graphic Design</h2></div>
