@@ -209,16 +209,49 @@
         </div>
     </section>
 
-    <section class="section" id="design">
-        <div class="section-header"><h2>Graphic Design</h2></div>
-        <div class="slider-wrapper">
-            <button class="arrow-btn" onclick="document.getElementById('d-slider').scrollBy({left: 330, behavior: 'smooth'})">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-            <div class="slider" id="d-slider">
-                <div class="card-media"><img src="assets/images/design1.jpg"></div>
-                <div class="card-media"><img src="assets/images/design2.jpg"></div>
-                <div class="card-media"><img src="assets/images/design3.jpg"></div>
+   <section class="section" id="design">
+        <div class="section-header">
+            <h2>Graphic Design</h2>
+            <p style="color: #86868b; font-size: 18px; margin-top: 10px;">Visual storytelling through digital and information design.</p>
+        </div>
+
+        <div style="margin-bottom: 60px;">
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h3 style="font-size: 22px; font-weight: 500;">Social Media Posts</h3>
+            </div>
+            <div class="slider-wrapper">
+                <button class="arrow-btn" onclick="document.getElementById('sm-slider').scrollBy({left: 330, behavior: 'smooth'})">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+                <div class="slider" id="sm-slider">
+                    <div class="card-media">
+                        <img src="assets/images/sm1.jpg" alt="Social Media Post 1" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500'">
+                    </div>
+                    <div class="card-media">
+                        <img src="assets/images/sm2.jpg" alt="Social Media Post 2" onerror="this.src='https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=500'">
+                    </div>
+                    <div class="card-media">
+                        <img src="assets/images/sm3.jpg" alt="Social Media Post 3" onerror="this.src='https://images.unsplash.com/photo-1611162618071-b39a2ad055fb?w=500'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h3 style="font-size: 22px; font-weight: 500;">Infographics</h3>
+            </div>
+            <div class="slider-wrapper">
+                <button class="arrow-btn" onclick="document.getElementById('info-slider').scrollBy({left: 330, behavior: 'smooth'})">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+                <div class="slider" id="info-slider">
+                    <div class="card-media" style="min-width: 450px;"> <img src="assets/images/info1.jpg" alt="Infographic 1" onerror="this.src='https://images.unsplash.com/photo-1551288049-bbbda5366391?w=800'">
+                    </div>
+                    <div class="card-media" style="min-width: 450px;">
+                        <img src="assets/images/info2.jpg" alt="Infographic 2" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800'">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
