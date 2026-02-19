@@ -92,7 +92,7 @@
 
     <header class="hero">
         <h1>Lareina Wu</h1>
-        <p>Multimedia Journalist & Designer. Capturing complexity with clarity.</p>
+        <p>HELLO! I’m an International Journalism graduate from the University of Melbourne with expertise in bilingual news production (Mandarin & English). I focus on multimedia storytelling, including video production,feature reporting**,social media content creation, and podcasting.</p>
     </header>
 <div class="cv-bar">
     <div class="cv-bar-content">
@@ -472,17 +472,18 @@
 
     .carousel-3d-track {
         position: relative;
-        width: 220px; /* 进一步收窄图片容器宽度，增加间距感 */
-        height: 330px; 
+        width: 220px; /* 图片容器宽度 */
+        height: 330px; /* 图片容器高度 */
         transform-style: preserve-3d;
-        transform: rotateX(-12deg); /* 保持优雅的俯视 */
-        animation: rotate-airy 80s linear infinite;
+        transform: rotateX(-12deg); /* 俯视角度 */
+        /* 动画设置为 none，实现静止效果 */
+        animation: none; 
         transition: all 0.5s ease;
     }
 
-    /* 悬停时动画停止 */
+    /* 悬停时动画不会停止，因为它本来就没动 */
     .carousel-3d-track:hover {
-        animation-play-state: paused;
+        animation-play-state: running; /* 保持不动 */
     }
 
     .carousel-item {
@@ -500,27 +501,27 @@
         height: 100%;
         object-fit: contain; /* 确保不裁剪图片的前提下自适应 */
         border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        background: #fff; /* 增加白底增强海报感 */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* 阴影保留，增加立体感 */
+        /* background: #fff;  移除此行，取消白色背景 */
         transition: all 0.6s ease;
     }
 
     /* 🔥 鼠标划过重点：跃出到视觉中心 */
     .carousel-item:hover {
         /* 当鼠标悬停时，通过抵消 rotateY 并大幅增加 translateZ 让它“跃”到最前面 */
-        /* 这里的 translateZ(550px) 确保它跳出圆环并放大 */
         transform: rotateY(calc(var(--i) * 30deg)) translateZ(550px) scale(1.4);
-        z-index: 100;
+        z-index: 100; /* 确保悬停图片在最上层 */
     }
 
     .carousel-item:hover img {
-        box-shadow: 0 30px 100px rgba(0,0,0,0.3);
+        box-shadow: 0 30px 100px rgba(0,0,0,0.3); /* 悬停时阴影更深 */
     }
 
-    @keyframes rotate-airy {
+    /* 动画定义被移除，现在图片是静止的 */
+    /* @keyframes rotate-airy {
         from { transform: rotateX(-12deg) rotateY(0deg); }
         to { transform: rotateX(-12deg) rotateY(360deg); }
-    }
+    } */
 
     /* 移动端适配 */
     @media (max-width: 768px) {
