@@ -209,74 +209,76 @@
         </div>
     </section>
 
- <section class="section" id="design">
-        <div class="section-header">
-            <h2>Graphic Design</h2>
-            <p style="color: #86868b; font-size: 18px; margin-top: 10px;">Visual storytelling through digital and information design.</p>
+<div style="padding: 0 5%; margin-bottom: 80px;">
+        <div class="section-header" style="padding-left: 0; margin-bottom: 30px;">
+            <h3 style="font-size: 20px; font-weight: 500;">Social Media Posts</h3>
         </div>
 
-        <div style="margin-bottom: 60px; overflow: hidden;">
-            <div class="section-header" style="margin-bottom: 20px;">
-                <h3 style="font-size: 18px; font-weight: 500;">Social Media Posts</h3>
+        <div class="floating-gallery" style="display: flex; flex-wrap: wrap; gap: 15px; align-items: center; justify-content: center;">
+            
+            <div class="sm-item" style="width: 200px; height: 200px;">
+                <img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/400?random=1'">
             </div>
 
-            <div class="slider-wrapper" style="margin-bottom: 20px;">
-                <button class="arrow-btn" onclick="document.getElementById('sm-track-1').scrollBy({left: 300, behavior: 'smooth'})" style="width: 35px; height: 35px; right: 5%;">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
-                <div id="sm-track-1" class="slider" style="gap: 15px; padding-left: 5%; scrollbar-width: none;">
-                    <div class="sm-thumb"><img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/200?random=1'"></div>
-                    <div class="sm-thumb"><img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/200?random=2'"></div>
-                    <div class="sm-thumb"><img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/200?random=3'"></div>
-                    <div class="sm-thumb"><img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/200?random=4'"></div>
-                    <div class="sm-thumb"><img src="assets/images/sm5.jpg" onerror="this.src='https://picsum.photos/200?random=5'"></div>
-                </div>
+            <div class="sm-item" style="width: 160px; height: 220px; margin-top: 30px;">
+                <img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/400?random=2'">
             </div>
 
-            <div class="slider-wrapper">
-                <button class="arrow-btn" onclick="document.getElementById('sm-track-2').scrollBy({left: -300, behavior: 'smooth'})" style="width: 35px; height: 35px; left: 5%; right: auto; transform: translateY(-50%) rotate(180deg);">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
-                <div id="sm-track-2" class="slider" style="gap: 15px; padding-right: 5%; scrollbar-width: none; justify-content: flex-end;">
-                    <div class="sm-thumb"><img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/200?random=6'"></div>
-                    <div class="sm-thumb"><img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/200?random=7'"></div>
-                    <div class="sm-thumb"><img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/200?random=8'"></div>
-                    <div class="sm-thumb"><img src="assets/images/sm9.jpg" onerror="this.src='https://picsum.photos/200?random=9'"></div>
-                    <div class="sm-thumb"><img src="assets/images/sm10.jpg" onerror="this.src='https://picsum.photos/200?random=10'"></div>
-                </div>
+            <div class="sm-item" style="width: 140px; height: 140px; margin-top: -20px;">
+                <img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/400?random=3'">
+            </div>
+
+            <div class="sm-item" style="width: 220px; height: 160px;">
+                <img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/400?random=4'">
+            </div>
+
+            <div class="sm-item" style="width: 180px; height: 180px; margin-top: 40px;">
+                <img src="assets/images/sm5.jpg" onerror="this.src='https://picsum.photos/400?random=5'">
+            </div>
+
+            <div class="sm-item" style="width: 130px; height: 130px; margin-top: -40px;">
+                <img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/400?random=6'">
+            </div>
+
+            <div class="sm-item" style="width: 170px; height: 240px;">
+                <img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/400?random=7'">
+            </div>
+            
+            <div class="sm-item" style="width: 210px; height: 210px; margin-top: 20px;">
+                <img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/400?random=8'">
             </div>
         </div>
-
-        <div>
-            <div class="section-header" style="margin-bottom: 15px;">
-                <h3 style="font-size: 18px; font-weight: 500;">Infographics</h3>
-            </div>
-            <div class="slider-wrapper">
-                <button class="arrow-btn" onclick="document.getElementById('info-slider').scrollBy({left: 400, behavior: 'smooth'})">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
-                <div class="slider" id="info-slider">
-                    <div class="info-thumb"><img src="assets/images/info1.jpg" onerror="this.src='https://picsum.photos/600/400?random=11'"></div>
-                    <div class="info-thumb"><img src="assets/images/info2.jpg" onerror="this.src='https://picsum.photos/600/400?random=12'"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <style>
-        /* 针对缩略图的统一样式 */
-        .sm-thumb {
-            min-width: 160px; height: 160px; border-radius: 10px; overflow: hidden; flex-shrink: 0;
-            background: #f5f5f7; transition: transform 0.3s;
-        }
-        .sm-thumb img { width: 100%; height: 100%; object-fit: cover; }
-        .sm-thumb:hover { transform: scale(1.05); }
-
-        .info-thumb {
-            min-width: 400px; height: 260px; border-radius: 14px; overflow: hidden; flex-shrink: 0;
+        .sm-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            flex-shrink: 0;
             background: #f5f5f7;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .info-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+        .sm-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        /* 重点：鼠标滑过效果 */
+        .sm-item:hover {
+            transform: scale(1.15) rotate(1deg); /* 放大并轻微旋转，增加灵动感 */
+            z-index: 50; /* 确保放大的图片在最上层 */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .sm-item:hover img {
+            transform: scale(1.05); /* 内部图片二次放大 */
+        }
     </style>
 
    <section class="section" id="photo">
