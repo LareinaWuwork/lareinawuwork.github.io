@@ -321,6 +321,8 @@
                     <div class="photo-thumb"><img src="assets/images/p8.jpg" onerror="this.src='https://picsum.photos/500/350?random=8'"></div>
                     <div class="photo-thumb"><img src="assets/images/p9.jpg" onerror="this.src='https://picsum.photos/400/400?random=9'"></div>
                     <div class="photo-thumb"><img src="assets/images/p10.jpg" onerror="this.src='https://picsum.photos/350/500?random=10'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p11.jpg" onerror="this.src='https://picsum.photos/400/450?random=11'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p12.jpg" onerror="this.src='https://picsum.photos/500/300?random=12'"></div>
                 </div>
             </div>
         </div>
@@ -329,56 +331,63 @@
     <style>
         .marquee-wrapper { 
             width: 100%; 
-            overflow-x: auto; /* 改为允许手动滑动，或者配合自动动画 */
+            overflow: hidden; 
             padding: 40px 0;
-            scrollbar-width: none; /* 隐藏滚动条 */
+            background: transparent;
         }
-        .marquee-wrapper::-webkit-scrollbar { display: none; }
 
         .marquee-track { 
-            display: flex; 
-            padding-left: 5%; /* 起始留白 */
+            display: flex;
+            width: max-content; /* 确保轨道长度随内容撑开 */
         }
 
         .marquee-content { 
             display: flex; 
-            gap: 30px; /* 增加间距让布局不拥挤 */
+            gap: 40px; /* 进一步增大间距，空气感拉满 */
             flex-shrink: 0; 
+            padding-left: 40px;
+            animation: scroll-airy 50s linear infinite; /* 50秒走完一圈，节奏很慢很优雅 */
         }
         
+        /* 鼠标悬停暂停动画 */
+        .marquee-track:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
         .photo-thumb { 
-            height: 200px; /* 稍微调高一点，既然只有一行 */
-            border-radius: 10px; 
+            height: 180px; /* 高度设定在 180px 左右比较精致 */
+            border-radius: 4px; /* 较小的圆角，看起来更硬朗、有新闻摄影感 */
             overflow: hidden; 
-            transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         
         .photo-thumb img { 
             height: 100%; 
             width: auto; 
-            display: block; 
+            display: block;
+            filter: grayscale(10%); /* 初始带一点点灰度，更有质感 */
+            transition: all 0.6s ease;
         }
 
-        /* 鼠标悬停交互：放大并置顶 */
+        /* 悬停交互：放大、恢复色彩、浮起 */
         .photo-thumb:hover { 
-            transform: scale(1.2) translateY(-10px); 
+            transform: scale(1.15) translateY(-15px); 
             z-index: 100; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15); 
         }
 
-        /* 如果你还是想要自动播放，保留下面这段，否则可以删掉动画部分手动刷 */
-        .marquee-content {
-            animation: scroll-slow 40s linear infinite;
-        }
-        .marquee-track:hover .marquee-content {
-            animation-play-state: paused;
+        .photo-thumb:hover img {
+            filter: grayscale(0%);
         }
 
-        @keyframes scroll-slow {
+        /* 简单的平移动画 */
+        @keyframes scroll-airy {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-30%); } /* 缓慢移动，根据图片多少微调这个百分比 */
+            100% { transform: translateX(-40%); } /* 12张图足以产生循环感 */
+        }
+    </style>
         }
     </style>
     <footer>
