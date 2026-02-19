@@ -528,6 +528,93 @@
         .carousel-item:hover { transform: rotateY(calc(var(--i) * 30deg)) translateZ(350px) scale(1.2); }
     }
 </style>
+
+  <section class="section" id="photo" style="overflow: hidden; padding-bottom: 120px;">
+        <div class="section-header">
+            <h2>Photography</h2>
+            <p style="color: #86868b; font-size: 16px;">Moments, captured in perspective.</p>
+        </div>
+
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <div class="photo-thumb"><img src="assets/images/p1.jpg" onerror="this.src='https://picsum.photos/400/300?random=1'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p2.jpg" onerror="this.src='https://picsum.photos/300/400?random=2'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p3.jpg" onerror="this.src='https://picsum.photos/500/350?random=3'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p4.jpg" onerror="this.src='https://picsum.photos/400/400?random=4'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p5.jpg" onerror="this.src='https://picsum.photos/350/500?random=5'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p6.jpg" onerror="this.src='https://picsum.photos/400/300?random=6'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p7.jpg" onerror="this.src='https://picsum.photos/300/400?random=7'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p8.jpg" onerror="this.src='https://picsum.photos/500/350?random=8'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p9.jpg" onerror="this.src='https://picsum.photos/400/400?random=9'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p10.jpg" onerror="this.src='https://picsum.photos/350/500?random=10'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p11.jpg" onerror="this.src='https://picsum.photos/400/450?random=11'"></div>
+                    <div class="photo-thumb"><img src="assets/images/p12.jpg" onerror="this.src='https://picsum.photos/500/300?random=12'"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .marquee-wrapper { 
+            width: 100%; 
+            overflow: hidden; 
+            padding: 40px 0;
+            background: transparent;
+        }
+
+        .marquee-track { 
+            display: flex;
+            width: max-content; /* 确保轨道长度随内容撑开 */
+        }
+
+        .marquee-content { 
+            display: flex; 
+            gap: 40px; /* 进一步增大间距，空气感拉满 */
+            flex-shrink: 0; 
+            padding-left: 40px;
+            animation: scroll-airy 50s linear infinite; /* 50秒走完一圈，节奏很慢很优雅 */
+        }
+        
+        /* 鼠标悬停暂停动画 */
+        .marquee-track:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        .photo-thumb { 
+            height: 180px; /* 高度设定在 180px 左右比较精致 */
+            border-radius: 4px; /* 较小的圆角，看起来更硬朗、有新闻摄影感 */
+            overflow: hidden; 
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .photo-thumb img { 
+            height: 100%; 
+            width: auto; 
+            display: block;
+            filter: grayscale(10%); /* 初始带一点点灰度，更有质感 */
+            transition: all 0.6s ease;
+        }
+
+        /* 悬停交互：放大、恢复色彩、浮起 */
+        .photo-thumb:hover { 
+            transform: scale(1.15) translateY(-15px); 
+            z-index: 100; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15); 
+        }
+
+        .photo-thumb:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* 简单的平移动画 */
+        @keyframes scroll-airy {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-40%); } /* 12张图足以产生循环感 */
+        }
+    </style>
     
     <footer>
         &copy; 2026 Lareina Wu. Built for storytelling.
