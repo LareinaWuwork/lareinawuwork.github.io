@@ -209,108 +209,97 @@
         </div>
     </section>
 
-<section class="section" id="design">
+<section class="section" id="design" style="padding-bottom: 120px;">
         <div class="section-header">
             <h2>Graphic Design</h2>
-            <p style="color: #86868b; font-size: 18px; margin-top: 10px;">Visual storytelling through digital and information design.</p>
+            <p style="color: #86868b; font-size: 18px; margin-top: 10px;">Visual storytelling through social media design.</p>
         </div>
 
-        <div style="padding: 0 5%; margin-bottom: 80px;">
-            <div class="section-header" style="margin-bottom: 30px; border: none;">
-                <h3 style="font-size: 20px; font-weight: 500; color: #1d1d1f;">Social Media Posts</h3>
-            </div>
-
+        <div style="padding: 0 10%; margin-top: 40px;">
             <div class="sm-waterfall">
+                
                 <div class="sm-column">
                     <div class="sm-item"><img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/400/300?random=1'"></div>
-                    <div class="sm-item" style="margin-top: 40px;"><img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/400/500?random=2'"></div>
+                    <div class="sm-item" style="margin-top: 60px;"><img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/400/500?random=2'"></div>
                     <div class="sm-item"><img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/400/400?random=3'"></div>
                 </div>
-                <div class="sm-column" style="margin-top: -30px;">
+
+                <div class="sm-column" style="margin-top: -50px;">
                     <div class="sm-item"><img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/400/600?random=4'"></div>
                     <div class="sm-item"><img src="assets/images/sm5.jpg" onerror="this.src='https://picsum.photos/400/400?random=5'"></div>
                     <div class="sm-item"><img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/400/300?random=6'"></div>
-                    <div class="sm-item"><img src="assets/images/sm13.jpg" onerror="this.src='https://picsum.photos/400/550?random=13'"></div> </div>
+                    <div class="sm-item"><img src="assets/images/sm13.jpg" onerror="this.src='https://picsum.photos/400/550?random=13'"></div>
+                </div>
+
                 <div class="sm-column">
-                    <div class="sm-item" style="margin-top: 20px;"><img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/400/300?random=7'"></div>
+                    <div class="sm-item" style="margin-top: 30px;"><img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/400/300?random=7'"></div>
                     <div class="sm-item"><img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/400/500?random=8'"></div>
                     <div class="sm-item"><img src="assets/images/sm9.jpg" onerror="this.src='https://picsum.photos/400/400?random=9'"></div>
                 </div>
-                <div class="sm-column" style="margin-top: 20px;">
+
+                <div class="sm-column" style="margin-top: 40px;">
                     <div class="sm-item"><img src="assets/images/sm10.jpg" onerror="this.src='https://picsum.photos/400/600?random=10'"></div>
-                    <div class="sm-item" style="margin-top: -10px;"><img src="assets/images/sm11.jpg" onerror="this.src='https://picsum.photos/400/400?random=11'"></div>
+                    <div class="sm-item" style="margin-top: -20px;"><img src="assets/images/sm11.jpg" onerror="this.src='https://picsum.photos/400/400?random=11'"></div>
                     <div class="sm-item"><img src="assets/images/sm12.jpg" onerror="this.src='https://picsum.photos/400/350?random=12'"></div>
                 </div>
-            </div>
-        </div>
 
-        <div style="padding: 0 5%;">
-            <div class="section-header" style="margin-bottom: 20px; border: none;">
-                <h3 style="font-size: 20px; font-weight: 500; color: #1d1d1f;">Infographics</h3>
-            </div>
-            <div class="slider-wrapper">
-                <button class="arrow-btn" onclick="document.getElementById('info-slider').scrollBy({left: 400, behavior: 'smooth'})">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
-                <div class="slider" id="info-slider" style="gap: 25px;">
-                    <div class="info-card"><img src="assets/images/info1.jpg" onerror="this.src='https://picsum.photos/800/600?random=20'"></div>
-                    <div class="info-card"><img src="assets/images/info2.jpg" onerror="this.src='https://picsum.photos/800/600?random=21'"></div>
-                </div>
             </div>
         </div>
     </section>
 
     <style>
-        /* SM 瀑布流容器 */
         .sm-waterfall {
             display: flex;
-            gap: 20px;
+            gap: 50px; /* 巨大的列间距，增强空气感 */
             align-items: flex-start;
+            justify-content: center; /* 整体居中分布 */
         }
 
         .sm-column {
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 50px; /* 巨大的行间距 */
+            max-width: 280px; /* 限制单列宽度，让图片显得更精致小巧 */
         }
 
-        /* 缩略图单项 */
         .sm-item {
+            position: relative;
             width: 100%;
             border-radius: 12px;
-            overflow: hidden;
-            background: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            overflow: visible; /* 允许图片放大时溢出容器 */
+            background: transparent;
+            transition: transform 0.8s cubic-bezier(0.2, 1, 0.2, 1);
             cursor: pointer;
         }
 
         .sm-item img {
             width: 100%;
-            height: auto; /* 等比缩小关键 */
+            height: auto;
             display: block;
-            transition: transform 0.6s ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1);
         }
 
+        /* ✨ 核心：光标划过内容放大到中央 */
         .sm-item:hover {
-            transform: scale(1.08) translateY(-5px);
-            z-index: 10;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            z-index: 100; /* 确保在最顶层 */
+            transform: scale(1.4); /* 较大幅度的放大 */
         }
 
-        /* Infographics 样式 */
-        .info-card {
-            min-width: 450px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        .sm-item:hover img {
+            box-shadow: 0 30px 60px rgba(0,0,0,0.18);
         }
-        .info-card img { width: 100%; height: auto; display: block; }
 
-        /* 移动端适配：列数减少 */
-        @media (max-width: 900px) { .sm-waterfall { gap: 10px; } .sm-column { gap: 10px; } }
-        @media (max-width: 600px) { .sm-waterfall { display: grid; grid-template-columns: 1fr 1fr; } .sm-column:nth-child(n+3) { display: none; } }
+        /* 移动端适配 */
+        @media (max-width: 1000px) {
+            .sm-waterfall { gap: 20px; }
+            .sm-column { gap: 20px; }
+        }
+        @media (max-width: 600px) {
+            .sm-waterfall { display: grid; grid-template-columns: 1fr 1fr; }
+        }
     </style>
 
    <section class="section" id="photo">
