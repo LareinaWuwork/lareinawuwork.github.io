@@ -302,82 +302,40 @@
         }
     </style>
 
-<section class="section" id="photo" style="overflow: hidden; padding-bottom: 120px;">
-        <div class="section-header">
-            <h2>Photography</h2>
-            <p style="color: #86868b; font-size: 16px;">Moments, captured in perspective.</p>
-        </div>
+import React from 'react';
 
-        <div class="marquee-wrapper">
-            <div class="marquee-track track-left">
-                <div class="marquee-content">
-                    <div class="photo-thumb"><img src="assets/images/p1.jpg" onerror="this.src='https://picsum.photos/400/300?random=1'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p2.jpg" onerror="this.src='https://picsum.photos/300/400?random=2'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p3.jpg" onerror="this.src='https://picsum.photos/500/350?random=3'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p4.jpg" onerror="this.src='https://picsum.photos/400/400?random=4'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p5.jpg" onerror="this.src='https://picsum.photos/350/500?random=5'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p1.jpg" onerror="this.src='https://picsum.photos/400/300?random=1'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p2.jpg" onerror="this.src='https://picsum.photos/300/400?random=2'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p3.jpg" onerror="this.src='https://picsum.photos/500/350?random=3'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p4.jpg" onerror="this.src='https://picsum.photos/400/400?random=4'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p5.jpg" onerror="this.src='https://picsum.photos/350/500?random=5'"></div>
-                </div>
-            </div>
+const ImageGallery = () => {
+  // 1. 模拟你的原始数据（假设里面有重复的 URL）
+  const rawImages = [
+    "img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", 
+    "img1.jpg", "img6.jpg", "img2.jpg" // 这里有重复
+  ];
 
-            <div class="marquee-track track-right" style="margin-top: 20px;">
-                <div class="marquee-content">
-                    <div class="photo-thumb"><img src="assets/images/p6.jpg" onerror="this.src='https://picsum.photos/400/300?random=6'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p7.jpg" onerror="this.src='https://picsum.photos/300/400?random=7'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p8.jpg" onerror="this.src='https://picsum.photos/500/350?random=8'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p9.jpg" onerror="this.src='https://picsum.photos/400/400?random=9'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p10.jpg" onerror="this.src='https://picsum.photos/350/500?random=10'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p6.jpg" onerror="this.src='https://picsum.photos/400/300?random=6'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p7.jpg" onerror="this.src='https://picsum.photos/300/400?random=7'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p8.jpg" onerror="this.src='https://picsum.photos/500/350?random=8'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p9.jpg" onerror="this.src='https://picsum.photos/400/400?random=9'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p10.jpg" onerror="this.src='https://picsum.photos/350/500?random=10'"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+  // 2. 去重逻辑：使用 Set 确保每张图只出现一次
+  const uniqueImages = [...new Set(rawImages)];
 
-    <style>
-        .marquee-wrapper { width: 100%; overflow: hidden; padding: 20px 0; }
-        .marquee-track { display: flex; user-select: none; }
-        .marquee-content { display: flex; gap: 20px; flex-shrink: 0; }
-        
-        .photo-thumb { 
-            height: 160px; /* 缩略图高度 */
-            border-radius: 6px; 
-            overflow: hidden; 
-            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-            cursor: pointer;
-        }
-        
-        .photo-thumb img { height: 100%; width: auto; display: block; }
+  return (
+    <div className="w-full py-4">
+      {/* 3. 容器：flex-nowrap 强制单行，overflow-x-auto 允许横向滚动 */}
+      <div className="flex flex-nowrap gap-3 overflow-x-auto no-scrollbar px-4">
+        {uniqueImages.map((src, index) => (
+          <div 
+            key={index} 
+            className="flex-shrink-0 w-48 h-32 overflow-hidden rounded-xl shadow-sm border border-gray-100"
+          >
+            <img 
+              src={src} 
+              alt={`Gallery ${index}`} 
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-        /* 悬停效果：放大并保持清晰 */
-        .photo-thumb:hover { 
-            transform: scale(1.15); 
-            z-index: 50; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
-        }
-
-        /* 自动滚动动画 */
-        .track-left .marquee-content { animation: scroll-left 40s linear infinite; }
-        .track-right .marquee-content { animation: scroll-right 40s linear infinite; }
-        .marquee-track:hover .marquee-content { animation-play-state: paused; }
-
-        @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        @keyframes scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-    </style>
-
-    <style>
-        .photo-card:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
-            transform: translateY(-5px);
-        }
-    </style>
+export default ImageGallery;
 
     <footer>
         &copy; 2026 Lareina Wu. Built for storytelling.
