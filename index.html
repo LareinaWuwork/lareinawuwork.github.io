@@ -321,8 +321,8 @@
         </div>
     </section>
 
-<section class="section" id="design" style="perspective: 2000px; overflow: hidden; background: #ffffff; padding: 100px 0;">
-    <div class="section-header" style="padding: 0 5%; margin-bottom: 20px;">
+<section class="section" id="design" style="perspective: 2000px; overflow: hidden; background: #ffffff; padding: 120px 0;">
+    <div class="section-header" style="padding: 0 5%; margin-bottom: 30px;">
         <h2>Graphic Design</h2>
         <p style="color: #86868b; font-size: 18px; margin-top: 10px;">Visual storytelling through digital and information design.</p>
     </div>
@@ -330,18 +330,18 @@
     <div class="carousel-3d-container">
         <div class="carousel-3d-track">
             
-            <div class="carousel-item" style="--i:1;"><img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/400/500?random=1'"></div>
+            <div class="carousel-item" style="--i:1;"><img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/400/600?random=1'"></div>
             <div class="carousel-item" style="--i:2;"><img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/400/600?random=2'"></div>
-            <div class="carousel-item" style="--i:3;"><img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/500/400?random=3'"></div>
-            <div class="carousel-item" style="--i:4;"><img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/400/500?random=4'"></div>
-            <div class="carousel-item" style="--i:5;"><img src="assets/images/sm5.jpg" onerror="this.src='https://picsum.photos/450/600?random=5'"></div>
-            <div class="carousel-item" style="--i:6;"><img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/400/500?random=6'"></div>
-            <div class="carousel-item" style="--i:7;"><img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/400/400?random=7'"></div>
-            <div class="carousel-item" style="--i:8;"><img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/400/550?random=8'"></div>
-            <div class="carousel-item" style="--i:9;"><img src="assets/images/sm9.jpg" onerror="this.src='https://picsum.photos/500/500?random=9'"></div>
-            <div class="carousel-item" style="--i:10;"><img src="assets/images/sm10.jpg" onerror="this.src='https://picsum.photos/400/500?random=10'"></div>
+            <div class="carousel-item" style="--i:3;"><img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/400/600?random=3'"></div>
+            <div class="carousel-item" style="--i:4;"><img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/400/600?random=4'"></div>
+            <div class="carousel-item" style="--i:5;"><img src="assets/images/sm5.jpg" onerror="this.src='https://picsum.photos/400/600?random=5'"></div>
+            <div class="carousel-item" style="--i:6;"><img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/400/600?random=6'"></div>
+            <div class="carousel-item" style="--i:7;"><img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/400/600?random=7'"></div>
+            <div class="carousel-item" style="--i:8;"><img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/400/600?random=8'"></div>
+            <div class="carousel-item" style="--i:9;"><img src="assets/images/sm9.jpg" onerror="this.src='https://picsum.photos/400/600?random=9'"></div>
+            <div class="carousel-item" style="--i:10;"><img src="assets/images/sm10.jpg" onerror="this.src='https://picsum.photos/400/600?random=10'"></div>
             <div class="carousel-item" style="--i:11;"><img src="assets/images/sm11.jpg" onerror="this.src='https://picsum.photos/400/600?random=11'"></div>
-            <div class="carousel-item" style="--i:12;"><img src="assets/images/sm12.jpg" onerror="this.src='https://picsum.photos/450/500?random=12'"></div>
+            <div class="carousel-item" style="--i:12;"><img src="assets/images/sm12.jpg" onerror="this.src='https://picsum.photos/400/600?random=12'"></div>
 
         </div>
     </div>
@@ -351,168 +351,71 @@
     .carousel-3d-container {
         position: relative;
         width: 100%;
-        height: 550px; /* 容器高度，根据图片高度调整 */
+        height: 600px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: -20px;
     }
 
     .carousel-3d-track {
         position: relative;
-        width: 260px; /* 单张图片的参考宽度 */
-        height: 360px; /* 单张图片的参考高度 */
+        width: 220px; /* 进一步收窄图片容器宽度，增加间距感 */
+        height: 330px; 
         transform-style: preserve-3d;
-        /* 初始俯视角度 rotateX */
-        transform: rotateX(-15deg) rotateY(0deg);
-        /* 80s 转一圈，非常平缓优雅 */
+        transform: rotateX(-12deg); /* 保持优雅的俯视 */
         animation: rotate-airy 80s linear infinite;
+        transition: all 0.5s ease;
     }
 
-    /* 悬停暂停，方便雇主看清楚某一张设计稿 */
+    /* 悬停时动画停止 */
     .carousel-3d-track:hover {
         animation-play-state: paused;
     }
 
     .carousel-item {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
         transform-style: preserve-3d;
-        /* 12张图，每张旋转 30度 (360/12) */
-        /* translateZ(480px) 决定了圆圈的大小，这个值越小圈越紧凑 */
-        transform: rotateY(calc(var(--i) * 30deg)) translateZ(480px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        /* translateZ 决定圆环半径，400px 比较紧凑但由于容器变窄，不会显得拥挤 */
+        transform: rotateY(calc(var(--i) * 30deg)) translateZ(400px);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .carousel-item img {
-        /* 保留原始图片尺寸的关键配置 */
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-        
-        border-radius: 12px;
-        box-shadow: 0 15px 45px rgba(0,0,0,0.1);
-        transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-        cursor: pointer;
-        /* 防止图片背面闪烁 */
-        backface-visibility: visible;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* 确保不裁剪图片的前提下自适应 */
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        background: #fff; /* 增加白底增强海报感 */
+        transition: all 0.6s ease;
     }
 
-    /* 悬停单张图片时：放大并变亮 */
+    /* 🔥 鼠标划过重点：跃出到视觉中心 */
+    .carousel-item:hover {
+        /* 当鼠标悬停时，通过抵消 rotateY 并大幅增加 translateZ 让它“跃”到最前面 */
+        /* 这里的 translateZ(550px) 确保它跳出圆环并放大 */
+        transform: rotateY(calc(var(--i) * 30deg)) translateZ(550px) scale(1.4);
+        z-index: 100;
+    }
+
     .carousel-item:hover img {
-        transform: scale(1.2) translateY(-10px);
-        box-shadow: 0 25px 60px rgba(0,0,0,0.2);
-        z-index: 10;
+        box-shadow: 0 30px 100px rgba(0,0,0,0.3);
     }
 
-    /* 动画定义：保持 rotateX 角度不变，只旋转 Y 轴 */
     @keyframes rotate-airy {
-        from { transform: rotateX(-15deg) rotateY(0deg); }
-        to { transform: rotateX(-15deg) rotateY(360deg); }
+        from { transform: rotateX(-12deg) rotateY(0deg); }
+        to { transform: rotateX(-12deg) rotateY(360deg); }
     }
 
-    /* 适配移动端：圆圈缩小以免图片出界 */
+    /* 移动端适配 */
     @media (max-width: 768px) {
-        .carousel-3d-container { height: 400px; }
-        .carousel-3d-track { width: 160px; height: 220px; }
         .carousel-item { transform: rotateY(calc(var(--i) * 30deg)) translateZ(280px); }
+        .carousel-item:hover { transform: rotateY(calc(var(--i) * 30deg)) translateZ(350px) scale(1.2); }
     }
 </style>
-
-<section class="section" id="photo" style="overflow: hidden; padding-bottom: 120px;">
-        <div class="section-header">
-            <h2>Photography</h2>
-            <p style="color: #86868b; font-size: 16px;">Moments, captured in perspective.</p>
-        </div>
-
-        <div class="marquee-wrapper">
-            <div class="marquee-track">
-                <div class="marquee-content">
-                    <div class="photo-thumb"><img src="assets/images/p1.jpg" onerror="this.src='https://picsum.photos/400/300?random=1'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p2.jpg" onerror="this.src='https://picsum.photos/300/400?random=2'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p3.jpg" onerror="this.src='https://picsum.photos/500/350?random=3'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p4.jpg" onerror="this.src='https://picsum.photos/400/400?random=4'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p5.jpg" onerror="this.src='https://picsum.photos/350/500?random=5'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p6.jpg" onerror="this.src='https://picsum.photos/400/300?random=6'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p7.jpg" onerror="this.src='https://picsum.photos/300/400?random=7'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p8.jpg" onerror="this.src='https://picsum.photos/500/350?random=8'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p9.jpg" onerror="this.src='https://picsum.photos/400/400?random=9'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p10.jpg" onerror="this.src='https://picsum.photos/350/500?random=10'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p11.jpg" onerror="this.src='https://picsum.photos/400/450?random=11'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p12.jpg" onerror="this.src='https://picsum.photos/500/300?random=12'"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <style>
-        .marquee-wrapper { 
-            width: 100%; 
-            overflow: hidden; 
-            padding: 40px 0;
-            background: transparent;
-        }
-
-        .marquee-track { 
-            display: flex;
-            width: max-content; /* 确保轨道长度随内容撑开 */
-        }
-
-        .marquee-content { 
-            display: flex; 
-            gap: 40px; /* 进一步增大间距，空气感拉满 */
-            flex-shrink: 0; 
-            padding-left: 40px;
-            animation: scroll-airy 50s linear infinite; /* 50秒走完一圈，节奏很慢很优雅 */
-        }
-        
-        /* 鼠标悬停暂停动画 */
-        .marquee-track:hover .marquee-content {
-            animation-play-state: paused;
-        }
-
-        .photo-thumb { 
-            height: 180px; /* 高度设定在 180px 左右比较精致 */
-            border-radius: 4px; /* 较小的圆角，看起来更硬朗、有新闻摄影感 */
-            overflow: hidden; 
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        
-        .photo-thumb img { 
-            height: 100%; 
-            width: auto; 
-            display: block;
-            filter: grayscale(10%); /* 初始带一点点灰度，更有质感 */
-            transition: all 0.6s ease;
-        }
-
-        /* 悬停交互：放大、恢复色彩、浮起 */
-        .photo-thumb:hover { 
-            transform: scale(1.15) translateY(-15px); 
-            z-index: 100; 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15); 
-        }
-
-        .photo-thumb:hover img {
-            filter: grayscale(0%);
-        }
-
-        /* 简单的平移动画 */
-        @keyframes scroll-airy {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-40%); } /* 12张图足以产生循环感 */
-        }
-    </style>
-        }
-    </style>
+    
     <footer>
         &copy; 2026 Lareina Wu. Built for storytelling.
     </footer>
