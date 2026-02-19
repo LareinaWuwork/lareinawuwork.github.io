@@ -307,146 +307,97 @@
         </div>
     </section>
 
-<section class="section" id="design" style="perspective: 1500px; overflow: hidden; background: #fff; padding: 120px 0;">
+<section class="section" id="design" style="perspective: 2000px; overflow: hidden; background: #fff; padding: 120px 0;">
         <div class="section-header">
             <h2>Graphic Design</h2>
             <p style="color: #86868b; font-size: 18px;">Visual storytelling through digital and information design.</p>
         </div>
 
-        <div class="carousel-3d-container">
+        <div class="carousel-3d-wrapper">
             <div class="carousel-3d-track">
-                <div class="carousel-item" style="--i:1;"><img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/300/400?random=1'"></div>
-                <div class="carousel-item" style="--i:2;"><img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/300/400?random=2'"></div>
-                <div class="carousel-item" style="--i:3;"><img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/300/400?random=3'"></div>
-                <div class="carousel-item" style="--i:4;"><img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/300/400?random=4'"></div>
-                <div class="carousel-item" style="--i:5;"><img src="assets/images/sm5.jpg" onerror="this.src='https://picsum.photos/300/400?random=5'"></div>
-                <div class="carousel-item" style="--i:6;"><img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/300/400?random=6'"></div>
-                <div class="carousel-item" style="--i:7;"><img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/300/400?random=7'"></div>
-                <div class="carousel-item" style="--i:8;"><img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/300/400?random=8'"></div>
-                <div class="carousel-item" style="--i:9;"><img src="assets/images/sm9.jpg" onerror="this.src='https://picsum.photos/300/400?random=9'"></div>
-                <div class="carousel-item" style="--i:10;"><img src="assets/images/sm10.jpg" onerror="this.src='https://picsum.photos/300/400?random=10'"></div>
+                <div class="carousel-item" style="--i:1;"><img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/400/500?random=1'"></div>
+                <div class="carousel-item" style="--i:2;"><img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/400/600?random=2'"></div>
+                <div class="carousel-item" style="--i:3;"><img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/500/400?random=3'"></div>
+                <div class="carousel-item" style="--i:4;"><img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/400/500?random=4'"></div>
+                <div class="carousel-item" style="--i:5;"><img src="assets/images/sm5.jpg" onerror="this.src='https://picsum.photos/450/600?random=5'"></div>
+                <div class="carousel-item" style="--i:6;"><img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/400/500?random=6'"></div>
+                <div class="carousel-item" style="--i:7;"><img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/400/400?random=7'"></div>
+                <div class="carousel-item" style="--i:8;"><img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/400/550?random=8'"></div>
+                <div class="carousel-item" style="--i:9;"><img src="assets/images/sm9.jpg" onerror="this.src='https://picsum.photos/500/500?random=9'"></div>
+                <div class="carousel-item" style="--i:10;"><img src="assets/images/sm10.jpg" onerror="this.src='https://picsum.photos/400/500?random=10'"></div>
             </div>
         </div>
     </section>
 
     <style>
-        .carousel-3d-container {
+        .carousel-3d-wrapper {
             position: relative;
             width: 100%;
-            height: 450px;
+            height: 500px; /* 容器高度 */
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 50px;
+            margin-top: 40px;
         }
 
         .carousel-3d-track {
             position: relative;
-            width: 220px;
-            height: 300px;
+            width: 250px; /* 核心占位宽度 */
+            height: 350px;
             transform-style: preserve-3d;
-            animation: rotate-carousel 30s linear infinite;
+            /* 60秒转一圈，非常缓慢 */
+            animation: rotate-3d-slow 60s linear infinite;
         }
 
-        /* 鼠标悬停暂停 */
+        /* 鼠标悬停时完全静止，方便看图 */
         .carousel-3d-track:hover {
             animation-play-state: paused;
         }
 
         .carousel-item {
             position: absolute;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            transform-origin: center;
             transform-style: preserve-3d;
-            /* 计算旋转角度：360度 / 10张 = 36度 */
-            /* translateZ(400px) 决定了圆圈的大小 */
-            transform: rotateY(calc(var(--i) * 36deg)) translateZ(450px);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.5s ease;
+            /* i * 36度排列，500px 是圆圈半径 */
+            transform: rotateY(calc(var(--i) * 36deg)) translateZ(500px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* 鼠标划过单张图片稍微放大 */
-        .carousel-item:hover {
-            transform: rotateY(calc(var(--i) * 36deg)) translateZ(480px) scale(1.05);
-            cursor: pointer;
-        }
-
-        @keyframes rotate-carousel {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
-        }
-
-        /* 适配移动端 */
-        @media (max-width: 768px) {
-            .carousel-3d-track { width: 150px; height: 200px; }
-            .carousel-item { transform: rotateY(calc(var(--i) * 36deg)) translateZ(280px); }
-            .carousel-item:hover { transform: rotateY(calc(var(--i) * 36deg)) translateZ(300px); }
-        }
-    </style>
-
-    <style>
-        .sm-waterfall {
-            display: flex;
-            gap: 50px; /* 巨大的列间距，增强空气感 */
-            align-items: flex-start;
-            justify-content: center; /* 整体居中分布 */
-        }
-
-        .sm-column {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 50px; /* 巨大的行间距 */
-            max-width: 280px; /* 限制单列宽度，让图片显得更精致小巧 */
-        }
-
-        .sm-item {
-            position: relative;
-            width: 100%;
-            border-radius: 12px;
-            overflow: visible; /* 允许图片放大时溢出容器 */
-            background: transparent;
-            transition: transform 0.8s cubic-bezier(0.2, 1, 0.2, 1);
-            cursor: pointer;
-        }
-
-        .sm-item img {
-            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            /* 关键：保留原始比例，不强制拉伸 */
+            width: auto;
             height: auto;
-            display: block;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+            border-radius: 8px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+            transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            /* 稍微让侧面的图片带点透明度，增加空间感 */
+            backface-visibility: visible;
         }
 
-        /* ✨ 核心：光标划过内容放大到中央 */
-        .sm-item:hover {
-            z-index: 100; /* 确保在最顶层 */
-            transform: scale(1.4); /* 较大幅度的放大 */
+        /* 悬停单张图片放大预览 */
+        .carousel-item:hover img {
+            transform: scale(1.1);
+            cursor: pointer;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
 
-        .sm-item:hover img {
-            box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+        @keyframes rotate-3d-slow {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
         }
 
-        /* 移动端适配 */
-        @media (max-width: 1000px) {
-            .sm-waterfall { gap: 20px; }
-            .sm-column { gap: 20px; }
-        }
-        @media (max-width: 600px) {
-            .sm-waterfall { display: grid; grid-template-columns: 1fr 1fr; }
+        /* 适配手机端：缩小圆圈半径 */
+        @media (max-width: 768px) {
+            .carousel-3d-wrapper { height: 400px; }
+            .carousel-item { transform: rotateY(calc(var(--i) * 36deg)) translateZ(280px); }
+            .carousel-item:hover img { transform: scale(1.05); }
         }
     </style>
 
