@@ -209,75 +209,102 @@
         </div>
     </section>
 
-<div style="padding: 0 5%; margin-bottom: 80px;">
-        <div class="section-header" style="padding-left: 0; margin-bottom: 30px;">
-            <h3 style="font-size: 20px; font-weight: 500;">Social Media Posts</h3>
+<div style="padding: 0 8%; margin-bottom: 100px;">
+        <div class="section-header" style="padding-left: 0; margin-bottom: 50px;">
+            <h3 style="font-size: 20px; font-weight: 500; color: #86868b;">Social Media Posts</h3>
         </div>
 
-        <div class="floating-gallery" style="display: flex; flex-wrap: wrap; gap: 15px; align-items: center; justify-content: center;">
+        <div class="airy-gallery">
             
-            <div class="sm-item" style="width: 200px; height: 200px;">
-                <img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/400?random=1'">
+            <div class="airy-item" style="margin-top: 0;">
+                <img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/400/500?random=1'">
             </div>
 
-            <div class="sm-item" style="width: 160px; height: 220px; margin-top: 30px;">
-                <img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/400?random=2'">
+            <div class="airy-item" style="margin-top: 40px;">
+                <img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/400/300?random=2'">
             </div>
 
-            <div class="sm-item" style="width: 140px; height: 140px; margin-top: -20px;">
-                <img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/400?random=3'">
+            <div class="airy-item" style="margin-top: -20px;">
+                <img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/400/600?random=3'">
             </div>
 
-            <div class="sm-item" style="width: 220px; height: 160px;">
-                <img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/400?random=4'">
+            <div class="airy-item" style="margin-top: 60px;">
+                <img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/400/400?random=4'">
             </div>
 
-            <div class="sm-item" style="width: 180px; height: 180px; margin-top: 40px;">
-                <img src="assets/images/sm5.jpg" onerror="this.src='https://picsum.photos/400?random=5'">
+            <div class="airy-item" style="margin-top: -10px;">
+                <img src="assets/images/sm5.jpg" onerror="this.src='https://picsum.photos/400/550?random=5'">
             </div>
 
-            <div class="sm-item" style="width: 130px; height: 130px; margin-top: -40px;">
-                <img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/400?random=6'">
+            <div class="airy-item" style="margin-top: 30px;">
+                <img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/400/350?random=6'">
             </div>
 
-            <div class="sm-item" style="width: 170px; height: 240px;">
-                <img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/400?random=7'">
+            <div class="airy-item" style="margin-top: 80px;">
+                <img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/400/480?random=7'">
             </div>
-            
-            <div class="sm-item" style="width: 210px; height: 210px; margin-top: 20px;">
-                <img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/400?random=8'">
+
+            <div class="airy-item" style="margin-top: 20px;">
+                <img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/400/520?random=8'">
             </div>
+
+            <div class="airy-item" style="margin-top: -30px;">
+                <img src="assets/images/sm9.jpg" onerror="this.src='https://picsum.photos/400/300?random=9'">
+            </div>
+
+            <div class="airy-item" style="margin-top: 50px;">
+                <img src="assets/images/sm10.jpg" onerror="this.src='https://picsum.photos/400/650?random=10'">
+            </div>
+
+            <div class="airy-item" style="margin-top: 10px;">
+                <img src="assets/images/sm11.jpg" onerror="this.src='https://picsum.photos/400/420?random=11'">
+            </div>
+
+            <div class="airy-item" style="margin-top: -15px;">
+                <img src="assets/images/sm12.jpg" onerror="this.src='https://picsum.photos/400/500?random=12'">
+            </div>
+
         </div>
     </div>
 
     <style>
-        .sm-item {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            flex-shrink: 0;
-            background: #f5f5f7;
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .sm-item img {
+        .airy-gallery {
+            column-count: 4; /* 默认分为4列，你可以根据喜好改为3或5 */
+            column-gap: 40px; /* 列之间的巨大间距，产生空气感 */
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
         }
 
-        /* 重点：鼠标滑过效果 */
-        .sm-item:hover {
-            transform: scale(1.15) rotate(1deg); /* 放大并轻微旋转，增加灵动感 */
-            z-index: 50; /* 确保放大的图片在最上层 */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        @media (max-width: 1000px) { .airy-gallery { column-count: 3; } }
+        @media (max-width: 700px) { .airy-gallery { column-count: 2; } }
+
+        .airy-item {
+            display: inline-block; /* 必须设置，防止图片被切断 */
+            width: 100%;
+            margin-bottom: 40px; /* 行之间的间距 */
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
-        .sm-item:hover img {
-            transform: scale(1.05); /* 内部图片二次放大 */
+        .airy-item img {
+            width: 100%;
+            height: auto; /* 核心：保留原图比例 */
+            display: block;
+            transition: transform 0.8s ease;
+        }
+
+        /* 鼠标悬停：优雅放大 */
+        .airy-item:hover {
+            transform: scale(1.1) translateY(-10px);
+            z-index: 100;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+        }
+
+        .airy-item:hover img {
+            transform: scale(1.05);
         }
     </style>
 
