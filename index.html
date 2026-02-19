@@ -307,43 +307,93 @@
         </div>
     </section>
 
-<section class="section" id="design" style="padding-bottom: 120px;">
+<section class="section" id="design" style="perspective: 1500px; overflow: hidden; background: #fff; padding: 120px 0;">
         <div class="section-header">
             <h2>Graphic Design</h2>
-            <p style="color: #86868b; font-size: 18px; margin-top: 10px;"> social media design.</p>
+            <p style="color: #86868b; font-size: 18px;">Visual storytelling through digital and information design.</p>
         </div>
 
-        <div style="padding: 0 10%; margin-top: 40px;">
-            <div class="sm-waterfall">
-                
-                <div class="sm-column">
-                    <div class="sm-item"><img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/400/300?random=1'"></div>
-                    <div class="sm-item" style="margin-top: 60px;"><img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/400/500?random=2'"></div>
-                    <div class="sm-item"><img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/400/400?random=3'"></div>
-                </div>
-
-                <div class="sm-column" style="margin-top: -50px;">
-                    <div class="sm-item"><img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/400/600?random=4'"></div>
-                
-                    <div class="sm-item"><img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/400/300?random=6'"></div>
-                    <div class="sm-item"><img src="assets/images/sm13.jpg" onerror="this.src='https://picsum.photos/400/550?random=13'"></div>
-                </div>
-
-                <div class="sm-column">
-                    <div class="sm-item" style="margin-top: 30px;"><img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/400/300?random=7'"></div>
-                    <div class="sm-item"><img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/400/500?random=8'"></div>
-                    <div class="sm-item"><img src="assets/images/sm9.jpg" onerror="this.src='https://picsum.photos/400/400?random=9'"></div>
-                </div>
-
-                <div class="sm-column" style="margin-top: 40px;">
-                    <div class="sm-item"><img src="assets/images/sm10.jpg" onerror="this.src='https://picsum.photos/400/600?random=10'"></div>
-                    <div class="sm-item" style="margin-top: -20px;"><img src="assets/images/sm11.jpg" onerror="this.src='https://picsum.photos/400/400?random=11'"></div>
-                    <div class="sm-item"><img src="assets/images/sm12.jpg" onerror="this.src='https://picsum.photos/400/350?random=12'"></div>
-                </div>
-
+        <div class="carousel-3d-container">
+            <div class="carousel-3d-track">
+                <div class="carousel-item" style="--i:1;"><img src="assets/images/sm1.jpg" onerror="this.src='https://picsum.photos/300/400?random=1'"></div>
+                <div class="carousel-item" style="--i:2;"><img src="assets/images/sm2.jpg" onerror="this.src='https://picsum.photos/300/400?random=2'"></div>
+                <div class="carousel-item" style="--i:3;"><img src="assets/images/sm3.jpg" onerror="this.src='https://picsum.photos/300/400?random=3'"></div>
+                <div class="carousel-item" style="--i:4;"><img src="assets/images/sm4.jpg" onerror="this.src='https://picsum.photos/300/400?random=4'"></div>
+                <div class="carousel-item" style="--i:5;"><img src="assets/images/sm5.jpg" onerror="this.src='https://picsum.photos/300/400?random=5'"></div>
+                <div class="carousel-item" style="--i:6;"><img src="assets/images/sm6.jpg" onerror="this.src='https://picsum.photos/300/400?random=6'"></div>
+                <div class="carousel-item" style="--i:7;"><img src="assets/images/sm7.jpg" onerror="this.src='https://picsum.photos/300/400?random=7'"></div>
+                <div class="carousel-item" style="--i:8;"><img src="assets/images/sm8.jpg" onerror="this.src='https://picsum.photos/300/400?random=8'"></div>
+                <div class="carousel-item" style="--i:9;"><img src="assets/images/sm9.jpg" onerror="this.src='https://picsum.photos/300/400?random=9'"></div>
+                <div class="carousel-item" style="--i:10;"><img src="assets/images/sm10.jpg" onerror="this.src='https://picsum.photos/300/400?random=10'"></div>
             </div>
         </div>
     </section>
+
+    <style>
+        .carousel-3d-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .carousel-3d-track {
+            position: relative;
+            width: 220px;
+            height: 300px;
+            transform-style: preserve-3d;
+            animation: rotate-carousel 30s linear infinite;
+        }
+
+        /* 鼠标悬停暂停 */
+        .carousel-3d-track:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            /* 计算旋转角度：360度 / 10张 = 36度 */
+            /* translateZ(400px) 决定了圆圈的大小 */
+            transform: rotateY(calc(var(--i) * 36deg)) translateZ(450px);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* 鼠标划过单张图片稍微放大 */
+        .carousel-item:hover {
+            transform: rotateY(calc(var(--i) * 36deg)) translateZ(480px) scale(1.05);
+            cursor: pointer;
+        }
+
+        @keyframes rotate-carousel {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        /* 适配移动端 */
+        @media (max-width: 768px) {
+            .carousel-3d-track { width: 150px; height: 200px; }
+            .carousel-item { transform: rotateY(calc(var(--i) * 36deg)) translateZ(280px); }
+            .carousel-item:hover { transform: rotateY(calc(var(--i) * 36deg)) translateZ(300px); }
+        }
+    </style>
 
     <style>
         .sm-waterfall {
