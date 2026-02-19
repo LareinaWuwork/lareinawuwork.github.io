@@ -438,10 +438,10 @@
         </div>
     </section>
 
-<section class="section" id="design" style="background: #ffffff; padding: 100px 0;">
-    <div class="section-header" style="padding: 0 5%; margin-bottom: 50px;">
-        <h2>Graphic Design</h2>
-        <p style="color: #86868b; font-size: 18px; margin-top: 10px;">Visual storytelling through digital and information design.</p>
+<section class="section" id="design" style="background: #ffffff; padding: 80px 0;">
+    <div class="section-header" style="padding: 0 8%; margin-bottom: 40px;">
+        <h2 style="font-size: 32px; font-weight: 600;">Graphic Design</h2>
+        <p style="color: #86868b; font-size: 16px; margin-top: 5px;">Visual storytelling through digital and information design.</p>
     </div>
 
     <div class="gallery-grid">
@@ -455,61 +455,13 @@
         <div class="gallery-item"><img src="assets/images/sm8.jpg" alt="Design 8"></div>
         <div class="gallery-item"><img src="assets/images/sm9.jpg" alt="Design 9"></div>
         <div class="gallery-item"><img src="assets/images/sm10.jpg" alt="Design 10"></div>
-        <div class="gallery-item"><img src="assets/images/sm11.jpg" alt="Design 11"></div>
-        <div class="gallery-item"><img src="assets/images/sm12.jpg" alt="Design 12"></div>
     </div>
 </section>
 
 <style>
     .gallery-grid {
         display: grid;
-        /* 四列布局，间距 40px 保证不拥挤 */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 40px;
-        padding: 0 5%;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .gallery-item {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: visible; /* 允许放大时跳出容器 */
-        transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-    }
-
-    .gallery-item img {
-        /* 核心：按比例缩小，不强制填充 */
-        max-width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 12px;
-        /* 无白底，直接显示图片 */
-        background: transparent; 
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-    }
-
-    /* 鼠标划过效果：向上浮动、放大、阴影加深 */
-    .gallery-item:hover {
-        z-index: 10;
-        transform: scale(1.1) translateY(-10px);
-    }
-
-    .gallery-item:hover img {
-        box-shadow: 0 30px 60px rgba(0,0,0,0.18);
-    }
-
-    /* 适配手机端：改为两列 */
-    @media (max-width: 768px) {
-        .gallery-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-    }
-</style>
+        /* 核心修改：使用 5 列布局
 
   <section class="section" id="photo" style="overflow: hidden; padding-bottom: 120px;">
         <div class="section-header">
