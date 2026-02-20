@@ -5,83 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Content Producer & Designer</title>
     <style>
-        /* --- 全局苹果风格重置 --- */
+        /* --- 1. 全局苹果风格重置 --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-            background-color: #ffffff;
-            color: #1d1d1f;
-            line-height: 1.47059;
-            letter-spacing: -0.022em;
-            -webkit-font-smoothing: antialiased;
+            background-color: #ffffff; color: #1d1d1f; line-height: 1.5; -webkit-font-smoothing: antialiased;
         }
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 
-        /* --- 导航栏 (Glassmorphism) --- */
+        /* --- 2. 导航栏 (Glassmorphism) --- */
         nav {
-            position: fixed;
-            top: 0; width: 100%; height: 52px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            position: fixed; top: 0; width: 100%; height: 52px;
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             z-index: 9999; border-bottom: 1px solid rgba(0,0,0,0.05);
             display: flex; justify-content: center; align-items: center;
         }
-        nav ul { display: flex; gap: 40px; }
-        nav ul li a { 
-            font-size: 12px; font-weight: 400; color: #515154; 
-            text-decoration: none; transition: color 0.3s; 
-        }
+        nav ul { display: flex; gap: 35px; }
+        nav ul li a { font-size: 12px; font-weight: 400; color: #515154; letter-spacing: 0.02em; }
         nav ul li a:hover { color: #0071e3; }
 
-        /* --- 1. ABOUT / CV SECTION --- */
-        .cv-section { padding: 150px 8% 100px; max-width: 1400px; margin: 0 auto; }
-        .cv-header h1 { font-size: 56px; font-weight: 600; letter-spacing: -0.005em; margin-bottom: 15px; }
-        .cv-header p { font-size: 24px; color: #86868b; margin-bottom: 60px; font-weight: 400; }
+        /* --- 3. ABOUT & CV SECTION --- */
+        .cv-section { padding: 150px 8% 80px; max-width: 1400px; margin: 0 auto; }
+        .cv-header h1 { font-size: 56px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; }
+        .cv-header .subtitle { font-size: 24px; color: #86868b; margin-bottom: 25px; font-weight: 400; }
         
+        .cv-link { 
+            display: inline-block; padding: 12px 28px; background: #0071e3; color: #fff; 
+            border-radius: 25px; font-size: 14px; font-weight: 500; margin-bottom: 60px;
+        }
+        .cv-link:hover { background: #0077ed; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,113,227,0.3); }
+
         .experience-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
             border-top: 1px solid #d2d2d7; padding-top: 50px;
         }
         .exp-item h4 { font-size: 19px; font-weight: 600; margin-bottom: 8px; }
-        .exp-item .meta { font-size: 15px; color: #0071e3; margin-bottom: 15px; display: block; font-weight: 500; }
+        .exp-item .meta { font-size: 14px; color: #0071e3; margin-bottom: 12px; display: block; font-weight: 500; }
         .exp-item p { font-size: 16px; color: #515154; line-height: 1.6; }
 
-        /* --- 2. MULTIMEDIA (Hover Drawers) --- */
-        .section-multimedia { background: #f5f5f7; padding: 100px 0; overflow: hidden; }
+        /* --- 4. VIDEO & AUDIO (Hover Drawers) --- */
+        .section-video { background: #f5f5f7; padding: 100px 0; overflow: hidden; }
         .section-header { padding: 0 8%; margin-bottom: 50px; }
-        .section-header h2 { font-size: 40px; font-weight: 600; }
-        .section-header p { font-size: 19px; color: #86868b; margin-top: 10px; }
+        .section-header h2 { font-size: 36px; font-weight: 600; }
+        .section-header p { font-size: 18px; color: #86868b; margin-top: 8px; }
 
-        .drawer-wrapper { display: flex; flex-direction: column; gap: 20px; padding: 0 8%; }
+        .drawer-wrapper { display: flex; flex-direction: column; gap: 15px; padding: 0 8%; }
         .drawer-group {
-            display: flex; height: 220px; background: #fff; border-radius: 24px; 
+            display: flex; height: 180px; background: #fff; border-radius: 24px; 
             overflow: hidden; transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
         .drawer-cover { width: 320px; flex-shrink: 0; position: relative; background: #000; cursor: pointer; }
-        .drawer-cover img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.8s; }
-        .cover-overlay { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            padding: 35px; color: #fff; z-index: 2; 
-            display: flex; flex-direction: column; justify-content: flex-end; 
-        }
-        .cover-overlay .tag { font-size: 11px; font-weight: 700; color: #0071e3; text-transform: uppercase; margin-bottom: 8px; }
-        .cover-overlay h3 { font-size: 24px; line-height: 1.2; }
+        .drawer-cover img { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; transition: 0.8s; }
+        .cover-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px; color: #fff; display: flex; flex-direction: column; justify-content: flex-end; z-index: 2; }
+        .cover-overlay h3 { font-size: 22px; font-weight: 600; }
 
         .drawer-content { width: 0; opacity: 0; overflow: hidden; transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1); display: flex; align-items: center; }
+        .drawer-group:hover { height: 300px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+        .drawer-group:hover .drawer-content { width: 100%; opacity: 1; padding: 0 45px; }
+        .drawer-group:hover .drawer-cover img { opacity: 0.4; transform: scale(1.05); }
+
+        .item-track { display: flex; gap: 25px; width: max-content; }
+        .media-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; cursor: pointer; display: block; position: relative; }
+        .media-card video { width: 100%; height: 100%; object-fit: cover; }
         
-        /* HOVER EFFECT */
-        .drawer-group:hover { height: 320px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
-        .drawer-group:hover .drawer-content { width: 100%; opacity: 1; padding: 0 50px; }
-        .drawer-group:hover .drawer-cover img { opacity: 0.4; transform: scale(1.08); }
-
-        .item-track { display: flex; gap: 30px; width: max-content; }
-        .video-card { width: 400px; height: 225px; background: #000; border-radius: 16px; overflow: hidden; position: relative; }
-        .video-card video { width: 100%; height: 100%; object-fit: cover; }
-        .video-card .v-info { position: absolute; bottom: 15px; left: 15px; color: #fff; font-size: 12px; background: rgba(0,0,0,0.4); padding: 5px 10px; border-radius: 6px; }
-
         .audio-card { 
-            width: 320px; height: 200px; border-radius: 16px;
+            width: 320px; height: 214px; border-radius: 16px;
             background: linear-gradient(135deg, #1d1d1f, #434345);
             display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;
         }
@@ -89,38 +79,47 @@
         .wave span { width: 4px; background: #0071e3; border-radius: 2px; animation: wave 1s infinite; }
         @keyframes wave { 0%, 100% { height: 30%; } 50% { height: 100%; } }
 
-        /* --- 3. GRAPHIC DESIGN (Large Thumbnails) --- */
+        /* --- 5. ARTICLE SECTION --- */
+        .section-article { padding: 100px 8%; max-width: 1400px; margin: 0 auto; }
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .article-card { 
+            padding: 35px; border-radius: 24px; background: #f5f5f7; transition: 0.4s;
+            display: flex; flex-direction: column; justify-content: space-between; height: 260px;
+        }
+        .article-card:hover { background: #e8e8ed; transform: translateY(-8px); }
+        .article-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; color: #1d1d1f; }
+        .article-card p { font-size: 15px; color: #86868b; line-height: 1.5; }
+        .article-card .read-more { font-size: 13px; color: #0071e3; font-weight: 600; margin-top: 20px; }
+
+        /* --- 6. GRAPHIC DESIGN (Large Scale) --- */
         .section-design { padding: 100px 0; background: #fff; }
         .gd-container { padding: 0 8%; max-width: 1600px; margin: 0 auto; }
-        .gd-flex { display: flex; flex-wrap: wrap; gap: 35px; justify-content: flex-start; }
-        .gd-item { height: 200px; flex-shrink: 0; cursor: pointer; transition: z-index 0.4s; }
-        .gd-item img { 
-            height: 100%; width: auto; border-radius: 10px; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06); 
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-        }
+        .gd-flex { display: flex; flex-wrap: wrap; gap: 30px; }
+        .gd-item { height: 180px; cursor: pointer; position: relative; z-index: 1; }
+        .gd-item img { height: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .gd-item:hover { z-index: 100; }
-        .gd-item:hover img { transform: scale(1.7); box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
+        .gd-item:hover img { transform: scale(1.6); box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
 
-        /* --- 4. PHOTOGRAPHY (Horizontal Scroll) --- */
+        /* --- 7. PHOTOGRAPHY (Horizontal Flow) --- */
         .section-photography { background: #f5f5f7; padding: 100px 0; }
         .ph-wrapper { width: 100%; overflow-x: auto; padding: 20px 8% 50px; scrollbar-width: none; }
         .ph-wrapper::-webkit-scrollbar { display: none; }
         .ph-track { display: flex; gap: 20px; width: max-content; }
-        .ph-card { height: 320px; flex-shrink: 0; }
-        .ph-card img { height: 100%; width: auto; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.07); transition: 0.5s; }
-        .ph-card:hover img { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+        .ph-card { height: 320px; }
+        .ph-card img { height: 100%; border-radius: 12px; transition: 0.5s; }
+        .ph-card:hover img { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 
-        /* --- FOOTER --- */
-        footer { padding: 80px 8%; text-align: center; border-top: 1px solid #d2d2d7; color: #86868b; font-size: 14px; }
+        /* --- 8. FOOTER --- */
+        footer { padding: 80px 8%; text-align: center; color: #86868b; font-size: 14px; border-top: 1px solid #d2d2d7; }
 
-        /* --- MOBILE --- */
+        /* MOBILE ADAPTATION */
         @media (max-width: 768px) {
             .experience-grid { grid-template-columns: 1fr; }
             .drawer-group { flex-direction: column; height: auto !important; }
-            .drawer-cover { width: 100%; height: 200px; }
-            .drawer-content { width: 100% !important; opacity: 1; padding: 20px !important; overflow-x: auto; }
-            .gd-item { height: 140px; }
+            .drawer-cover { width: 100%; height: 180px; }
+            .drawer-content { width: 100% !important; opacity: 1; padding: 25px !important; }
+            .media-card { width: 280px; height: 157px; }
+            .gd-item { height: 120px; }
             .ph-card { height: 240px; }
         }
     </style>
@@ -130,7 +129,8 @@
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#multimedia">Content</a></li>
+            <li><a href="#video">Production</a></li>
+            <li><a href="#article">Article</a></li>
             <li><a href="#design">Design</a></li>
             <li><a href="#photography">Photography</a></li>
         </ul>
@@ -139,112 +139,120 @@
     <section class="cv-section" id="about">
         <div class="cv-header">
             <h1>Your Name</h1>
-            <p>Content Producer & Multimedia Strategist</p>
+            <p class="subtitle">Content Producer & Visual Storyteller</p>
+            <a href="assets/resume.pdf" class="cv-link" target="_blank">Download CV (PDF)</a>
         </div>
         <div class="experience-grid">
             <div class="exp-item">
                 <h4>Lead Producer</h4>
                 <span class="meta">People's Daily Online · 2023 - Present</span>
-                <p>Oversaw the entire production lifecycle for flagship series including <strong>PD Cafe</strong> and <strong>Trending</strong>. Managed deep-dive cultural research, strategic interview curation, and cross-platform distribution. Led teams in field reporting at global hubs like Yiwu to document international trade ecosystems.</p>
+                <p>Supervising PD Cafe series and cross-platform cultural documentaries. Leading international research teams in Yiwu and beyond.</p>
             </div>
             <div class="exp-item">
                 <h4>Multimedia Journalist</h4>
-                <span class="meta">International Media Group · 2020 - 2023</span>
-                <p>Focused on visual storytelling and information design. Specialized in converting complex data into engaging short-form social content and interactive graphics. Supervised end-to-end production for weekly news roundups.</p>
+                <span class="meta">Previous Studio · 2021 - 2023</span>
+                <p>Specialized in data-driven storytelling and social media trend analysis through visual production.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-multimedia" id="multimedia">
+    <section class="section-video" id="video">
         <div class="section-header">
-            <h2>Content Production</h2>
-            <p>Hover to explore selected works across different formats.</p>
+            <h2>Video & Audio Production</h2>
+            <p>Hover to explore selected projects from documentaries to audio series.</p>
         </div>
-        
         <div class="drawer-wrapper">
             <div class="drawer-group">
                 <div class="drawer-cover">
-                    <div class="cover-overlay">
-                        <span class="tag">01</span>
-                        <h3>Long-form<br>Documentary</h3>
-                    </div>
-                    <img src="assets/images/v_long1.jpg" alt="Long-form">
+                    <div class="cover-overlay"><h3>Long-form<br>Video</h3></div>
+                    <img src="assets/images/v_long1.jpg">
                 </div>
                 <div class="drawer-content">
                     <div class="item-track">
-                        <div class="video-card">
+                        <a href="YOUR_LINK_HERE" target="_blank" class="media-card">
                             <video muted loop onmouseover="this.play()" onmouseout="this.pause()" poster="assets/images/v_long1.jpg"><source src="assets/videos/v_long1.mp4"></video>
-                            <div class="v-info">PD Cafe: Cultural Narratives</div>
-                        </div>
-                        <div class="video-card">
+                        </a>
+                        <a href="YOUR_LINK_HERE" target="_blank" class="media-card">
                             <video muted loop onmouseover="this.play()" onmouseout="this.pause()" poster="assets/images/v_long2.jpg"><source src="assets/videos/v_long2.mp4"></video>
-                            <div class="v-info">Yiwu: Global Trade Hub</div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
-
             <div class="drawer-group">
                 <div class="drawer-cover">
-                    <div class="cover-overlay">
-                        <span class="tag">02</span>
-                        <h3>Short-form<br>Social Trends</h3>
-                    </div>
-                    <img src="assets/images/v_s1.jpg" alt="Short-form">
+                    <div class="cover-overlay"><h3>Short-form<br>Trends</h3></div>
+                    <img src="assets/images/v_s1.jpg">
                 </div>
                 <div class="drawer-content">
                     <div class="item-track">
-                        <div class="video-card" style="width: 180px;"> <video muted loop onmouseover="this.play()" onmouseout="this.pause()" poster="assets/images/v_s1.jpg"><source src="assets/videos/v_s1.mp4"></video>
-                        </div>
-                        <div class="video-card" style="width: 180px;">
+                        <a href="YOUR_LINK_HERE" target="_blank" class="media-card" style="width:160px;">
+                            <video muted loop onmouseover="this.play()" onmouseout="this.pause()" poster="assets/images/v_s1.jpg"><source src="assets/videos/v_s1.mp4"></video>
+                        </a>
+                        <a href="YOUR_LINK_HERE" target="_blank" class="media-card" style="width:160px;">
                             <video muted loop onmouseover="this.play()" onmouseout="this.pause()" poster="assets/images/v_s2.jpg"><source src="assets/videos/v_s2.mp4"></video>
-                        </div>
-                        <div class="video-card" style="width: 180px;">
-                            <video muted loop onmouseover="this.play()" onmouseout="this.pause()" poster="assets/images/v_s3.jpg"><source src="assets/videos/v_s3.mp4"></video>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
-
             <div class="drawer-group">
                 <div class="drawer-cover">
-                    <div class="cover-overlay">
-                        <span class="tag">03</span>
-                        <h3>Audio &<br>Podcast Series</h3>
-                    </div>
-                    <img src="assets/images/audio_cover.jpg" alt="Podcast">
+                    <div class="cover-overlay"><h3>Audio &<br>Podcast</h3></div>
+                    <img src="assets/images/audio_cover.jpg">
                 </div>
                 <div class="drawer-content">
                     <div class="item-track">
-                        <div class="audio-card">
+                        <a href="YOUR_LINK_HERE" target="_blank" class="audio-card">
                             <div class="wave"><span></span><span></span><span></span><span></span><span></span></div>
-                            <p style="margin-top:20px; font-weight:500;">Storytelling Ep. 01</p>
-                        </div>
+                            <p style="margin-top:15px; font-weight:500;">Listen to Episode</p>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="section-article" id="article">
+        <div class="section-header" style="padding:0; margin-bottom:40px;">
+            <h2>Selected Articles</h2>
+            <p>Depth reporting and editorial features.</p>
+        </div>
+        <div class="article-grid">
+            <a href="YOUR_ARTICLE_LINK" target="_blank" class="article-card">
+                <div>
+                    <h3>Inside Yiwu: The World's Market</h3>
+                    <p>Documenting the global trade pulse through a journalistic lens in China's logistic hub.</p>
+                </div>
+                <span class="read-more">Read Full Story →</span>
+            </a>
+            <a href="YOUR_ARTICLE_LINK" target="_blank" class="article-card">
+                <div>
+                    <h3>PD Cafe: The Coffee Culture</h3>
+                    <p>How urban lifestyles are being reshaped by the new wave of coffee culture.</p>
+                </div>
+                <span class="read-more">Read Full Story →</span>
+            </a>
         </div>
     </section>
 
     <section class="section-design" id="design">
         <div class="section-header">
             <h2>Graphic Design</h2>
-            <p>12 selected works of information design and visual identity.</p>
+            <p>12 selected works focusing on visual clarity and digital aesthetics.</p>
         </div>
         <div class="gd-container">
             <div class="gd-flex">
-                <div class="gd-item"><img src="assets/images/sm1.jpg" alt="Work 1"></div>
-                <div class="gd-item"><img src="assets/images/sm2.jpg" alt="Work 2"></div>
-                <div class="gd-item"><img src="assets/images/sm3.jpg" alt="Work 3"></div>
-                <div class="gd-item"><img src="assets/images/sm4.jpg" alt="Work 4"></div>
-                <div class="gd-item"><img src="assets/images/sm5.jpg" alt="Work 5"></div>
-                <div class="gd-item"><img src="assets/images/sm6.jpg" alt="Work 6"></div>
-                <div class="gd-item"><img src="assets/images/sm7.jpg" alt="Work 7"></div>
-                <div class="gd-item"><img src="assets/images/sm8.jpg" alt="Work 8"></div>
-                <div class="gd-item"><img src="assets/images/sm9.jpg" alt="Work 9"></div>
-                <div class="gd-item"><img src="assets/images/sm10.jpg" alt="Work 10"></div>
-                <div class="gd-item"><img src="assets/images/sm11.jpg" alt="Work 11"></div>
-                <div class="gd-item"><img src="assets/images/sm12.jpg" alt="Work 12"></div>
+                <div class="gd-item"><img src="assets/images/sm1.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm2.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm3.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm4.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm5.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm6.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm7.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm8.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm9.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm10.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm11.jpg"></div>
+                <div class="gd-item"><img src="assets/images/sm12.jpg"></div>
             </div>
         </div>
     </section>
@@ -252,7 +260,7 @@
     <section class="section-photography" id="photography">
         <div class="section-header">
             <h2>Photography</h2>
-            <p>Journalistic captures and street life documentation.</p>
+            <p>A visual diary of moments captured in the field.</p>
         </div>
         <div class="ph-wrapper">
             <div class="ph-track">
@@ -276,7 +284,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Your Name | Available for collaboration</p>
+        <p>&copy; 2026 Your Name. All rights reserved. | Built for Excellence.</p>
     </footer>
 
 </body>
