@@ -438,117 +438,99 @@
         </div>
     </section>
 
-<section class="section" id="design" style="background: #ffffff; padding: 80px 0;">
-    <div class="section-header" style="padding: 0 8%; margin-bottom: 40px;">
-        <h2 style="font-size: 32px; font-weight: 600;">Graphic Design</h2>
-        <p style="color: #86868b; font-size: 16px; margin-top: 5px;">Visual storytelling through digital and information design.</p>
+<section class="section" id="design" style="background: #ffffff; padding: 60px 0;">
+    <div class="section-header" style="padding: 0 8%; margin-bottom: 30px;">
+        <h2 style="font-size: 28px; font-weight: 600;">Graphic Design</h2>
+        <p style="color: #86868b; font-size: 15px;">Visual storytelling through digital and information design.</p>
     </div>
 
-    <div class="gallery-grid">
-        <div class="gallery-item"><img src="assets/images/sm1.jpg" alt="Design 1"></div>
-        <div class="gallery-item"><img src="assets/images/sm2.jpg" alt="Design 2"></div>
-        <div class="gallery-item"><img src="assets/images/sm3.jpg" alt="Design 3"></div>
-        <div class="gallery-item"><img src="assets/images/sm4.jpg" alt="Design 4"></div>
-        <div class="gallery-item"><img src="assets/images/sm5.jpg" alt="Design 5"></div>
-        <div class="gallery-item"><img src="assets/images/sm6.jpg" alt="Design 6"></div>
-        <div class="gallery-item"><img src="assets/images/sm7.jpg" alt="Design 7"></div>
-        <div class="gallery-item"><img src="assets/images/sm8.jpg" alt="Design 8"></div>
-        <div class="gallery-item"><img src="assets/images/sm9.jpg" alt="Design 9"></div>
-        <div class="gallery-item"><img src="assets/images/sm10.jpg" alt="Design 10"></div>
+    <div class="thumb-container">
+        <div class="thumb-grid">
+            <div class="thumb-item"><img src="assets/images/sm1.jpg" alt="Work 1"></div>
+            <div class="thumb-item"><img src="assets/images/sm2.jpg" alt="Work 2"></div>
+            <div class="thumb-item"><img src="assets/images/sm3.jpg" alt="Work 3"></div>
+            <div class="thumb-item"><img src="assets/images/sm4.jpg" alt="Work 4"></div>
+            <div class="thumb-item"><img src="assets/images/sm5.jpg" alt="Work 5"></div>
+            <div class="thumb-item"><img src="assets/images/sm6.jpg" alt="Work 6"></div>
+            <div class="thumb-item"><img src="assets/images/sm7.jpg" alt="Work 7"></div>
+            <div class="thumb-item"><img src="assets/images/sm8.jpg" alt="Work 8"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="photography" style="background: #f5f5f7; padding: 80px 0;">
+    <div class="section-header" style="padding: 0 8%; margin-bottom: 40px;">
+        <h2 style="font-size: 28px; font-weight: 600;">Photography</h2>
+        <p style="color: #86868b; font-size: 15px;">Capturing moments through a journalistic lens.</p>
+    </div>
+
+    <div class="photo-gallery">
+        <div class="photo-item"><img src="assets/images/p1.jpg" alt="Photo 1"></div>
+        <div class="photo-item"><img src="assets/images/p2.jpg" alt="Photo 2"></div>
+        <div class="photo-item"><img src="assets/images/p3.jpg" alt="Photo 3"></div>
     </div>
 </section>
 
 <style>
-    .gallery-grid {
+    /* --- Graphic Design Styles (Small Thumbnails) --- */
+    .thumb-container {
+        padding: 0 8%;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .thumb-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px; /* 紧凑的间隙 */
+        justify-content: flex-start;
+    }
+    .thumb-item {
+        width: calc(12.5% - 14px); /* 默认一行展示 8 个，缩略图非常小巧 */
+        min-width: 100px;
+        aspect-ratio: 1 / 1; /* 强制正方形缩略图，整齐划一 */
+        overflow: visible;
+        cursor: pointer;
+    }
+    .thumb-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 图片充满缩略图框 */
+        border-radius: 6px;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    /* 划过在中间放大 */
+    .thumb-item:hover {
+        z-index: 10;
+    }
+    .thumb-item:hover img {
+        transform: scale(2); /* 缩略图小，所以放大倍数可以大一点 */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        border-radius: 4px;
+    }
+
+    /* --- Photography Styles --- */
+    .photo-gallery {
         display: grid;
-        /* 核心修改：使用 5 列布局
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+        padding: 0 8%;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .photo-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
 
-  <section class="section" id="photo" style="overflow: hidden; padding-bottom: 120px;">
-        <div class="section-header">
-            <h2>Photography</h2>
-            <p style="color: #86868b; font-size: 16px;">Moments, captured in perspective.</p>
-        </div>
-
-        <div class="marquee-wrapper">
-            <div class="marquee-track">
-                <div class="marquee-content">
-                    <div class="photo-thumb"><img src="assets/images/p1.jpg" onerror="this.src='https://picsum.photos/400/300?random=1'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p2.jpg" onerror="this.src='https://picsum.photos/300/400?random=2'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p3.jpg" onerror="this.src='https://picsum.photos/500/350?random=3'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p4.jpg" onerror="this.src='https://picsum.photos/400/400?random=4'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p5.jpg" onerror="this.src='https://picsum.photos/350/500?random=5'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p6.jpg" onerror="this.src='https://picsum.photos/400/300?random=6'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p7.jpg" onerror="this.src='https://picsum.photos/300/400?random=7'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p8.jpg" onerror="this.src='https://picsum.photos/500/350?random=8'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p9.jpg" onerror="this.src='https://picsum.photos/400/400?random=9'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p10.jpg" onerror="this.src='https://picsum.photos/350/500?random=10'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p11.jpg" onerror="this.src='https://picsum.photos/400/450?random=11'"></div>
-                    <div class="photo-thumb"><img src="assets/images/p12.jpg" onerror="this.src='https://picsum.photos/500/300?random=12'"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <style>
-        .marquee-wrapper { 
-            width: 100%; 
-            overflow: hidden; 
-            padding: 40px 0;
-            background: transparent;
-        }
-
-        .marquee-track { 
-            display: flex;
-            width: max-content; /* 确保轨道长度随内容撑开 */
-        }
-
-        .marquee-content { 
-            display: flex; 
-            gap: 40px; /* 进一步增大间距，空气感拉满 */
-            flex-shrink: 0; 
-            padding-left: 40px;
-            animation: scroll-airy 50s linear infinite; /* 50秒走完一圈，节奏很慢很优雅 */
-        }
-        
-        /* 鼠标悬停暂停动画 */
-        .marquee-track:hover .marquee-content {
-            animation-play-state: paused;
-        }
-
-        .photo-thumb { 
-            height: 180px; /* 高度设定在 180px 左右比较精致 */
-            border-radius: 4px; /* 较小的圆角，看起来更硬朗、有新闻摄影感 */
-            overflow: hidden; 
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        
-        .photo-thumb img { 
-            height: 100%; 
-            width: auto; 
-            display: block;
-            filter: grayscale(10%); /* 初始带一点点灰度，更有质感 */
-            transition: all 0.6s ease;
-        }
-
-        /* 悬停交互：放大、恢复色彩、浮起 */
-        .photo-thumb:hover { 
-            transform: scale(1.15) translateY(-15px); 
-            z-index: 100; 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15); 
-        }
-
-        .photo-thumb:hover img {
-            filter: grayscale(0%);
-        }
-
-        /* 简单的平移动画 */
-        @keyframes scroll-airy {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-40%); } /* 12张图足以产生循环感 */
-        }
-    </style>
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        .thumb-item { width: calc(25% - 12px); } /* 手机上一行 4 个 */
+        .photo-gallery { grid-template-columns: 1fr; }
+    }
+</style>
     
     <footer>
         &copy; 2026 Lareina Wu. Built for storytelling.
