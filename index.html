@@ -445,15 +445,15 @@
     </div>
 
     <div class="thumb-container">
-        <div class="thumb-grid">
-            <div class="thumb-item"><img src="assets/images/sm1.jpg" alt="Work 1"></div>
-            <div class="thumb-item"><img src="assets/images/sm2.jpg" alt="Work 2"></div>
-            <div class="thumb-item"><img src="assets/images/sm3.jpg" alt="Work 3"></div>
-            <div class="thumb-item"><img src="assets/images/sm4.jpg" alt="Work 4"></div>
-            <div class="thumb-item"><img src="assets/images/sm5.jpg" alt="Work 5"></div>
-            <div class="thumb-item"><img src="assets/images/sm6.jpg" alt="Work 6"></div>
-            <div class="thumb-item"><img src="assets/images/sm7.jpg" alt="Work 7"></div>
-            <div class="thumb-item"><img src="assets/images/sm8.jpg" alt="Work 8"></div>
+        <div class="thumb-flex">
+            <div class="thumb-item"><img src="assets/images/sm1.jpg" alt="Design 1"></div>
+            <div class="thumb-item"><img src="assets/images/sm2.jpg" alt="Design 2"></div>
+            <div class="thumb-item"><img src="assets/images/sm3.jpg" alt="Design 3"></div>
+            <div class="thumb-item"><img src="assets/images/sm4.jpg" alt="Design 4"></div>
+            <div class="thumb-item"><img src="assets/images/sm5.jpg" alt="Design 5"></div>
+            <div class="thumb-item"><img src="assets/images/sm6.jpg" alt="Design 6"></div>
+            <div class="thumb-item"><img src="assets/images/sm7.jpg" alt="Design 7"></div>
+            <div class="thumb-item"><img src="assets/images/sm8.jpg" alt="Design 8"></div>
         </div>
     </div>
 </section>
@@ -464,71 +464,78 @@
         <p style="color: #86868b; font-size: 15px;">Capturing moments through a journalistic lens.</p>
     </div>
 
-    <div class="photo-gallery">
-        <div class="photo-item"><img src="assets/images/p1.jpg" alt="Photo 1"></div>
-        <div class="photo-item"><img src="assets/images/p2.jpg" alt="Photo 2"></div>
-        <div class="photo-item"><img src="assets/images/p3.jpg" alt="Photo 3"></div>
+    <div class="photo-scroll-wrapper">
+        <div class="photo-track">
+            <div class="photo-card"><img src="assets/images/p1.jpg" alt="Photo 1"></div>
+            <div class="photo-card"><img src="assets/images/p2.jpg" alt="Photo 2"></div>
+            <div class="photo-card"><img src="assets/images/p3.jpg" alt="Photo 3"></div>
+            <div class="photo-card"><img src="assets/images/p4.jpg" alt="Photo 4"></div>
+            <div class="photo-card"><img src="assets/images/p5.jpg" alt="Photo 5"></div>
+        </div>
     </div>
 </section>
 
 <style>
-    /* --- Graphic Design Styles (Small Thumbnails) --- */
-    .thumb-container {
-        padding: 0 8%;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-    .thumb-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px; /* 紧凑的间隙 */
-        justify-content: flex-start;
+    /* --- Graphic Design: 原比例小缩略图 --- */
+    .thumb-container { padding: 0 8%; max-width: 1400px; margin: 0 auto; }
+    .thumb-flex { 
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 20px; 
+        align-items: flex-end; /* 让不同高度的图底部对齐，更整齐 */
     }
     .thumb-item {
-        width: calc(12.5% - 14px); /* 默认一行展示 8 个，缩略图非常小巧 */
-        min-width: 100px;
-        aspect-ratio: 1 / 1; /* 强制正方形缩略图，整齐划一 */
-        overflow: visible;
+        height: 120px; /* 固定高度，宽度自动，实现等比例缩小 */
+        flex-shrink: 0;
         cursor: pointer;
+        position: relative;
     }
     .thumb-item img {
-        width: 100%;
         height: 100%;
-        object-fit: cover; /* 图片充满缩略图框 */
-        border-radius: 6px;
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    /* 划过在中间放大 */
-    .thumb-item:hover {
-        z-index: 10;
-    }
-    .thumb-item:hover img {
-        transform: scale(2); /* 缩略图小，所以放大倍数可以大一点 */
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        width: auto; /* 关键：保持比例 */
         border-radius: 4px;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .thumb-item:hover { z-index: 50; }
+    .thumb-item:hover img {
+        transform: scale(2.5); /* 缩略图小，放大倍数可以更大 */
+        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
     }
 
-    /* --- Photography Styles --- */
-    .photo-gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 30px;
-        padding: 0 8%;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-    .photo-item img {
+    /* --- Photography: 横向平移流动 --- */
+    .photo-scroll-wrapper {
         width: 100%;
-        height: auto;
+        overflow-x: auto;
+        padding: 20px 8% 40px;
+        scrollbar-width: none; /* 隐藏滚动条 (Firefox) */
+    }
+    .photo-scroll-wrapper::-webkit-scrollbar { display: none; } /* 隐藏滚动条 (Chrome/Safari) */
+    
+    .photo-track {
+        display: flex;
+        gap: 30px;
+        width: max-content; /* 确保内容横向延伸 */
+    }
+    .photo-card {
+        height: 450px; /* 控制摄影作品展示的高度 */
+        flex-shrink: 0;
+    }
+    .photo-card img {
+        height: 100%;
+        width: auto; /* 等比例缩放 */
         border-radius: 12px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        transition: transform 0.5s ease;
+    }
+    .photo-card:hover img {
+        transform: scale(1.02); /* 摄影大图轻微放大即可 */
     }
 
     /* 移动端适配 */
     @media (max-width: 768px) {
-        .thumb-item { width: calc(25% - 12px); } /* 手机上一行 4 个 */
-        .photo-gallery { grid-template-columns: 1fr; }
+        .thumb-item { height: 80px; } /* 手机端缩略图更小 */
+        .photo-card { height: 300px; } /* 手机端摄影图高度调小 */
     }
 </style>
     
