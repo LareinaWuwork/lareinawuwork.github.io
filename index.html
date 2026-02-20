@@ -438,76 +438,119 @@
         </div>
     </section>
 
+<section class="section" id="design" style="background: #ffffff; padding: 80px 0;">
+    <div class="section-header" style="padding: 0 8%; margin-bottom: 40px;">
+        <h2 style="font-size: 32px; font-weight: 600;">Graphic Design</h2>
+        <p style="color: #86868b; font-size: 16px; margin-top: 5px;">Visual storytelling through digital and information design.</p>
+    </div>
+
+    <div class="gd-container">
+        <div class="gd-flex">
+            <div class="gd-item"><img src="assets/images/sm1.jpg" alt="Design 1"></div>
+            <div class="gd-item"><img src="assets/images/sm2.jpg" alt="Design 2"></div>
+            <div class="gd-item"><img src="assets/images/sm3.jpg" alt="Design 3"></div>
+            <div class="gd-item"><img src="assets/images/sm4.jpg" alt="Design 4"></div>
+            <div class="gd-item"><img src="assets/images/sm5.jpg" alt="Design 5"></div>
+            <div class="gd-item"><img src="assets/images/sm6.jpg" alt="Design 6"></div>
+            <div class="gd-item"><img src="assets/images/sm7.jpg" alt="Design 7"></div>
+            <div class="gd-item"><img src="assets/images/sm8.jpg" alt="Design 8"></div>
+            <div class="gd-item"><img src="assets/images/sm9.jpg" alt="Design 9"></div>
+            <div class="gd-item"><img src="assets/images/sm10.jpg" alt="Design 10"></div>
+            <div class="gd-item"><img src="assets/images/sm11.jpg" alt="Design 11"></div>
+            <div class="gd-item"><img src="assets/images/sm12.jpg" alt="Design 12"></div>
+        </div>
+    </div>
+</section>
+
 <section class="section" id="photography" style="background: #f5f5f7; padding: 60px 0;">
     <div class="section-header" style="padding: 0 8%; margin-bottom: 30px;">
         <h2 style="font-size: 28px; font-weight: 600;">Photography</h2>
         <p style="color: #86868b; font-size: 15px;">Capturing moments through a journalistic lens.</p>
     </div>
 
-    <div class="photo-scroll-wrapper">
-        <div class="photo-track">
-            <div class="photo-card"><img src="assets/images/p1.jpg" alt="P1"></div>
-            <div class="photo-card"><img src="assets/images/p2.jpg" alt="P2"></div>
-            <div class="photo-card"><img src="assets/images/p3.jpg" alt="P3"></div>
-            <div class="photo-card"><img src="assets/images/p4.jpg" alt="P4"></div>
-            <div class="photo-card"><img src="assets/images/p5.jpg" alt="P5"></div>
-            <div class="photo-card"><img src="assets/images/p6.jpg" alt="P6"></div>
-            <div class="photo-card"><img src="assets/images/p7.jpg" alt="P7"></div>
-            <div class="photo-card"><img src="assets/images/p8.jpg" alt="P8"></div>
-            <div class="photo-card"><img src="assets/images/p9.jpg" alt="P9"></div>
-            <div class="photo-card"><img src="assets/images/p10.jpg" alt="P10"></div>
-            <div class="photo-card"><img src="assets/images/p11.jpg" alt="P11"></div>
-            <div class="photo-card"><img src="assets/images/p12.jpg" alt="P12"></div>
-            <div class="photo-card"><img src="assets/images/p13.jpg" alt="P13"></div>
-            <div class="photo-card"><img src="assets/images/p14.jpg" alt="P14"></div>
-            <div class="photo-card"><img src="assets/images/p15.jpg" alt="P15"></div>
+    <div class="ph-scroll-wrapper">
+        <div class="ph-track">
+            <div class="ph-card"><img src="assets/images/p1.jpg" alt="P1"></div>
+            <div class="ph-card"><img src="assets/images/p2.jpg" alt="P2"></div>
+            <div class="ph-card"><img src="assets/images/p3.jpg" alt="P3"></div>
+            <div class="ph-card"><img src="assets/images/p4.jpg" alt="P4"></div>
+            <div class="ph-card"><img src="assets/images/p5.jpg" alt="P5"></div>
+            <div class="ph-card"><img src="assets/images/p6.jpg" alt="P6"></div>
+            <div class="ph-card"><img src="assets/images/p7.jpg" alt="P7"></div>
+            <div class="ph-card"><img src="assets/images/p8.jpg" alt="P8"></div>
+            <div class="ph-card"><img src="assets/images/p9.jpg" alt="P9"></div>
+            <div class="ph-card"><img src="assets/images/p10.jpg" alt="P10"></div>
+            <div class="ph-card"><img src="assets/images/p11.jpg" alt="P11"></div>
+            <div class="ph-card"><img src="assets/images/p12.jpg" alt="P12"></div>
+            <div class="ph-card"><img src="assets/images/p13.jpg" alt="P13"></div>
+            <div class="ph-card"><img src="assets/images/p14.jpg" alt="P14"></div>
+            <div class="ph-card"><img src="assets/images/p15.jpg" alt="P15"></div>
         </div>
     </div>
 </section>
 
 <style>
-    /* 摄影板块专属样式 */
-    .photo-scroll-wrapper {
-        width: 100%;
-        overflow-x: auto; /* 开启横向滚动 */
-        overflow-y: hidden;
-        padding: 10px 8% 40px;
-        /* 隐藏滚动条但保留功能 */
-        scrollbar-width: none; 
-        -ms-overflow-style: none;
-        cursor: grab; /* 提示用户可以拖拽（如果是电脑端） */
+    /* --- Graphic Design Styles --- */
+    .gd-container { padding: 0 8%; max-width: 1600px; margin: 0 auto; }
+    .gd-flex { 
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 25px; 
+        justify-content: flex-start;
     }
-    .photo-scroll-wrapper:active { cursor: grabbing; }
-    .photo-scroll-wrapper::-webkit-scrollbar { display: none; }
-
-    .photo-track {
-        display: flex;
-        gap: 20px;
-        width: max-content; /* 核心：让宽度由内容撑开，不换行 */
+    .gd-item {
+        height: 180px; /* 较大的展示尺寸 */
+        flex-shrink: 0;
+        cursor: pointer;
+        position: relative;
     }
-
-    .photo-card {
-        height: 300px; /* 按照你要求的小一点，300px 非常精致 */
-        flex-shrink: 0; /* 禁止图片被压缩 */
-    }
-
-    .photo-card img {
+    .gd-item img {
         height: 100%;
-        width: auto; /* 等比例展示，不裁切 */
+        width: auto; /* 等比例 */
         border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .gd-item:hover { z-index: 100; }
+    .gd-item:hover img {
+        transform: scale(1.5); /* 划过放大 */
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     }
 
-    .photo-card:hover img {
-        transform: translateY(-5px) scale(1.03);
-        box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    /* --- Photography Styles --- */
+    .ph-scroll-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        padding: 10px 8% 30px;
+        scrollbar-width: none; /* 隐藏滚动条 */
+    }
+    .ph-scroll-wrapper::-webkit-scrollbar { display: none; }
+    
+    .ph-track {
+        display: flex;
+        gap: 18px;
+        width: max-content; /* 核心：横向不换行 */
+    }
+    .ph-card {
+        height: 300px; /* 较小的精致尺寸 */
+        flex-shrink: 0;
+    }
+    .ph-card img {
+        height: 100%;
+        width: auto; /* 等比例 */
+        border-radius: 6px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+        transition: transform 0.4s ease;
+    }
+    .ph-card:hover img {
+        transform: translateY(-5px); /* 摄影轻轻浮起即可 */
     }
 
-    /* 适配移动端 */
+    /* 移动端适配 */
     @media (max-width: 768px) {
-        .photo-card { height: 200px; } /* 手机上高度再小一点 */
-        .photo-track { gap: 12px; }
+        .gd-item { height: 120px; }
+        .ph-card { height: 200px; }
+        .gd-flex { gap: 15px; }
     }
 </style>
     
