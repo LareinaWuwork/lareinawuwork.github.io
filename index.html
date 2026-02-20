@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Content Producer & Designer</title>
+    <title>Portfolio | Content Producer & Journalist</title>
     <style>
-        /* --- 1. 全局苹果风格重置 --- */
+        /* --- 1. 全局样式 (Apple Design Language) --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
@@ -14,7 +14,7 @@
         }
         a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 
-        /* --- 2. 导航栏 (Glassmorphism) --- */
+        /* --- 2. 导航栏 --- */
         nav {
             position: fixed; top: 0; width: 100%; height: 52px;
             background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
@@ -22,14 +22,13 @@
             display: flex; justify-content: center; align-items: center;
         }
         nav ul { display: flex; gap: 35px; }
-        nav ul li a { font-size: 12px; font-weight: 400; color: #515154; letter-spacing: 0.02em; }
+        nav ul li a { font-size: 12px; font-weight: 400; color: #515154; }
         nav ul li a:hover { color: #0071e3; }
 
-        /* --- 3. ABOUT & CV SECTION --- */
+        /* --- 3. ABOUT & CV --- */
         .cv-section { padding: 150px 8% 80px; max-width: 1400px; margin: 0 auto; }
         .cv-header h1 { font-size: 56px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; }
-        .cv-header .subtitle { font-size: 24px; color: #86868b; margin-bottom: 25px; font-weight: 400; }
-        
+        .cv-header .subtitle { font-size: 24px; color: #86868b; margin-bottom: 25px; }
         .cv-link { 
             display: inline-block; padding: 12px 28px; background: #0071e3; color: #fff; 
             border-radius: 25px; font-size: 14px; font-weight: 500; margin-bottom: 60px;
@@ -42,250 +41,46 @@
         }
         .exp-item h4 { font-size: 19px; font-weight: 600; margin-bottom: 8px; }
         .exp-item .meta { font-size: 14px; color: #0071e3; margin-bottom: 12px; display: block; font-weight: 500; }
-        .exp-item p { font-size: 16px; color: #515154; line-height: 1.6; }
+        .exp-item p { font-size: 16px; color: #515154; }
 
         /* --- 4. VIDEO & AUDIO (Hover Drawers) --- */
         .section-video { background: #f5f5f7; padding: 100px 0; overflow: hidden; }
         .section-header { padding: 0 8%; margin-bottom: 50px; }
         .section-header h2 { font-size: 36px; font-weight: 600; }
-        .section-header p { font-size: 18px; color: #86868b; margin-top: 8px; }
-
+        
         .drawer-wrapper { display: flex; flex-direction: column; gap: 15px; padding: 0 8%; }
         .drawer-group {
             display: flex; height: 180px; background: #fff; border-radius: 24px; 
             overflow: hidden; transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
         .drawer-cover { width: 320px; flex-shrink: 0; position: relative; background: #000; cursor: pointer; }
-        .drawer-cover img { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; transition: 0.8s; }
+        .drawer-cover img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.8s; }
         .cover-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px; color: #fff; display: flex; flex-direction: column; justify-content: flex-end; z-index: 2; }
-        .cover-overlay h3 { font-size: 22px; font-weight: 600; }
-
         .drawer-content { width: 0; opacity: 0; overflow: hidden; transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1); display: flex; align-items: center; }
-        .drawer-group:hover { height: 300px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+        
+        .drawer-group:hover { height: 320px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
         .drawer-group:hover .drawer-content { width: 100%; opacity: 1; padding: 0 45px; }
-        .drawer-group:hover .drawer-cover img { opacity: 0.4; transform: scale(1.05); }
+        .drawer-group:hover .drawer-cover img { opacity: 0.4; }
 
         .item-track { display: flex; gap: 25px; width: max-content; }
-        .media-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; cursor: pointer; display: block; position: relative; }
+        .media-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; position: relative; display: block; }
         .media-card video { width: 100%; height: 100%; object-fit: cover; }
-        
-        .audio-card { 
-            width: 320px; height: 214px; border-radius: 16px;
-            background: linear-gradient(135deg, #1d1d1f, #434345);
-            display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;
-        }
-        .wave { display: flex; gap: 6px; height: 40px; align-items: flex-end; }
-        .wave span { width: 4px; background: #0071e3; border-radius: 2px; animation: wave 1s infinite; }
-        @keyframes wave { 0%, 100% { height: 30%; } 50% { height: 100%; } }
+        .media-card .v-label { position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.6); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 11px; }
 
         /* --- 5. ARTICLE SECTION --- */
         .section-article { padding: 100px 8%; max-width: 1400px; margin: 0 auto; }
-        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
         .article-card { 
             padding: 35px; border-radius: 24px; background: #f5f5f7; transition: 0.4s;
-            display: flex; flex-direction: column; justify-content: space-between; height: 260px;
+            display: flex; flex-direction: column; justify-content: space-between; min-height: 240px;
         }
         .article-card:hover { background: #e8e8ed; transform: translateY(-8px); }
-        .article-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; color: #1d1d1f; }
-        .article-card p { font-size: 15px; color: #86868b; line-height: 1.5; }
-        .article-card .read-more { font-size: 13px; color: #0071e3; font-weight: 600; margin-top: 20px; }
+        .article-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+        .article-card p { font-size: 14px; color: #86868b; line-height: 1.5; }
+        .article-card .tag { font-size: 10px; font-weight: 700; color: #0071e3; margin-bottom: 10px; text-transform: uppercase; }
 
-        /* --- 6. GRAPHIC DESIGN (Large Scale) --- */
-        .section-design { padding: 100px 0; background: #fff; }
-        .gd-container { padding: 0 8%; max-width: 1600px; margin: 0 auto; }
-        .gd-flex { display: flex; flex-wrap: wrap; gap: 30px; }
-        .gd-item { height: 180px; cursor: pointer; position: relative; z-index: 1; }
-        .gd-item img { height: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .gd-item:hover { z-index: 100; }
-        .gd-item:hover img { transform: scale(1.6); box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
-
-        /* --- 7. PHOTOGRAPHY (Horizontal Flow) --- */
-        .section-photography { background: #f5f5f7; padding: 100px 0; }
-        .ph-wrapper { width: 100%; overflow-x: auto; padding: 20px 8% 50px; scrollbar-width: none; }
-        .ph-wrapper::-webkit-scrollbar { display: none; }
-        .ph-track { display: flex; gap: 20px; width: max-content; }
-        .ph-card { height: 320px; }
-        .ph-card img { height: 100%; border-radius: 12px; transition: 0.5s; }
-        .ph-card:hover img { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-
-        /* --- 8. FOOTER --- */
-        footer { padding: 80px 8%; text-align: center; color: #86868b; font-size: 14px; border-top: 1px solid #d2d2d7; }
-
-        /* MOBILE ADAPTATION */
-        @media (max-width: 768px) {
-            .experience-grid { grid-template-columns: 1fr; }
-            .drawer-group { flex-direction: column; height: auto !important; }
-            .drawer-cover { width: 100%; height: 180px; }
-            .drawer-content { width: 100% !important; opacity: 1; padding: 25px !important; }
-            .media-card { width: 280px; height: 157px; }
-            .gd-item { height: 120px; }
-            .ph-card { height: 240px; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#video">Production</a></li>
-            <li><a href="#article">Article</a></li>
-            <li><a href="#design">Design</a></li>
-            <li><a href="#photography">Photography</a></li>
-        </ul>
-    </nav>
-
-    <section class="cv-section" id="about">
-        <div class="cv-header">
-            <h1>Your Name</h1>
-            <p class="subtitle">Content Producer & Visual Storyteller</p>
-            <a href="assets/resume.pdf" class="cv-link" target="_blank">Download CV (PDF)</a>
-        </div>
-        <div class="experience-grid">
-            <div class="exp-item">
-                <h4>Lead Producer</h4>
-                <span class="meta">People's Daily Online · 2023 - Present</span>
-                <p>Supervising PD Cafe series and cross-platform cultural documentaries. Leading international research teams in Yiwu and beyond.</p>
-            </div>
-            <div class="exp-item">
-                <h4>Multimedia Journalist</h4>
-                <span class="meta">Previous Studio · 2021 - 2023</span>
-                <p>Specialized in data-driven storytelling and social media trend analysis through visual production.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-video" id="video">
-        <div class="section-header">
-            <h2>Video & Audio Production</h2>
-            <p>Hover to explore selected projects from documentaries to audio series.</p>
-        </div>
-        <div class="drawer-wrapper">
-            <div class="drawer-group">
-                <div class="drawer-cover">
-                    <div class="cover-overlay"><h3>Long-form<br>Video</h3></div>
-                    <img src="assets/images/v_long1.jpg">
-                </div>
-                <div class="drawer-content">
-                    <div class="item-track">
-                        <a href="YOUR_LINK_HERE" target="_blank" class="media-card">
-                            <video muted loop onmouseover="this.play()" onmouseout="this.pause()" poster="assets/images/v_long1.jpg"><source src="assets/videos/v_long1.mp4"></video>
-                        </a>
-                        <a href="YOUR_LINK_HERE" target="_blank" class="media-card">
-                            <video muted loop onmouseover="this.play()" onmouseout="this.pause()" poster="assets/images/v_long2.jpg"><source src="assets/videos/v_long2.mp4"></video>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="drawer-group">
-                <div class="drawer-cover">
-                    <div class="cover-overlay"><h3>Short-form<br>Trends</h3></div>
-                    <img src="assets/images/v_s1.jpg">
-                </div>
-                <div class="drawer-content">
-                    <div class="item-track">
-                        <a href="YOUR_LINK_HERE" target="_blank" class="media-card" style="width:160px;">
-                            <video muted loop onmouseover="this.play()" onmouseout="this.pause()" poster="assets/images/v_s1.jpg"><source src="assets/videos/v_s1.mp4"></video>
-                        </a>
-                        <a href="YOUR_LINK_HERE" target="_blank" class="media-card" style="width:160px;">
-                            <video muted loop onmouseover="this.play()" onmouseout="this.pause()" poster="assets/images/v_s2.jpg"><source src="assets/videos/v_s2.mp4"></video>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="drawer-group">
-                <div class="drawer-cover">
-                    <div class="cover-overlay"><h3>Audio &<br>Podcast</h3></div>
-                    <img src="assets/images/audio_cover.jpg">
-                </div>
-                <div class="drawer-content">
-                    <div class="item-track">
-                        <a href="YOUR_LINK_HERE" target="_blank" class="audio-card">
-                            <div class="wave"><span></span><span></span><span></span><span></span><span></span></div>
-                            <p style="margin-top:15px; font-weight:500;">Listen to Episode</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-article" id="article">
-        <div class="section-header" style="padding:0; margin-bottom:40px;">
-            <h2>Selected Articles</h2>
-            <p>Depth reporting and editorial features.</p>
-        </div>
-        <div class="article-grid">
-            <a href="YOUR_ARTICLE_LINK" target="_blank" class="article-card">
-                <div>
-                    <h3>Inside Yiwu: The World's Market</h3>
-                    <p>Documenting the global trade pulse through a journalistic lens in China's logistic hub.</p>
-                </div>
-                <span class="read-more">Read Full Story →</span>
-            </a>
-            <a href="YOUR_ARTICLE_LINK" target="_blank" class="article-card">
-                <div>
-                    <h3>PD Cafe: The Coffee Culture</h3>
-                    <p>How urban lifestyles are being reshaped by the new wave of coffee culture.</p>
-                </div>
-                <span class="read-more">Read Full Story →</span>
-            </a>
-        </div>
-    </section>
-
-    <section class="section-design" id="design">
-        <div class="section-header">
-            <h2>Graphic Design</h2>
-            <p>12 selected works focusing on visual clarity and digital aesthetics.</p>
-        </div>
-        <div class="gd-container">
-            <div class="gd-flex">
-                <div class="gd-item"><img src="assets/images/sm1.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm2.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm3.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm4.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm5.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm6.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm7.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm8.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm9.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm10.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm11.jpg"></div>
-                <div class="gd-item"><img src="assets/images/sm12.jpg"></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-photography" id="photography">
-        <div class="section-header">
-            <h2>Photography</h2>
-            <p>A visual diary of moments captured in the field.</p>
-        </div>
-        <div class="ph-wrapper">
-            <div class="ph-track">
-                <div class="ph-card"><img src="assets/images/p1.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p2.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p3.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p4.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p5.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p6.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p7.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p8.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p9.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p10.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p11.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p12.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p13.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p14.jpg"></div>
-                <div class="ph-card"><img src="assets/images/p15.jpg"></div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Your Name. All rights reserved. | Built for Excellence.</p>
-    </footer>
-
-</body>
-</html>
+        /* --- 6. GRAPHIC & 7. PHOTOGRAPHY --- */
+        .gd-container { padding: 0 8%; margin-bottom: 80px; }
+        .gd-flex { display: flex; flex-wrap: wrap; gap: 20px; }
+        .gd-item { height: 160px; z-index: 1; }
+        .gd-item img { height: 100%; border-radius: 8px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.
