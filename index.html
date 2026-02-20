@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lareina Wu | Multimedia Portfolio</title>
+    <title>Lareina Wu | Portfolio</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -30,7 +30,7 @@
         .intro-text { font-size: 20px; color: #515154; max-width: 900px; margin-bottom: 35px; line-height: 1.6; }
         .cv-link { display: inline-block; padding: 12px 28px; background: #0071e3; color: #fff; border-radius: 25px; font-size: 14px; font-weight: 500; }
 
-        /* --- Drawers (Video & Photography) --- */
+        /* --- Drawers --- */
         .section-drawer { background: #f5f5f7; padding: 100px 0; overflow: hidden; }
         .drawer-wrapper { display: flex; flex-direction: column; gap: 20px; padding: 0 8%; }
         .drawer-group {
@@ -38,7 +38,7 @@
             overflow: hidden; transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
             border: 1px solid rgba(0,0,0,0.05);
         }
-        .drawer-group:hover { height: 400px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .drawer-group:hover { height: 420px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
         
         .drawer-cover { width: 350px; flex-shrink: 0; position: relative; background: #000; color: #fff; padding: 30px; display: flex; flex-direction: column; justify-content: flex-end; }
         .drawer-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; z-index: 0; }
@@ -48,14 +48,23 @@
         .drawer-group:hover .drawer-content { width: 100%; opacity: 1; padding: 0 40px; }
         .item-track { display: flex; gap: 25px; width: max-content; }
         
-        /* Video Card Logic: White state (Role) vs Black state (Title + Video) */
-        .video-card { width: 380px; height: 214px; background: #fff; border-radius: 16px; overflow: hidden; position: relative; border: 1px solid #eee; }
-        .role-display { position: absolute; inset: 0; padding: 25px; display: flex; flex-direction: column; justify-content: center; z-index: 1; transition: 0.4s; }
-        .role-display span { font-size: 10px; text-transform: uppercase; color: #0071e3; font-weight: 700; margin-bottom: 5px; }
-        .role-display p { font-size: 14px; color: #1d1d1f; font-weight: 500; }
+        /* Video Card Fixed: Show Image by default */
+        .video-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; position: relative; border: 1px solid #eee; }
+        .video-card img.v-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: 0.5s; }
         
-        .video-hover-state { position: absolute; inset: 0; z-index: 2; opacity: 0; transition: 0.5s; background: #000; }
+        .role-display { 
+            position: absolute; inset: 0; padding: 25px; 
+            display: flex; flex-direction: column; justify-content: flex-end; 
+            z-index: 2; transition: 0.4s; 
+            background: linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 60%);
+        }
+        .role-display span { font-size: 10px; text-transform: uppercase; color: #0071e3; font-weight: 700; margin-bottom: 5px; }
+        .role-display p { font-size: 13px; color: #1d1d1f; font-weight: 500; line-height: 1.4; }
+        
+        .video-hover-state { position: absolute; inset: 0; z-index: 3; opacity: 0; transition: 0.5s; background: #000; }
         .video-card:hover .video-hover-state { opacity: 1; }
+        .video-card:hover .role-display { opacity: 0; }
+        
         .video-hover-state video { width: 100%; height: 100%; object-fit: cover; }
         .video-title-overlay { position: absolute; top: 15px; left: 15px; color: #fff; background: rgba(0,0,0,0.6); padding: 5px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; }
 
@@ -71,10 +80,10 @@
         .article-body p { font-size: 14px; color: #86868b; margin-bottom: 20px; }
         .tag { font-size: 10px; font-weight: 700; color: #0071e3; text-transform: uppercase; }
 
-        /* --- Graphic Design --- */
+        /* --- Design --- */
         .section-design { padding: 100px 8%; }
         .gd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; }
-        .gd-item img { width: 100%; border-radius: 12px; transition: 0.4s; cursor: zoom-in; }
+        .gd-item img { width: 100%; border-radius: 12px; transition: 0.4s; }
         .gd-item:hover img { transform: scale(1.4); z-index: 50; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
 
     </style>
@@ -101,6 +110,7 @@
 
     <section class="section-drawer" id="video">
         <div class="drawer-wrapper">
+            
             <div class="drawer-group">
                 <div class="drawer-cover">
                     <img src="assets/images/v_long1.jpg">
@@ -109,14 +119,22 @@
                 <div class="drawer-content">
                     <div class="item-track">
                         <div class="video-card">
-                            <div class="role-display"><span>Your Role</span><p>Lead Production: Supervise end-to-end production, site coordination, and creative direction.</p></div>
+                            <img src="assets/images/v_long1.jpg" class="v-poster">
+                            <div class="role-display">
+                                <span>Lead Production</span>
+                                <p>Supervise end-to-end production, site coordination, and creative direction.</p>
+                            </div>
                             <div class="video-hover-state">
                                 <div class="video-title-overlay">Ray Chen | PD Studio</div>
                                 <video muted loop><source src="assets/videos/ray_chen.mp4"></video>
                             </div>
                         </div>
                         <div class="video-card">
-                            <div class="role-display"><span>Your Role</span><p>Lead Production: Supervise end-to-end production and high-level project management.</p></div>
+                            <img src="assets/images/v_long2.jpg" class="v-poster">
+                            <div class="role-display">
+                                <span>Lead Production</span>
+                                <p>Supervise end-to-end production and high-level project management.</p>
+                            </div>
                             <div class="video-hover-state">
                                 <div class="video-title-overlay">Jake Miller | PD Café</div>
                                 <video muted loop><source src="assets/videos/jake_miller.mp4"></video>
@@ -133,15 +151,18 @@
                 </div>
                 <div class="drawer-content">
                     <div class="item-track">
-                        <div class="video-card" style="width:180px; height:320px;">
+                        <div class="video-card" style="width:180px; height:340px;">
+                            <img src="assets/images/v_s1.jpg" class="v-poster">
                             <div class="role-display"><span>Role</span><p>Background research & Fact-checking.</p></div>
                             <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s1.mp4"></video></div>
                         </div>
-                        <div class="video-card" style="width:180px; height:320px;">
-                            <div class="role-display"><span>Role</span><p>Fact-checking & Research support.</p></div>
+                        <div class="video-card" style="width:180px; height:340px;">
+                            <img src="assets/images/v_s2.jpg" class="v-poster">
+                            <div class="role-display"><span>Role</span><p>Fact-checking & Research.</p></div>
                             <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s2.mp4"></video></div>
                         </div>
-                        <div class="video-card" style="width:180px; height:320px;">
+                        <div class="video-card" style="width:180px; height:340px;">
+                            <img src="assets/images/v_s3.jpg" class="v-poster">
                             <div class="role-display"><span>Role</span><p>Key contributor: Background research.</p></div>
                             <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s3.mp4"></video></div>
                         </div>
@@ -155,7 +176,7 @@
                 </div>
                 <div class="drawer-content">
                     <div class="video-card" style="width:500px; height:240px; border:none; background:#1d1d1f; color:#fff;">
-                        <div class="role-display">
+                        <div class="role-display" style="background:none;">
                             <span style="color:#a29bfe;">Co-Producer Role</span>
                             <p style="color:#fff;">Full-process supervision, including on-site recording support and production management.</p>
                             <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" target="_blank" style="margin-top:20px; color:#a29bfe; font-size:13px;">Listen on Apple Podcasts →</a>
