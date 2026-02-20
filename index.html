@@ -48,25 +48,26 @@
         .drawer-group:hover .drawer-content { width: 100%; opacity: 1; padding: 0 40px; }
         .item-track { display: flex; gap: 25px; width: max-content; }
         
-        /* Video Card Fixed: Show Image by default */
-        .video-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; position: relative; border: 1px solid #eee; }
-        .video-card img.v-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: 0.5s; }
+        /* Video Card Logic: Improved Contrast (黑底白字) */
+        .video-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; position: relative; }
+        .video-card img.v-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
         
+        /* 职责展示区域：深色渐变背景确保看清文字 */
         .role-display { 
             position: absolute; inset: 0; padding: 25px; 
             display: flex; flex-direction: column; justify-content: flex-end; 
             z-index: 2; transition: 0.4s; 
-            background: linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 60%);
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
         }
-        .role-display span { font-size: 10px; text-transform: uppercase; color: #0071e3; font-weight: 700; margin-bottom: 5px; }
-        .role-display p { font-size: 13px; color: #1d1d1f; font-weight: 500; line-height: 1.4; }
+        .role-display span { font-size: 10px; text-transform: uppercase; color: #60a5fa; font-weight: 700; margin-bottom: 5px; }
+        .role-display p { font-size: 13px; color: #ffffff; font-weight: 400; line-height: 1.4; }
         
         .video-hover-state { position: absolute; inset: 0; z-index: 3; opacity: 0; transition: 0.5s; background: #000; }
         .video-card:hover .video-hover-state { opacity: 1; }
         .video-card:hover .role-display { opacity: 0; }
         
         .video-hover-state video { width: 100%; height: 100%; object-fit: cover; }
-        .video-title-overlay { position: absolute; top: 15px; left: 15px; color: #fff; background: rgba(0,0,0,0.6); padding: 5px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; }
+        .video-title-overlay { position: absolute; top: 15px; left: 15px; color: #fff; background: rgba(0,113,227,0.8); padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; }
 
         /* --- Articles --- */
         .section-article { padding: 100px 8%; background: #fff; }
@@ -122,7 +123,7 @@
                             <img src="assets/images/v_long1.jpg" class="v-poster">
                             <div class="role-display">
                                 <span>Lead Production</span>
-                                <p>Supervise end-to-end production, site coordination, and creative direction.</p>
+                                <p>Supervised end-to-end production, on-site coordination, and creative direction.</p>
                             </div>
                             <div class="video-hover-state">
                                 <div class="video-title-overlay">Ray Chen | PD Studio</div>
@@ -133,7 +134,7 @@
                             <img src="assets/images/v_long2.jpg" class="v-poster">
                             <div class="role-display">
                                 <span>Lead Production</span>
-                                <p>Supervise end-to-end production and high-level project management.</p>
+                                <p>Supervised end-to-end production and high-level project management.</p>
                             </div>
                             <div class="video-hover-state">
                                 <div class="video-title-overlay">Jake Miller | PD Café</div>
@@ -158,12 +159,12 @@
                         </div>
                         <div class="video-card" style="width:180px; height:340px;">
                             <img src="assets/images/v_s2.jpg" class="v-poster">
-                            <div class="role-display"><span>Role</span><p>Fact-checking & Research.</p></div>
+                            <div class="role-display"><span>Role</span><p>Fact-checking & Research support.</p></div>
                             <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s2.mp4"></video></div>
                         </div>
                         <div class="video-card" style="width:180px; height:340px;">
                             <img src="assets/images/v_s3.jpg" class="v-poster">
-                            <div class="role-display"><span>Role</span><p>Key contributor: Background research.</p></div>
+                            <div class="role-display"><span>Role</span><p>Background research contributor.</p></div>
                             <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s3.mp4"></video></div>
                         </div>
                     </div>
@@ -175,11 +176,11 @@
                     <h3>Podcast: UNCURATED</h3>
                 </div>
                 <div class="drawer-content">
-                    <div class="video-card" style="width:500px; height:240px; border:none; background:#1d1d1f; color:#fff;">
+                    <div class="video-card" style="width:500px; height:240px; background:#1d1d1f; border:none;">
                         <div class="role-display" style="background:none;">
                             <span style="color:#a29bfe;">Co-Producer Role</span>
                             <p style="color:#fff;">Full-process supervision, including on-site recording support and production management.</p>
-                            <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" target="_blank" style="margin-top:20px; color:#a29bfe; font-size:13px;">Listen on Apple Podcasts →</a>
+                            <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" target="_blank" style="margin-top:20px; color:#a29bfe; font-size:13px; text-decoration:underline;">Listen on Apple Podcasts →</a>
                         </div>
                     </div>
                 </div>
