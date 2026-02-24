@@ -25,12 +25,12 @@
         nav ul li a:hover { color: #0071e3; }
 
         /* --- Intro --- */
-        .section-intro { padding: 150px 8% 80px; max-width: 1400px; margin: 0 auto; }
-        .section-intro h1 { font-size: 56px; font-weight: 600; margin-bottom: 20px; }
+        .section-intro { padding: 150px 8% 80px; max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; align-items: flex-start; }
+        .section-intro h1 { font-size: 56px; font-weight: 600; margin-bottom: 20px; margin-left: -2px; }
         .intro-text { font-size: 20px; color: #515154; max-width: 900px; margin-bottom: 35px; line-height: 1.6; }
         .cv-link { display: inline-block; padding: 12px 28px; background: #0071e3; color: #fff; border-radius: 25px; font-size: 14px; font-weight: 500; }
 
-        /* --- Drawers --- */
+        /* --- Drawers (Video Section) --- */
         .section-drawer { background: #f5f5f7; padding: 100px 0; overflow: hidden; }
         .drawer-wrapper { display: flex; flex-direction: column; gap: 20px; padding: 0 8%; }
         .drawer-group {
@@ -39,33 +39,23 @@
             border: 1px solid rgba(0,0,0,0.05);
         }
         .drawer-group:hover { height: 420px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
-        
         .drawer-cover { width: 350px; flex-shrink: 0; position: relative; background: #000; color: #fff; padding: 30px; display: flex; flex-direction: column; justify-content: flex-end; }
         .drawer-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; z-index: 0; }
-        .drawer-cover h3, .drawer-cover p { position: relative; z-index: 1; }
+        .drawer-cover h3 { position: relative; z-index: 1; font-size: 24px; }
 
         .drawer-content { width: 0; opacity: 0; overflow: hidden; transition: 0.8s; display: flex; align-items: center; }
         .drawer-group:hover .drawer-content { width: 100%; opacity: 1; padding: 0 40px; }
         .item-track { display: flex; gap: 25px; width: max-content; }
         
-        /* Video Card Logic: Improved Contrast (黑底白字) */
-        .video-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; position: relative; }
+        .video-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; }
         .video-card img.v-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-        
-        /* 职责展示区域：深色渐变背景确保看清文字 */
-        .role-display { 
-            position: absolute; inset: 0; padding: 25px; 
-            display: flex; flex-direction: column; justify-content: flex-end; 
-            z-index: 2; transition: 0.4s; 
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
-        }
+        .role-display { position: absolute; inset: 0; padding: 25px; display: flex; flex-direction: column; justify-content: flex-end; z-index: 2; transition: 0.4s; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%); }
         .role-display span { font-size: 10px; text-transform: uppercase; color: #60a5fa; font-weight: 700; margin-bottom: 5px; }
-        .role-display p { font-size: 13px; color: #ffffff; font-weight: 400; line-height: 1.4; }
+        .role-display p { font-size: 13px; color: #ffffff; line-height: 1.4; }
         
         .video-hover-state { position: absolute; inset: 0; z-index: 3; opacity: 0; transition: 0.5s; background: #000; }
         .video-card:hover .video-hover-state { opacity: 1; }
         .video-card:hover .role-display { opacity: 0; }
-        
         .video-hover-state video { width: 100%; height: 100%; object-fit: cover; }
         .video-title-overlay { position: absolute; top: 15px; left: 15px; color: #fff; background: rgba(0,113,227,0.8); padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; }
 
@@ -74,18 +64,55 @@
         .article-scroll { display: flex; gap: 30px; overflow-x: auto; padding: 20px 0 50px; scrollbar-width: none; }
         .article-card { min-width: 380px; background: #f5f5f7; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: 0.4s; }
         .article-card:hover { transform: translateY(-10px); background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        .article-img { height: 220px; background: #ddd; }
+        .article-img { height: 220px; }
         .article-img img { width: 100%; height: 100%; object-fit: cover; }
         .article-body { padding: 30px; }
-        .article-body h3 { font-size: 20px; margin: 10px 0; }
+        .article-body h3 { font-size: 18px; margin: 10px 0; }
         .article-body p { font-size: 14px; color: #86868b; margin-bottom: 20px; }
         .tag { font-size: 10px; font-weight: 700; color: #0071e3; text-transform: uppercase; }
 
         /* --- Design --- */
         .section-design { padding: 100px 8%; }
         .gd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; }
-        .gd-item img { width: 100%; border-radius: 12px; transition: 0.4s; }
-        .gd-item:hover img { transform: scale(1.4); z-index: 50; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .gd-item img { width: 100%; border-radius: 12px; transition: 0.4s; cursor: zoom-in; }
+        .gd-item:hover img { transform: scale(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* --- Photography (新画廊模式) --- */
+        .section-photography { padding: 100px 8%; background: #fff; }
+        .photo-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+            gap: 15px; 
+        }
+        .photo-item { 
+            aspect-ratio: 1 / 1; 
+            overflow: hidden; 
+            border-radius: 12px; 
+            background: #f5f5f7; 
+            cursor: pointer; 
+        }
+        .photo-item img { 
+            width: 100%; height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease; 
+        }
+        .photo-item:hover img { transform: scale(1.08); }
+
+        /* Lightbox 弹窗样式 */
+        .lightbox { 
+            display: none; position: fixed; inset: 0; 
+            background: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(20px); z-index: 10000; 
+            justify-content: center; align-items: center; 
+            cursor: zoom-out; 
+        }
+        .lightbox-content { 
+            max-width: 90%; max-height: 85vh; 
+            border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); 
+            animation: zoomIn 0.3s ease; 
+        }
+        @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .close-btn { position: absolute; top: 25px; right: 35px; font-size: 40px; color: #1d1d1f; cursor: pointer; }
 
     </style>
 </head>
@@ -109,151 +136,109 @@
         <a href="assets/CV.pdf" class="cv-link" target="_blank">View Lareina Wu CV</a>
     </section>
 
-  <section class="section-drawer" id="video">
-    <div class="drawer-wrapper">
-        
-        <div class="drawer-group">
-            <div class="drawer-cover">
-                <img src="assets/images/v_long1.jpg">
-                <h3>Long-form Episodes</h3>
-            </div>
-            <div class="drawer-content">
-                <div class="item-track">
-                    <a href="https://peoplesdaily.pdnews.cn/trending/er/30049939401" target="_blank" class="video-card-link">
-                        <div class="video-card">
-                            <img src="assets/images/v_long1.jpg" class="v-poster">
-                            <div class="role-display">
-                                <span>Lead Production</span>
-                                <p>Supervised end-to-end production, on-site coordination, and creative direction.</p>
+    <section class="section-drawer" id="video">
+        <div class="drawer-wrapper">
+            <div class="drawer-group">
+                <div class="drawer-cover">
+                    <img src="assets/images/v_long1.jpg">
+                    <h3>Long-form Episodes</h3>
+                </div>
+                <div class="drawer-content">
+                    <div class="item-track">
+                        <a href="https://peoplesdaily.pdnews.cn/trending/er/30049939401" target="_blank">
+                            <div class="video-card">
+                                <img src="assets/images/v_long1.jpg" class="v-poster">
+                                <div class="role-display">
+                                    <span>Lead Production</span>
+                                    <p>Supervised end-to-end production, on-site coordination, and creative direction.</p>
+                                </div>
+                                <div class="video-hover-state">
+                                    <div class="video-title-overlay">Ray Chen | PD Studio</div>
+                                    <video muted loop><source src="assets/videos/ray_chen.mp4"></video>
+                                </div>
                             </div>
-                            <div class="video-hover-state">
-                                <div class="video-title-overlay">Ray Chen | PD Studio</div>
-                                <video muted loop><source src="assets/videos/ray_chen.mp4"></video>
+                        </a>
+                        <a href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825" target="_blank">
+                            <div class="video-card">
+                                <img src="assets/images/v_long2.jpg" class="v-poster">
+                                <div class="role-display">
+                                    <span>Lead Production</span>
+                                    <p>Supervised end-to-end production and high-level project management.</p>
+                                </div>
+                                <div class="video-hover-state">
+                                    <div class="video-title-overlay">Jake Miller | PD Café</div>
+                                    <video muted loop><source src="assets/videos/jake_miller.mp4"></video>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-
-                    <a href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825" target="_blank" class="video-card-link">
-                        <div class="video-card">
-                            <img src="assets/images/v_long2.jpg" class="v-poster">
-                            <div class="role-display">
-                                <span>Lead Production</span>
-                                <p>Supervised end-to-end production and high-level project management.</p>
-                            </div>
-                            <div class="video-hover-state">
-                                <div class="video-title-overlay">Jake Miller | PD Café</div>
-                                <video muted loop><source src="assets/videos/jake_miller.mp4"></video>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="drawer-group">
-            <div class="drawer-cover">
-                <img src="assets/images/v_s1.jpg">
-                <h3>Short-form: Lily Unpacks</h3>
-            </div>
-            <div class="drawer-content">
-                <div class="item-track">
-                    <a href="https://peoplesdaily.pdnews.cn/trending/er/30050524191" target="_blank" class="video-card-link">
-                        <div class="video-card" style="width:180px; height:340px;">
-                            <img src="assets/images/v_s1.jpg" class="v-poster">
-                            <div class="role-display"><span>Role</span><p>Background research & Fact-checking.</p></div>
-                            <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s1.mp4"></video></div>
-                        </div>
-                    </a>
-
-                    <a href="https://peoplesdaily.pdnews.cn/trending/er/30050175051" target="_blank" class="video-card-link">
-                        <div class="video-card" style="width:180px; height:340px;">
-                            <img src="assets/images/v_s2.jpg" class="v-poster">
-                            <div class="role-display"><span>Role</span><p>Fact-checking & Research support.</p></div>
-                            <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s2.mp4"></video></div>
-                        </div>
-                    </a>
-
-                    <a href="https://peoplesdaily.pdnews.cn/trending/er/30049600058" target="_blank" class="video-card-link">
-                        <div class="video-card" style="width:180px; height:340px;">
-                            <img src="assets/images/v_s3.jpg" class="v-poster">
-                            <div class="role-display"><span>Role</span><p>Background research contributor.</p></div>
-                            <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s3.mp4"></video></div>
-                        </div>
-                    </a>
+            <div class="drawer-group">
+                <div class="drawer-cover">
+                    <img src="assets/images/v_s1.jpg">
+                    <h3>Short-form: Lily Unpacks</h3>
+                </div>
+                <div class="drawer-content">
+                    <div class="item-track">
+                        <a href="https://peoplesdaily.pdnews.cn/trending/er/30050524191" target="_blank">
+                            <div class="video-card" style="width:180px; height:340px;">
+                                <img src="assets/images/v_s1.jpg" class="v-poster">
+                                <div class="role-display"><span>Role</span><p>Research & Fact-checking.</p></div>
+                                <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s1.mp4"></video></div>
+                            </div>
+                        </a>
+                        <a href="https://peoplesdaily.pdnews.cn/trending/er/30050175051" target="_blank">
+                            <div class="video-card" style="width:180px; height:340px;">
+                                <img src="assets/images/v_s2.jpg" class="v-poster">
+                                <div class="role-display"><span>Role</span><p>Fact-checking & Research.</p></div>
+                                <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s2.mp4"></video></div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="drawer-group">
-            <div class="drawer-cover" style="background:#8e44ad;">
-                <h3>Podcast: UNCURATED</h3>
-            </div>
-            <div class="drawer-content">
-                <div class="video-card" style="width:500px; height:240px; background:#1d1d1f; border:none;">
-                    <div class="role-display" style="background:none;">
-                        <span style="color:#a29bfe;">Co-Producer Role</span>
-                        <p style="color:#fff;">Full-process supervision, including on-site recording support and production management.</p>
-                        <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" target="_blank" style="margin-top:20px; color:#a29bfe; font-size:13px; text-decoration:underline;">Listen on Apple Podcasts →</a>
+            
+            <div class="drawer-group">
+                <div class="drawer-cover" style="background:#8e44ad;">
+                    <img src="assets/images/podcast-cover.jpg" style="opacity: 0.4;">
+                    <h3>Podcast: UNCURATED</h3>
+                </div>
+                <div class="drawer-content">
+                    <div class="video-card" style="width:500px; height:240px; background:#1d1d1f; border:none;">
+                        <div class="role-display" style="background:none;">
+                            <span style="color:#a29bfe;">Co-Producer Role</span>
+                            <p style="color:#fff;">Full-process supervision, recording support and production management.</p>
+                            <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" target="_blank" style="margin-top:20px; color:#a29bfe; font-size:13px; text-decoration:underline;">Listen on Apple Podcasts →</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-    </div>
-</section>
-    
-<section class="section-article" id="article">
-    <h2 style="font-size:32px; margin-bottom:30px;">Selected Articles</h2>
-    <div class="article-scroll">
-        
-        <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754" target="_blank" class="article-card">
-            <div class="article-img"><img src="assets/images/art1.jpg"></div>
-            <div class="article-body">
-                <span class="tag">People's Daily</span>
-                <h3>China Up Close: How young Chinese are tailoring the inbound tourist experience</h3>
-                <p>Exploring how Gen Z is leveraging cultural insights and digital tools to redefine hospitality for international visitors in a post-pandemic era.</p>
+    <section class="section-article" id="article">
+        <h2 style="font-size:32px; margin-bottom:30px;">Selected Articles</h2>
+        <div class="article-scroll">
+            <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754" target="_blank" class="article-card">
+                <div class="article-img"><img src="assets/images/art1.jpg"></div>
+                <div class="article-body">
+                    <span class="tag">People's Daily</span>
+                    <h3>China Up Close: Tailoring the inbound tourist experience</h3>
+                    <p>Exploring how Gen Z is leveraging cultural insights to redefine hospitality for international visitors.</p>
+                </div>
+            </a>
+            <a href="https://www.thecitizen.org.au/articles/navigating-the-challenges-and-rewards-of-life-studying-abroad" target="_blank" class="article-card">
+                <div class="article-img"><img src="assets/images/art2.jpg"></div>
+                <div class="article-body">
+                    <span class="tag">The Citizen</span>
+                    <h3>Navigating Life Studying Abroad</h3>
+                    <p>A deep-dive into the international student experience and cultural adaptation.</p>
+                </div>
+            </a>
             </div>
-        </a>
-
-        <a href="https://www.thecitizen.org.au/articles/navigating-the-challenges-and-rewards-of-life-studying-abroad" target="_blank" class="article-card">
-            <div class="article-img"><img src="assets/images/art2.jpg"></div>
-            <div class="article-body">
-                <span class="tag">The Citizen</span>
-                <h3>Navigating the Challenges and Rewards of Life Studying Abroad</h3>
-                <p>A deep-dive into the international student experience, balancing academic ambition with the emotional complexities of cultural adaptation.</p>
-            </div>
-        </a>
-
-        <a href="https://lareinawu.substack.com/p/an-unexpected-reply" target="_blank" class="article-card">
-            <div class="article-img"><img src="assets/images/art3.jpg"></div>
-            <div class="article-body">
-                <span class="tag">Substack</span>
-                <h3>AN UNEXPECTED REPLY: On Human Connection</h3>
-                <p>A reflective narrative piece on the serendipity of communication and the profound impact of unforeseen responses in our digital age.</p>
-            </div>
-        </a>
-
-        <a href="https://newmediastory.shorthandstories.com/paint-strings-and-resistance/index.html" target="_blank" class="article-card">
-            <div class="article-img"><img src="assets/images/art4.jpg"></div>
-            <div class="article-body">
-                <span class="tag">Interactive</span>
-                <h3>Paint, Strings, and Resistance: Women’s Fight Needs to Be Seen</h3>
-                <p>An immersive multimedia project documenting how artistic expression serves as a powerful tool for resistance and amplifying women's voices.</p>
-            </div>
-        </a>
-
-        <a href="https://newmediastory.shorthandstories.com/the-booming-of-online-occult-business-the-potential-risks-exist/index.html" target="_blank" class="article-card">
-            <div class="article-img"><img src="assets/images/art5.jpg"></div>
-            <div class="article-body">
-                <span class="tag">Interactive</span>
-                <h3>The Booming of Online Occult Business: The Potential Risks Exist</h3>
-                <p>An investigative report on the digital resurgence of mysticism, analyzing the economic drivers and ethical risks in unregulated virtual markets.</p>
-            </div>
-        </a>
-
-    </div>
-</section>
-    
+    </section>
 
     <section class="section-design" id="design">
         <h2 style="font-size:32px; margin-bottom:40px;">Graphic Design</h2>
@@ -273,35 +258,35 @@
         </div>
     </section>
 
-   <section class="section-photography" id="photography">
-    <h2 style="padding: 0 8% 30px; font-size: 32px;">Photography</h2>
-    
-    <div class="photo-grid">
-        <div class="photo-item"><img src="assets/images/p1.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p2.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p3.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p4.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p5.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p6.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p7.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p8.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p9.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p10.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p11.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p12.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p13.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-        <div class="photo-item"><img src="assets/images/p14.jpg" alt="Photo" onclick="openLightbox(this)"></div>
-    </div>
+    <section class="section-photography" id="photography">
+        <h2 style="font-size: 32px; margin-bottom:30px;">Photography</h2>
+        <div class="photo-grid">
+            <div class="photo-item"><img src="assets/images/p1.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p2.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p3.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p4.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p5.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p6.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p7.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p8.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p9.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p10.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p11.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p12.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p13.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p14.jpg" onclick="openLightbox(this)"></div>
+        </div>
 
-    <div id="photo-lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="close-btn">&times;</span>
-        <img class="lightbox-content" id="full-photo">
-    </div>
-</section>
-    
+        <div id="photo-lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close-btn">&times;</span>
+            <img class="lightbox-content" id="full-photo">
+        </div>
+    </section>
+
     <footer style="padding:80px; text-align:center; color:#ccc; font-size:12px;">&copy; 2026 Lareina Wu</footer>
 
     <script>
+        // 视频悬停播放逻辑
         document.querySelectorAll('.video-card').forEach(card => {
             const v = card.querySelector('video');
             if(v) {
@@ -309,6 +294,21 @@
                 card.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
             }
         });
+
+        // 图片放大弹窗逻辑
+        function openLightbox(element) {
+            const lightbox = document.getElementById("photo-lightbox");
+            const fullImg = document.getElementById("full-photo");
+            lightbox.style.display = "flex";
+            fullImg.src = element.src;
+            document.body.style.overflow = "hidden"; // 锁定滚动
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById("photo-lightbox");
+            lightbox.style.display = "none";
+            document.body.style.overflow = "auto"; // 恢复滚动
+        }
     </script>
 </body>
 </html>
