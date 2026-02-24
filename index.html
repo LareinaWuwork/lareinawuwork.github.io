@@ -253,111 +253,118 @@
         </div>
     </section>
 
-  <section class="section-design" id="design" style="padding: 100px 0; background: #f5f5f7;">
-    <h2 style="padding: 0 8%; font-size: 32px; margin-bottom: 40px;">Graphic Design</h2>
+ <section class="section-design" id="design" style="padding: 100px 0; background: #f5f5f7;">
+    <h2 style="padding: 0 8%; font-size: 32px; font-weight: 600; margin-bottom: 40px; color: #1d1d1f;">Graphic Design</h2>
 
-    <div class="design-scroll-container" style="display: flex; flex-direction: column; gap: 20px;">
+    <div class="design-scroll-container" style="display: flex; flex-direction: column; gap: 24px;">
         
-        <div class="design-row" style="display: flex; gap: 20px; overflow-x: auto; padding: 0 8% 10px; scrollbar-width: none; -ms-overflow-style: none;">
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden; background: #ddd;">
-                <img src="assets/images/sm1.jpg" style="height: 100%; width: auto; display: block; transition: 0.4s;">
-            </div>
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm2.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm3.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm4.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm5.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm6.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
+        <div class="design-row" id="row1" style="display: flex; gap: 20px; overflow-x: auto; padding: 0 8% 10px; scrollbar-width: none; -ms-overflow-style: none;">
+            <div class="gd-item"><img src="assets/images/sm1.jpg" alt="Design 1"></div>
+            <div class="gd-item"><img src="assets/images/sm2.jpg" alt="Design 2"></div>
+            <div class="gd-item"><img src="assets/images/sm3.jpg" alt="Design 3"></div>
+            <div class="gd-item"><img src="assets/images/sm4.jpg" alt="Design 4"></div>
+            <div class="gd-item"><img src="assets/images/sm5.jpg" alt="Design 5"></div>
+            <div class="gd-item"><img src="assets/images/sm6.jpg" alt="Design 6"></div>
         </div>
 
-        <div class="design-row" style="display: flex; gap: 20px; overflow-x: auto; padding: 0 8% 20px; scrollbar-width: none; -ms-overflow-style: none;">
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm7.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm8.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm9.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm10.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm11.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
-            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
-                <img src="assets/images/sm12.jpg" style="height: 100%; width: auto; display: block;">
-            </div>
+        <div class="design-row" id="row2" style="display: flex; gap: 20px; overflow-x: auto; padding: 0 8% 20px; scrollbar-width: none; -ms-overflow-style: none;">
+            <div class="gd-item"><img src="assets/images/sm7.jpg" alt="Design 7"></div>
+            <div class="gd-item"><img src="assets/images/sm8.jpg" alt="Design 8"></div>
+            <div class="gd-item"><img src="assets/images/sm9.jpg" alt="Design 9"></div>
+            <div class="gd-item"><img src="assets/images/sm10.jpg" alt="Design 10"></div>
+            <div class="gd-item"><img src="assets/images/sm11.jpg" alt="Design 11"></div>
+            <div class="gd-item"><img src="assets/images/sm12.jpg" alt="Design 12"></div>
         </div>
     </div>
 </section>
 
 <style>
-    /* 隐藏滚动条但保留滚动功能 */
+    /* 统一控制所有 Design 图片的样式 */
+    .gd-item {
+        flex: 0 0 auto;
+        height: 220px; /* 稍微加高了一点，更有冲击力 */
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .gd-item img {
+        height: 100%;
+        width: auto; /* 关键：确保等比例缩小不拉伸 */
+        display: block;
+        transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+
+    .gd-item:hover img {
+        transform: scale(1.08);
+    }
+
+    /* 隐藏所有浏览器的滚动条 */
     .design-row::-webkit-scrollbar {
         display: none;
     }
-    .gd-item:hover img {
-        transform: scale(1.05);
-    }
 </style>
+            
 
-   <section class="section-photography" id="photography" style="background: #111; padding: 80px 8%; color: #eee;">
-    <h2 style="font-size: 32px; margin-bottom: 40px; color: #fff;">Photography</h2>
+ <section class="section-photography" id="photography" style="padding: 100px 8%; background: #ffffff;">
+    <h2 style="font-size: 32px; font-weight: 600; margin-bottom: 40px; color: #1d1d1f;">Photography</h2>
     
-    <div class="lightroom-container" style="display: flex; background: #1d1d1f; border-radius: 12px; overflow: hidden; border: 1px solid #333; height: 700px;">
+    <div class="photography-grid" style="column-count: 3; column-gap: 20px; width: 100%;">
         
-        <div class="lr-sidebar" style="width: 220px; background: #252526; padding: 20px; border-right: 1px solid #333; flex-shrink: 0;">
-            <div style="font-size: 11px; color: #86868b; letter-spacing: 1px; margin-bottom: 20px;">COLLECTIONS</div>
-            <ul style="list-style: none; font-size: 13px;">
-                <li style="padding: 10px; color: #0071e3; background: rgba(0,113,227,0.1); border-radius: 4px; margin-bottom: 5px; cursor: pointer;">All Photos</li>
-                <li style="padding: 10px; color: #a2a2a6; cursor: pointer;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#a2a2a6'">New York</li>
-                <li style="padding: 10px; color: #a2a2a6; cursor: pointer;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#a2a2a6'">Portrait</li>
-                <li style="padding: 10px; color: #a2a2a6; cursor: pointer;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#a2a2a6'">Melbourne Puppy Club</li>
-            </ul>
+        <div class="photo-card" style="break-inside: avoid; margin-bottom: 20px; border-radius: 12px; overflow: hidden; background: #f5f5f7;">
+            <img src="assets/images/p1.jpg" alt="New York" style="width: 100%; display: block; transition: 0.5s ease;">
         </div>
 
-        <div class="lr-grid-content" style="flex-grow: 1; padding: 20px; overflow-y: auto; scrollbar-width: thin;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-                
-                <div class="photo-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; background: #2c2c2e; cursor: zoom-in;">
-                    <img src="assets/images/p1.jpg" style="width:100%; height:100%; object-fit:cover; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
+        <div class="photo-card" style="break-inside: avoid; margin-bottom: 20px; border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/p2.jpg" style="width: 100%; display: block;">
+        </div>
 
-                <div class="photo-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; background: #2c2c2e; cursor: zoom-in;">
-                    <img src="assets/images/p2.jpg" style="width:100%; height:100%; object-fit:cover; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
+        <div class="photo-card" style="break-inside: avoid; margin-bottom: 20px; border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/p4.jpg" alt="Portrait" style="width: 100%; display: block;">
+        </div>
 
-                <div class="photo-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; background: #2c2c2e; cursor: zoom-in;">
-                    <img src="assets/images/p3.jpg" style="width:100%; height:100%; object-fit:cover; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
+        <div class="photo-card" style="break-inside: avoid; margin-bottom: 20px; border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/p3.jpg" style="width: 100%; display: block;">
+        </div>
 
-                <div class="photo-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; background: #2c2c2e; cursor: zoom-in;">
-                    <img src="assets/images/p4.jpg" style="width:100%; height:100%; object-fit:cover; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
+        <div class="photo-card" style="break-inside: avoid; margin-bottom: 20px; border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/p5.jpg" style="width: 100%; display: block;">
+        </div>
 
-                <div class="photo-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; background: #2c2c2e; cursor: zoom-in;">
-                    <img src="assets/images/p5.jpg" style="width:100%; height:100%; object-fit:cover; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
+        <div class="photo-card" style="break-inside: avoid; margin-bottom: 20px; border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/p7.jpg" alt="Melbourne Puppy Club" style="width: 100%; display: block;">
+        </div>
 
-                <div class="photo-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; background: #2c2c2e; cursor: zoom-in;">
-                    <img src="assets/images/p6.jpg" style="width:100%; height:100%; object-fit:cover; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
+        <div class="photo-card" style="break-inside: avoid; margin-bottom: 20px; border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/p6.jpg" style="width: 100%; display: block;">
+        </div>
 
-                </div>
+        <div class="photo-card" style="break-inside: avoid; margin-bottom: 20px; border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/p8.jpg" style="width: 100%; display: block;">
+        </div>
+
+        <div class="photo-card" style="break-inside: avoid; margin-bottom: 20px; border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/p9.jpg" style="width: 100%; display: block;">
         </div>
     </div>
 </section>
+
+<style>
+    /* 简单的悬停变焦效果 */
+    .photo-card:hover img {
+        transform: scale(1.03);
+        filter: brightness(0.9);
+    }
+    
+    /* 响应式：手机端改排成 1 列，平板 2 列 */
+    @media (max-width: 1024px) {
+        .photography-grid { column-count: 2; }
+    }
+    @media (max-width: 600px) {
+        .photography-grid { column-count: 1; }
+    }
+</style>
 
     <footer style="padding:80px; text-align:center; color:#ccc; font-size:12px;">&copy; 2026 Lareina Wu</footer>
 
