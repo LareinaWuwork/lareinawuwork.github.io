@@ -48,8 +48,299 @@
         .drawer-group:hover .drawer-content { width: 100%; opacity: 1; padding: 0 40px; }
         .item-track { display: flex; gap: 25px; width: max-content; }
         
-        /* Video Card */
-        .video-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; position: relative; flex-shrink: 0; }
-        .v-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-        .role-display { position: absolute; inset: 0; padding: 25px; display: flex; flex-direction: column; justify-content: flex-end; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%); transition: 0.4s; }
-        .role-display span { font-size: 10px; text-transform: uppercase; color: #
+        /* Video Card Logic: Improved Contrast (黑底白字) */
+        .video-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; position: relative; }
+        .video-card img.v-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+        
+        /* 职责展示区域：深色渐变背景确保看清文字 */
+        .role-display { 
+            position: absolute; inset: 0; padding: 25px; 
+            display: flex; flex-direction: column; justify-content: flex-end; 
+            z-index: 2; transition: 0.4s; 
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+        }
+        .role-display span { font-size: 10px; text-transform: uppercase; color: #60a5fa; font-weight: 700; margin-bottom: 5px; }
+        .role-display p { font-size: 13px; color: #ffffff; font-weight: 400; line-height: 1.4; }
+        
+        .video-hover-state { position: absolute; inset: 0; z-index: 3; opacity: 0; transition: 0.5s; background: #000; }
+        .video-card:hover .video-hover-state { opacity: 1; }
+        .video-card:hover .role-display { opacity: 0; }
+        
+        .video-hover-state video { width: 100%; height: 100%; object-fit: cover; }
+        .video-title-overlay { position: absolute; top: 15px; left: 15px; color: #fff; background: rgba(0,113,227,0.8); padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+
+        /* --- Articles --- */
+        .section-article { padding: 100px 8%; background: #fff; }
+        .article-scroll { display: flex; gap: 30px; overflow-x: auto; padding: 20px 0 50px; scrollbar-width: none; }
+        .article-card { min-width: 380px; background: #f5f5f7; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: 0.4s; }
+        .article-card:hover { transform: translateY(-10px); background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .article-img { height: 220px; background: #ddd; }
+        .article-img img { width: 100%; height: 100%; object-fit: cover; }
+        .article-body { padding: 30px; }
+        .article-body h3 { font-size: 20px; margin: 10px 0; }
+        .article-body p { font-size: 14px; color: #86868b; margin-bottom: 20px; }
+        .tag { font-size: 10px; font-weight: 700; color: #0071e3; text-transform: uppercase; }
+
+        /* --- Design --- */
+        .section-design { padding: 100px 8%; }
+        .gd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; }
+        .gd-item img { width: 100%; border-radius: 12px; transition: 0.4s; }
+        .gd-item:hover img { transform: scale(1.4); z-index: 50; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#video">Production</a></li>
+            <li><a href="#article">Articles</a></li>
+            <li><a href="#design">Design</a></li>
+            <li><a href="#photography">Photography</a></li>
+        </ul>
+    </nav>
+
+    <section class="section-intro" id="about">
+        <h1>Lareina Wu</h1>
+        <p class="intro-text">
+            I’m an International Journalism graduate from the University of Melbourne with expertise in bilingual news production (Mandarin & English) and global media communication. I focus on multimedia storytelling, including video production, feature reporting, social media content creation, and podcasting.
+        </p>
+        <a href="assets/CV.pdf" class="cv-link" target="_blank">View Lareina Wu CV</a>
+    </section>
+
+    <section class="section-drawer" id="video">
+        <div class="drawer-wrapper">
+            
+            <div class="drawer-group">
+                <div class="drawer-cover">
+                    <img src="assets/images/v_long1.jpg">
+                    <h3>Long-form Episodes</h3>
+                </div>
+                <div class="drawer-content">
+                    <div class="item-track">
+                        <div class="video-card">
+                            <img src="assets/images/v_long2.jpg" class="v-poster">
+                            <div class="role-display">
+                                <span>Lead Production</span>
+                                <p>Managed end-to-end content production, covering research, media coordination, interview and script preparation, on-site support, post-production feedback, social media copy, and summary reporting.</p>
+                            </div>
+                            <div class="video-hover-state">
+                                <div class="video-title-overlay">Ray Chen | PD Studio</div>
+                                <video muted loop><source src="assets/videos/ray_chen.mp4"></video>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <img src="assets/images/v_long1.jpg" class="v-poster">
+                            <div class="role-display">
+                                <span>Lead Production</span>
+                                <p>Supervised the full production process, including research, media outreach, interviews, filming support, editing input, social media writing, and final reporting.</p>
+                            </div>
+                            <div class="video-hover-state">
+                                <div class="video-title-overlay">Jake Miller | PD Café</div>
+                                <video muted loop><source src="assets/videos/jake_miller.mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="drawer-group">
+                <div class="drawer-cover">
+                    <img src="assets/images/v_s1.jpg">
+                    <h3>Short-form: Lily Unpacks</h3>
+                </div>
+                <div class="drawer-content">
+                    <div class="item-track">
+                        <div class="video-card" style="width:180px; height:340px;">
+                            <img src="assets/images/v_s1.jpg" class="v-poster">
+                            <div class="role-display"><span>Role</span><p>Background research & Fact-checking.</p></div>
+                            <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s1.mp4"></video></div>
+                        </div>
+                        <div class="video-card" style="width:180px; height:340px;">
+                            <img src="assets/images/v_s2.jpg" class="v-poster">
+                            <div class="role-display"><span>Role</span><p>Fact-checking & Research support.</p></div>
+                            <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s2.mp4"></video></div>
+                        </div>
+                        <div class="video-card" style="width:180px; height:340px;">
+                            <img src="assets/images/v_s3.jpg" class="v-poster">
+                            <div class="role-display"><span>Role</span><p>Background research contributor.</p></div>
+                            <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s3.mp4"></video></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          <div class="drawer-group">
+    <div class="drawer-cover" style="
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                    url('./assets/podcast-cover.jpg'); 
+        background-size: cover; 
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px 8px 0 0; /* 如果需要圆角可以保留 */
+        min-height: 180px;">
+        
+      <div class="drawer-group">
+    <div class="drawer-cover" style="
+        position: relative; 
+        height: 220px; 
+        overflow: hidden; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        background: #2c3e50; /* 备用底色 */
+        border-radius: 12px 12px 0 0;
+    ">
+        <img src="images/podcast-cover.jpg" 
+             alt="Podcast Cover"
+             style="
+                position: absolute; 
+                top: 0; 
+                left: 0; 
+                width: 100%; 
+                height: 100%; 
+                object-fit: cover;
+                filter: brightness(0.7); /* 自动把图片调暗，省去写遮罩层 */
+             ">
+        
+        <h3 style="
+            position: relative; 
+            z-index: 2; 
+            color: #ffffff; 
+            font-size: 24px; 
+            font-family: sans-serif;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            margin: 0;
+        ">
+            Podcast: UNCURATED
+        </h3>
+    </div>
+
+    <div class="drawer-content" style="background: #1d1d1f; padding: 20px; border-radius: 0 0 12px 12px;">
+        <div class="video-card" style="border: none;">
+            <div class="role-display" style="background: none;">
+                <span style="color: #a29bfe; font-weight: bold; font-size: 13px;">Co-Producer Role</span>
+                <p style="color: #fff; margin: 10px 0; line-height: 1.6;">
+                    Full-process supervision, including on-site recording support and production management.
+                </p>
+                <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" 
+                   target="_blank" 
+                   style="display: inline-block; margin-top: 10px; color: #a29bfe; text-decoration: underline; font-size: 13px;">
+                   Listen on Apple Podcasts →
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+        
+    <section class="section-article" id="article">
+        <h2 style="font-size:32px; margin-bottom:30px;">Selected Articles</h2>
+        <div class="article-scroll">
+            <a href="https://peoplesdaily.pdnews.cn/china/er/30051228754" target="_blank" class="article-card">
+                <div class="article-img"><img src="assets/images/art1.jpg"></div>
+                <div class="article-body">
+                    <span class="tag">People's Daily</span>
+                    <h3>China Up Close | How young Chinese are tailoring the inbound tourist experience</h3>
+                    <p>If "Shanghai travel" brings to mind only the Oriental Pearl Tower, Yu Garden or the Wukang Building, you may be missing what a new generation of young Chinese entrepreneurs is offering, one that is reshaping how foreign tourists experience China.
+</p>
+                </div>
+            </a>
+            <a href="https://www.thecitizen.org.au/articles/navigating-the-challenges-and-rewards-of-life-studying-abroad" target="_blank" class="article-card">
+                <div class="article-img"><img src="assets/images/art3.jpg"></div>
+                <div class="article-body">
+                    <span class="tag">The Citizen</span>
+                    <h3>Navigating the challenges and rewards of life studying abroad</h3>
+                    <p>International students in Australia are back in the spotlight, as impending cuts to funding and student numbers stir renewed conversations about their challenges—from rising costs to cultural adjustments.</p>
+                </div>
+            </a>
+            <a href="https://lareinawu.substack.com/p/an-unexpected-reply" target="_blank" class="article-card">
+                <div class="article-img"><img src="assets/images/art2.jpg"></div>
+                <div class="article-body">
+                    <span class="tag">Substack</span>
+                    <h3>An Unexpected Reply: On Life and Letters</h3>
+                    <p>I met Victor Li, who claims himself the hottest tennis physiotherapist in Australia, on a popular social media platform. I initially sent a private message to him without much expectation getting a reply, considering his large following and popularity... </p>
+                </div>
+            </a>
+            <a href="https://newmediastory.shorthandstories.com/paint-strings-and-resistance/index.html" target="_blank" class="article-card">
+                <div class="article-img"><img src="assets/images/art4.jpg"></div>
+                <div class="article-body">
+                    <span class="tag">Interactive</span>
+                    <h3>Paint, Strings, and Resistance-Women’s Fight Needs to Be Seen</h3>
+                    <p>Hidden in Melbourne's well-known Hosier Lane, a stunning mural stops passers-by in their tracks- an entire wall filled with pictures and artistic images of women...</p>
+                </div>
+            </a>
+            <a href="https://newmediastory.shorthandstories.com/the-booming-of-online-occult-business-the-potential-risks-exist/index.html" target="_blank" class="article-card">
+                <div class="article-img"><img src="assets/images/art5.jpg"></div>
+                <div class="article-body">
+                    <span class="tag">Interactive</span>
+                    <h3>The Booming of Online Occult Business: The Potential Risks Exist</h3>
+                    <p>Online occult services have been thriving since the pandemic as social media platforms provide fertile soil for their growth.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="section-design" id="design">
+        <h2 style="font-size:32px; margin-bottom:40px;">Graphic Design</h2>
+        <div class="gd-grid">
+            <div class="gd-item"><img src="assets/images/sm1.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm2.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm3.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm4.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm5.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm6.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm7.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm8.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm9.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm10.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm11.jpg"></div>
+            <div class="gd-item"><img src="assets/images/sm12.jpg"></div>
+        </div>
+    </section>
+
+    <section class="section-drawer" id="photography">
+        <h2 style="padding:0 8% 30px; font-size:32px;">Photography</h2>
+        <div class="drawer-wrapper">
+            <div class="drawer-group">
+                <div class="drawer-cover"><img src="assets/images/p1.jpg"><h3>New York</h3></div>
+                <div class="drawer-content"><div class="item-track">
+                    <img src="assets/images/p1.jpg" style="height:320px; border-radius:12px;">
+                    <img src="assets/images/p2.jpg" style="height:320px; border-radius:12px;">
+                    <img src="assets/images/p3.jpg" style="height:320px; border-radius:12px;">
+                </div></div>
+            </div>
+            <div class="drawer-group">
+                <div class="drawer-cover"><img src="assets/images/p4.jpg"><h3>Portrait</h3></div>
+                <div class="drawer-content"><div class="item-track">
+                    <img src="assets/images/p4.jpg" style="height:320px; border-radius:12px;">
+                    <img src="assets/images/p5.jpg" style="height:320px; border-radius:12px;">
+                    <img src="assets/images/p6.jpg" style="height:320px; border-radius:12px;">
+                </div></div>
+            </div>
+            <div class="drawer-group">
+                <div class="drawer-cover"><img src="assets/images/p7.jpg"><h3>Melbourne Puppy Club</h3></div>
+                <div class="drawer-content"><div class="item-track">
+                    <img src="assets/images/p7.jpg" style="height:320px; border-radius:12px;">
+                    <img src="assets/images/p8.jpg" style="height:320px; border-radius:12px;">
+                    <img src="assets/images/p9.jpg" style="height:320px; border-radius:12px;">
+                </div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding:80px; text-align:center; color:#ccc; font-size:12px;">&copy; 2026 Lareina Wu</footer>
+
+    <script>
+        document.querySelectorAll('.video-card').forEach(card => {
+            const v = card.querySelector('video');
+            if(v) {
+                card.addEventListener('mouseenter', () => v.play());
+                card.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+            }
+        });
+    </script>
+</body>
+</html>
