@@ -256,7 +256,8 @@
 <section class="section-design" id="design" style="padding: 100px 0 60px; background: #f5f5f7;">
     <h2 style="padding: 0 8%; font-size: 24px; font-weight: 600; margin-bottom: 35px; color: #1d1d1f; letter-spacing: -0.5px;">Graphic Design</h2>
 
-    <div class="design-scroll-container" style="display: flex; flex-direction: column; gap: 20px;">
+    <div class="design-scroll-container" style="display: flex; flex-direction: column; gap: 30px;">
+        
         <div class="design-row">
             <div class="gd-small-item"><img src="assets/images/sm1.jpg"></div>
             <div class="gd-small-item"><img src="assets/images/sm2.jpg"></div>
@@ -265,23 +266,66 @@
             <div class="gd-small-item"><img src="assets/images/sm5.jpg"></div>
             <div class="gd-small-item"><img src="assets/images/sm6.jpg"></div>
             <div class="gd-small-item"><img src="assets/images/sm7.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm8.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm9.jpg"></div>
         </div>
 
         <div class="design-row">
+            <div class="gd-small-item"><img src="assets/images/sm8.jpg"></div>
+            <div class="gd-small-item"><img src="assets/images/sm9.jpg"></div>
             <div class="gd-small-item"><img src="assets/images/sm10.jpg"></div>
             <div class="gd-small-item"><img src="assets/images/sm11.jpg"></div>
             <div class="gd-small-item"><img src="assets/images/sm12.jpg"></div>
             <div class="gd-small-item"><img src="assets/images/sm13.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm14.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm15.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm16.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm17.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm18.jpg"></div>
         </div>
     </div>
 </section>
+
+<style>
+    /* 滑动行基础样式 */
+    .design-row {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 20px 8% 40px; /* 增加上下 padding，为放大效果留出空间 */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .design-row::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* 每一个图片的容器 */
+    .gd-small-item {
+        flex: 0 0 auto;
+        height: 140px; 
+        border-radius: 8px;
+        overflow: visible; /* 必须为 visible，否则放大时会被容器裁切 */
+        background: transparent;
+        transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        cursor: pointer;
+    }
+
+    /* 图片本身 */
+    .gd-small-item img {
+        height: 100%;
+        width: auto;
+        border-radius: 8px;
+        display: block;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+
+    /* 鼠标滑过：显著放大并增加阴影 */
+    .gd-small-item:hover {
+        transform: scale(1.25); /* 显著放大到 1.25 倍 */
+        z-index: 100; /* 确保放大的图片在最上层 */
+    }
+
+    .gd-small-item:hover img {
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        filter: brightness(1.05);
+    }
+</style>
 
 <section class="section-photography" id="photography" style="padding: 100px 8%; background: #ffffff;">
     <h2 style="font-size: 24px; font-weight: 600; margin-bottom: 35px; color: #1d1d1f;">Photography</h2>
