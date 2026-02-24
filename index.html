@@ -108,104 +108,119 @@
         </p>
         <a href="assets/CV.pdf" class="cv-link" target="_blank">View Lareina Wu CV</a>
     </section>
-
-    <section class="section-drawer" id="video">
-        <div class="drawer-wrapper">
-            
-            <div class="drawer-group">
-                <div class="drawer-cover">
-                    <img src="assets/images/v_long1.jpg">
-                    <h3>Long-form Episodes</h3>
-                </div>
-                <div class="drawer-content">
-                    <div class="item-track">
-                        <div class="video-card">
-                            <img src="assets/images/v_long2.jpg" class="v-poster">
-                            <div class="role-display">
-                                <span>Lead Production</span>
-                                <p>Managed end-to-end content production, covering research, media coordination, interview and script preparation, on-site support, post-production feedback, social media copy, and summary reporting.</p>
-                            </div>
-                            <div class="video-hover-state">
-                                <div class="video-title-overlay">Ray Chen | PD Studio</div>
-                                <video muted loop><source src="assets/videos/ray_chen.mp4"></video>
-                            </div>
-                        </div>
-                        <div class="video-card">
-                            <img src="assets/images/v_long1.jpg" class="v-poster">
-                            <div class="role-display">
-                                <span>Lead Production</span>
-                                <p>Supervised the full production process, including research, media outreach, interviews, filming support, editing input, social media writing, and final reporting.</p>
-                            </div>
-                            <div class="video-hover-state">
-                                <div class="video-title-overlay">Jake Miller | PD Café</div>
-                                <video muted loop><source src="assets/videos/jake_miller.mp4"></video>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="drawer-group">
-                <div class="drawer-cover">
-                    <img src="assets/images/v_s1.jpg">
-                    <h3>Short-form: Lily Unpacks</h3>
-                </div>
-                <div class="drawer-content">
-                    <div class="item-track">
-                        <div class="video-card" style="width:180px; height:340px;">
-                            <img src="assets/images/v_s1.jpg" class="v-poster">
-                            <div class="role-display"><span>Role</span><p>Background research & Fact-checking.</p></div>
-                            <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s1.mp4"></video></div>
-                        </div>
-                        <div class="video-card" style="width:180px; height:340px;">
-                            <img src="assets/images/v_s2.jpg" class="v-poster">
-                            <div class="role-display"><span>Role</span><p>Fact-checking & Research support.</p></div>
-                            <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s2.mp4"></video></div>
-                        </div>
-                        <div class="video-card" style="width:180px; height:340px;">
-                            <img src="assets/images/v_s3.jpg" class="v-poster">
-                            <div class="role-display"><span>Role</span><p>Background research contributor.</p></div>
-                            <div class="video-hover-state"><video muted loop><source src="assets/videos/v_s3.mp4"></video></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-          <div class="drawer-group">
-    <div class="drawer-cover" style="
-        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                    url('./assets/podcast-cover.jpg'); 
-        background-size: cover; 
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px 8px 0 0; /* 如果需要圆角可以保留 */
-        min-height: 180px;">
+<section class="section-drawer" id="video" style="padding: 80px 0; background: #000; color: #fff;">
+    <div class="drawer-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 0 5%;">
         
-        <h3 style="color: #fff; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
-            Podcast: UNCURATED
-        </h3>
-    </div>
-
-    <div class="drawer-content" style="padding: 20px; background: #1d1d1f; border-radius: 0 0 8px 8px;">
-        <div class="video-card" style="width: 100%; max-width: 500px; border: none;">
-            <div class="role-display" style="background: none; display: flex; flex-direction: column; gap: 10px;">
-                <span style="color: #a29bfe; font-weight: 600; font-size: 14px; text-transform: uppercase;">
-                    Co-Producer Role
-                </span>
-                <p style="color: #efeff3; line-height: 1.6; margin: 0; font-size: 15px;">
-                    Full-process supervision, including on-site recording support and production management.
-                </p>
-                <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" 
-                   target="_blank" 
-                   style="margin-top: 15px; color: #a29bfe; font-size: 13px; text-decoration: underline; font-weight: 500;">
-                    Listen on Apple Podcasts →
-                </a>
+        <div class="drawer-group" style="margin-bottom: 60px;">
+            <div class="drawer-cover" style="margin-bottom: 30px;">
+                <img src="assets/images/v_long1.jpg" style="width: 100%; border-radius: 12px; height: 200px; object-fit: cover; opacity: 0.8;">
+                <h3 style="font-size: 24px; margin-top: 15px;">Long-form Episodes</h3>
+            </div>
+            <div class="drawer-content">
+                <div class="item-track" style="display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px;">
+                    <div class="video-card">
+                        <img src="assets/images/v_long2.jpg" class="v-poster">
+                        <div class="role-display">
+                            <span>Lead Production</span>
+                            <p>Managed end-to-end content production, covering research, media coordination, interview and script preparation.</p>
+                        </div>
+                        <div class="video-hover-state">
+                            <div class="video-title-overlay">Ray Chen | PD Studio</div>
+                            <video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="assets/videos/ray_chen.mp4"></video>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <img src="assets/images/v_long1.jpg" class="v-poster">
+                        <div class="role-display">
+                            <span>Lead Production</span>
+                            <p>Supervised the full production process, including research, media outreach, interviews, and final reporting.</p>
+                        </div>
+                        <div class="video-hover-state">
+                            <div class="video-title-overlay">Jake Miller | PD Café</div>
+                            <video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="assets/videos/jake_miller.mp4"></video>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="drawer-group" style="margin-bottom: 60px;">
+            <div class="drawer-cover" style="margin-bottom: 30px;">
+                <img src="assets/images/v_s1.jpg" style="width: 100%; border-radius: 12px; height: 120px; object-fit: cover; opacity: 0.6;">
+                <h3 style="font-size: 24px; margin-top: 15px;">Short-form: Lily Unpacks</h3>
+            </div>
+            <div class="drawer-content">
+                <div class="item-track" style="display: flex; gap: 15px; overflow-x: auto;">
+                    <div class="video-card" style="width:180px; height:320px; flex: 0 0 auto;">
+                        <img src="assets/images/v_s1.jpg" class="v-poster">
+                        <div class="video-hover-state"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="assets/videos/v_s1.mp4"></video></div>
+                    </div>
+                    <div class="video-card" style="width:180px; height:320px; flex: 0 0 auto;">
+                        <img src="assets/images/v_s2.jpg" class="v-poster">
+                        <div class="video-hover-state"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="assets/videos/v_s2.mp4"></video></div>
+                    </div>
+                    <div class="video-card" style="width:180px; height:320px; flex: 0 0 auto;">
+                        <img src="assets/images/v_s3.jpg" class="v-poster">
+                        <div class="video-hover-state"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="assets/videos/v_s3.mp4"></video></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="drawer-group" style="background: #1d1d1f; border-radius: 12px; overflow: hidden;">
+            <div class="drawer-cover" style="position: relative; height: 220px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/images/podcast-cover.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 2;"></div>
+                <h3 style="color: #fff; z-index: 3; position: relative; font-size: 26px; font-weight: 700;">Podcast: UNCURATED</h3>
+            </div>
+            <div class="drawer-content" style="padding: 30px;">
+                <div class="role-display" style="background: none; padding: 0; opacity: 1; transform: none; display: flex; flex-direction: column; gap: 12px;">
+                    <span style="color: #a29bfe; font-weight: 600; font-size: 14px; text-transform: uppercase;">Co-Producer Role</span>
+                    <p style="color: #efeff3; line-height: 1.6; margin: 0; font-size: 16px; max-width: 600px;">
+                        Full-process supervision, including on-site recording support, research coordination, and final production management.
+                    </p>
+                    <a href="https://podcasts.apple.com/au/podcast/uncurated/id1588841724?i=1000677860463" 
+                       target="_blank" 
+                       style="margin-top: 15px; color: #a29bfe; font-size: 15px; text-decoration: underline; font-weight: 600; display: inline-block; position: relative; z-index: 999; cursor: pointer;">
+                        Listen on Apple Podcasts →
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
+</section>
+
+<style>
+    /* 基础结构样式修复 */
+    .item-track::-webkit-scrollbar { display: none; }
+    .video-card {
+        position: relative; width: 400px; height: 225px; 
+        background: #111; border-radius: 8px; overflow: hidden; flex: 0 0 auto;
+        cursor: pointer; transition: 0.4s;
+    }
+    .video-card:hover { transform: scale(1.02); }
+    .v-poster { width: 100%; height: 100%; object-fit: cover; }
+    
+    .video-hover-state {
+        position: absolute; inset: 0; opacity: 0; transition: 0.3s; z-index: 5;
+    }
+    .video-card:hover .video-hover-state { opacity: 1; }
+    .video-hover-state video { width: 100%; height: 100%; object-fit: cover; }
+    
+    .video-title-overlay {
+        position: absolute; top: 15px; left: 15px; color: #fff; 
+        z-index: 6; font-weight: 600; text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    
+    .role-display {
+        position: absolute; bottom: 0; left: 0; right: 0; padding: 20px;
+        background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        z-index: 4; color: #fff;
+    }
+    .role-display span { font-size: 12px; color: #a29bfe; font-weight: 600; }
+    .role-display p { font-size: 13px; margin-top: 5px; opacity: 0.9; line-height: 1.4; }
+</style>
 
     <section class="section-article" id="article">
         <h2 style="font-size:32px; margin-bottom:30px;">Selected Articles</h2>
@@ -253,97 +268,127 @@
         </div>
     </section>
 
-<section class="section-design" id="design" style="padding: 100px 0 60px; background: #f5f5f7; position: relative;">
-    <h2 style="padding: 0 8%; font-size: 24px; font-weight: 600; margin-bottom: 35px; color: #1d1d1f;">Graphic Design</h2>
+<section class="section-design" id="design" style="padding: 100px 0; background: #f5f5f7; position: relative; overflow: hidden;">
+    <h2 style="padding: 0 8%; font-size: 22px; font-weight: 600; margin-bottom: 30px; color: #1d1d1f; letter-spacing: -0.5px;">Graphic Design</h2>
 
-    <div style="position: relative; width: 100%;">
+    <div class="row-wrapper" style="position: relative; margin-bottom: 25px;">
+        <button onclick="slideRow('row1', -1)" class="nav-arrow left">〈</button>
+        <button onclick="slideRow('row1', 1)" class="nav-arrow right">〉</button>
         
-        <button onclick="scrollRow(-1)" class="nav-arrow left-arrow">〈</button>
-        <button onclick="scrollRow(1)" class="nav-arrow right-arrow">〉</button>
+        <div class="design-row" id="row1">
+            <div class="gd-item"><img src="assets/images/sm1.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm2.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm3.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm4.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm5.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm6.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm7.jpg" onclick="openFullView(this.src)"></div>
+        </div>
+    </div>
 
-        <div class="design-scroll-container" style="display: flex; flex-direction: column; gap: 40px;">
-            <div class="design-row" id="designRow1">
-                <div class="gd-interactive-item"><img src="assets/images/sm1.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm2.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm3.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm4.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm5.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm6.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm7.jpg" onclick="openGallery(this.src)"></div>
-            </div>
-
-            <div class="design-row" id="designRow2">
-                <div class="gd-interactive-item"><img src="assets/images/sm8.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm9.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm10.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm11.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm12.jpg" onclick="openGallery(this.src)"></div>
-                <div class="gd-interactive-item"><img src="assets/images/sm13.jpg" onclick="openGallery(this.src)"></div>
-            </div>
+    <div class="row-wrapper" style="position: relative;">
+        <button onclick="slideRow('row2', -1)" class="nav-arrow left">〈</button>
+        <button onclick="slideRow('row2', 1)" class="nav-arrow right">〉</button>
+        
+        <div class="design-row" id="row2">
+            <div class="gd-item"><img src="assets/images/sm8.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm9.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm10.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm11.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm12.jpg" onclick="openFullView(this.src)"></div>
+            <div class="gd-item"><img src="assets/images/sm13.jpg" onclick="openFullView(this.src)"></div>
         </div>
     </div>
 </section>
 
+<div id="fullview-overlay" onclick="closeFullView()" style="display:none; position:fixed; inset:0; background:rgba(255,255,255,0.98); z-index:99999; cursor:zoom-out; align-items:center; justify-content:center;">
+    <img id="fullview-img" src="" style="max-width:90%; max-height:85vh; border-radius:4px; box-shadow: 0 30px 60px rgba(0,0,0,0.12);">
+</div>
+
 <style>
-    /* 箭头的样式 */
+    /* 滑动行基础：允许溢出并隐藏滚动条 */
+    .design-row {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 40px 8% 50px; /* 侧边对齐，上下留出放大空间 */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scroll-behavior: smooth;
+    }
+    .design-row::-webkit-scrollbar { display: none; }
+
+    /* 单个作品项 */
+    .gd-item {
+        flex: 0 0 auto;
+        height: 145px; /* 精致高度 */
+        transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+        z-index: 1;
+    }
+    .gd-item img {
+        height: 100%;
+        width: auto;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        display: block;
+    }
+
+    /* 悬停放大：显著效果 */
+    .gd-item:hover {
+        transform: scale(1.3) translateY(-8px);
+        z-index: 100;
+    }
+    .gd-item:hover img {
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    /* 左右小箭头 */
     .nav-arrow {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 44px;
-        height: 44px;
-        background: rgba(255, 255, 255, 0.9);
-        border: 1px solid rgba(0,0,0,0.1);
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border: none;
         border-radius: 50%;
+        font-size: 18px;
         cursor: pointer;
-        z-index: 1000;
+        z-index: 500;
+        opacity: 0; /* 默认隐藏 */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: 0.3s;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
-        color: #1d1d1f;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        transition: 0.3s;
     }
-    .nav-arrow:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
-    .left-arrow { left: 3%; }
-    .right-arrow { right: 3%; }
-
-    /* 滑动行样式 */
-    .design-row {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 25px;
-        padding: 40px 8% 60px;
-        scrollbar-width: none;
-        scroll-behavior: smooth; /* 平滑滚动 */
-    }
-    .design-row::-webkit-scrollbar { display: none; }
-
-    .gd-interactive-item {
-        flex: 0 0 auto;
-        height: 160px;
-        transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-        z-index: 1;
-    }
-    .gd-interactive-item img { height: 100%; width: auto; border-radius: 8px; cursor: pointer; }
-    .gd-interactive-item:hover { transform: scale(1.3) translateY(-10px); z-index: 999; }
+    .row-wrapper:hover .nav-arrow { opacity: 1; } /* 鼠标移入行时显示 */
+    .left { left: 2%; }
+    .right { right: 2%; }
+    .nav-arrow:hover { background: #1d1d1f; color: #fff; }
 </style>
 
 <script>
-    // 箭头点击滚动逻辑
-    function scrollRow(direction) {
-        const row1 = document.getElementById('designRow1');
-        const row2 = document.getElementById('designRow2');
-        const scrollAmount = window.innerWidth * 0.5; // 每次点击滚动半个屏幕的距离
-        
-        row1.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
-        row2.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+    // 左右滑动逻辑
+    function slideRow(rowId, direction) {
+        const row = document.getElementById(rowId);
+        const scrollDistance = window.innerWidth * 0.4; 
+        row.scrollBy({ left: scrollDistance * direction, behavior: 'smooth' });
     }
 
-    // 之前的点击放大逻辑保持不变...
-    function openGallery(src) { /* ... */ }
+    // 点击放大逻辑
+    function openFullView(src) {
+        const overlay = document.getElementById('fullview-overlay');
+        document.getElementById('fullview-img').src = src;
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; 
+    }
+
+    function closeFullView() {
+        document.getElementById('fullview-overlay').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
 </script>
             
 
