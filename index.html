@@ -298,4 +298,50 @@
 
     <section class="section-photography" id="photography">
         <h2 class="gallery-title">Photography</h2>
-        <div class
+        <div class="photo-grid-thumb">
+            <div class="photo-item"><img src="assets/images/p1.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p2.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p3.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p4.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p5.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p6.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p7.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p8.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p9.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p10.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p11.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p12.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p13.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p14.jpg" onclick="openLightbox(this)"></div>
+        </div>
+        <div id="photo-lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close-btn">&times;</span>
+            <img class="lightbox-content" id="full-photo">
+        </div>
+    </section>
+
+    <footer style="padding:80px; text-align:center; color:#ccc; font-size:12px;">&copy; 2026 Lareina Wu</footer>
+
+    <script>
+        document.querySelectorAll('.video-card').forEach(card => {
+            const v = card.querySelector('video');
+            if(v) {
+                card.addEventListener('mouseenter', () => v.play());
+                card.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+            }
+        });
+        function openLightbox(element) {
+            const lightbox = document.getElementById("photo-lightbox");
+            const fullImg = document.getElementById("full-photo");
+            lightbox.style.display = "flex";
+            fullImg.src = element.src;
+            document.body.style.overflow = "hidden";
+        }
+        function closeLightbox() {
+            const lightbox = document.getElementById("photo-lightbox");
+            lightbox.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    </script>
+</body>
+</html>
