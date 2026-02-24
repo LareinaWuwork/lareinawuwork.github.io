@@ -48,11 +48,9 @@
         .drawer-group:hover .drawer-content { width: 100%; opacity: 1; padding: 0 40px; }
         .item-track { display: flex; gap: 25px; width: max-content; }
         
-        /* Video Card Logic: Improved Contrast (黑底白字) */
         .video-card { width: 380px; height: 214px; background: #000; border-radius: 16px; overflow: hidden; position: relative; }
         .video-card img.v-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
         
-        /* 职责展示区域：深色渐变背景确保看清文字 */
         .role-display { 
             position: absolute; inset: 0; padding: 25px; 
             display: flex; flex-direction: column; justify-content: flex-end; 
@@ -82,11 +80,61 @@
         .tag { font-size: 10px; font-weight: 700; color: #0071e3; text-transform: uppercase; }
 
         /* --- Design --- */
-        .section-design { padding: 100px 8%; }
+        .section-design { padding: 100px 8%; background-color: #f5f5f7; }
         .gd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; }
         .gd-item img { width: 100%; border-radius: 12px; transition: 0.4s; }
         .gd-item:hover img { transform: scale(1.4); z-index: 50; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
 
+        /* --- Photography (Compact Thumbnails) --- */
+        .section-photography {
+            padding: 80px 0 0;
+            background: #ffffff;
+        }
+        .gallery-title {
+            padding: 0 8% 30px;
+            font-size: 32px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        .photo-grid-thumb { 
+            display: grid; 
+            grid-template-columns: repeat(6, 1fr); 
+            gap: 0px; 
+            width: 100%;
+        }
+        @media (max-width: 1024px) { .photo-grid-thumb { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .photo-grid-thumb { grid-template-columns: repeat(2, 1fr); } }
+
+        .photo-item { 
+            aspect-ratio: 1 / 1; 
+            overflow: hidden; 
+            cursor: pointer; 
+            position: relative;
+            background: #f5f5f7;
+        }
+        .photo-item img { 
+            width: 100%; height: 100%; 
+            object-fit: cover; 
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .photo-item:hover img { transform: scale(1.1); filter: brightness(0.8); }
+
+        /* Lightbox Overlay */
+        .lightbox { 
+            display: none; position: fixed; inset: 0; 
+            background: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            z-index: 10000; justify-content: center; align-items: center; 
+            cursor: zoom-out; 
+        }
+        .lightbox-content { 
+            max-width: 90%; max-height: 85vh; 
+            border-radius: 4px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); 
+            animation: zoomIn 0.3s ease; 
+        }
+        @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .close-btn { position: absolute; top: 25px; right: 35px; font-size: 40px; color: #1d1d1f; cursor: pointer; line-height: 1; }
     </style>
 </head>
 <body>
@@ -111,7 +159,6 @@
 
     <section class="section-drawer" id="video">
         <div class="drawer-wrapper">
-            
             <div class="drawer-group">
                 <div class="drawer-cover">
                     <img src="assets/images/v_long1.jpg">
@@ -252,96 +299,35 @@
         </div>
     </section>
 
-/* --- Photography Section (紧凑缩略图画廊) --- */
-.section-photography {
-    padding: 80px 0 0; /* 顶部留白，底部与Footer衔接 */
-    background: #ffffff;
-}
+    <section class="section-photography" id="photography">
+        <h2 class="gallery-title">Photography</h2>
+        <div class="photo-grid-thumb">
+            <div class="photo-item"><img src="assets/images/p1.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p2.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p3.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p4.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p5.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p6.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p7.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p8.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p9.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p10.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p11.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p12.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p13.jpg" onclick="openLightbox(this)"></div>
+            <div class="photo-item"><img src="assets/images/p14.jpg" onclick="openLightbox(this)"></div>
+        </div>
 
-.gallery-title {
-    padding: 0 8% 30px;
-    font-size: 32px;
-    font-weight: 600;
-    color: #1d1d1f;
-}
-
-.photo-grid-thumb { 
-    display: grid; 
-    /* 核心设置：一行 6 张，图片会自动缩小成 Thumbnail 尺寸 */
-    grid-template-columns: repeat(6, 1fr); 
-    gap: 0px; /* 无缝衔接，如需间隙可改为 2px */
-    width: 100%;
-}
-
-/* 响应式适配：在平板和手机上减少列数，避免图片过小 */
-@media (max-width: 1024px) { 
-    .photo-grid-thumb { grid-template-columns: repeat(3, 1fr); } 
-}
-@media (max-width: 600px) { 
-    .photo-grid-thumb { grid-template-columns: repeat(2, 1fr); } 
-}
-
-.photo-item { 
-    aspect-ratio: 1 / 1; /* 统一缩略图为正方形，极其整齐 */
-    overflow: hidden; 
-    cursor: pointer; 
-    position: relative;
-    background: #f5f5f7;
-}
-
-.photo-item img { 
-    width: 100%; height: 100%; 
-    object-fit: cover; /* 保证不同比例的照片都能填满正方形框 */
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
-}
-
-/* 悬停效果：轻微放大并变暗 */
-.photo-item:hover img { 
-    transform: scale(1.1); 
-    filter: brightness(0.8); 
-}
-
-/* Lightbox 弹窗 (大图展示) */
-.lightbox { 
-    display: none; /* 初始隐藏 */
-    position: fixed; 
-    inset: 0; 
-    background: rgba(255, 255, 255, 0.98); 
-    backdrop-filter: blur(20px); 
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 10000; 
-    justify-content: center; 
-    align-items: center; 
-    cursor: zoom-out; 
-}
-
-.lightbox-content { 
-    max-width: 90%; 
-    max-height: 85vh; 
-    border-radius: 4px; 
-    box-shadow: 0 25px 50px rgba(0,0,0,0.1); 
-    animation: zoomIn 0.3s ease; 
-}
-
-@keyframes zoomIn { 
-    from { transform: scale(0.95); opacity: 0; } 
-    to { transform: scale(1); opacity: 1; } 
-}
-
-.close-btn { 
-    position: absolute; 
-    top: 25px; 
-    right: 35px; 
-    font-size: 40px; 
-    color: #1d1d1f; 
-    cursor: pointer; 
-    line-height: 1;
-}
+        <div id="photo-lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close-btn">&times;</span>
+            <img class="lightbox-content" id="full-photo">
+        </div>
+    </section>
 
     <footer style="padding:80px; text-align:center; color:#ccc; font-size:12px;">&copy; 2026 Lareina Wu</footer>
 
     <script>
+        // Video Preview Logic
         document.querySelectorAll('.video-card').forEach(card => {
             const v = card.querySelector('video');
             if(v) {
@@ -349,6 +335,21 @@
                 card.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
             }
         });
+
+        // Photography Lightbox Logic
+        function openLightbox(element) {
+            const lightbox = document.getElementById("photo-lightbox");
+            const fullImg = document.getElementById("full-photo");
+            lightbox.style.display = "flex";
+            fullImg.src = element.src;
+            document.body.style.overflow = "hidden"; // Stop scrolling
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById("photo-lightbox");
+            lightbox.style.display = "none";
+            document.body.style.overflow = "auto"; // Resume scrolling
+        }
     </script>
 </body>
 </html>
