@@ -101,13 +101,51 @@
         </ul>
     </nav>
 
-    <section class="section-intro" id="about">
-        <h1>Lareina Wu</h1>
-        <p class="intro-text">
-            I’m an International Journalism graduate from the University of Melbourne with expertise in bilingual news production (Mandarin & English) and global media communication. I focus on multimedia storytelling, including video production, feature reporting, social media content creation, and podcasting.
-        </p>
-        <a href="assets/CV.pdf" class="cv-link" target="_blank">View Lareina Wu CV</a>
-    </section>
+  .section-intro {
+    /* 确保容器内部所有元素强制左对齐 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    
+    /* 这里的宽度和内边距应与 article 保持一致 */
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 80px 40px; 
+}
+
+.section-intro h1 {
+    margin: 0 0 20px 0; /* 去掉多余边距，统一底部间距 */
+    padding: 0;
+    font-size: 48px;
+    line-height: 1.1;
+}
+
+.intro-text {
+    margin: 0 0 30px 0; /* 统一文字下方间距 */
+    padding: 0;
+    max-width: 800px;  /* 限制文字宽度，避免单行过长影响阅读 */
+    text-align: left;
+}
+
+.cv-link {
+    /* 关键：确保按钮没有左边距，并消除内联元素的偏移 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0; 
+    
+    /* 按钮样式（参考图片中的蓝色按钮） */
+    background-color: #3171e0;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cv-link:hover {
+    background-color: #2659b8;
+}
 
   <section class="section-drawer" id="video">
     <div class="drawer-wrapper">
