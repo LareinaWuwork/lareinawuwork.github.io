@@ -254,78 +254,118 @@
     </section>
 
 <section class="section-design" id="design" style="padding: 100px 0 60px; background: #f5f5f7;">
-    <h2 style="padding: 0 8%; font-size: 24px; font-weight: 600; margin-bottom: 35px; color: #1d1d1f; letter-spacing: -0.5px;">Graphic Design</h2>
+    <h2 style="padding: 0 8%; font-size: 24px; font-weight: 600; margin-bottom: 35px; color: #1d1d1f;">Graphic Design</h2>
 
-    <div class="design-scroll-container" style="display: flex; flex-direction: column; gap: 30px;">
+    <div class="design-scroll-container" style="display: flex; flex-direction: column; gap: 40px;">
         
         <div class="design-row">
-            <div class="gd-small-item"><img src="assets/images/sm1.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm2.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm3.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm4.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm5.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm6.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm7.jpg"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm1.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm2.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm3.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm4.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm5.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm6.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm7.jpg" onclick="openGallery(this.src)"></div>
         </div>
 
         <div class="design-row">
-            <div class="gd-small-item"><img src="assets/images/sm8.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm9.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm10.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm11.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm12.jpg"></div>
-            <div class="gd-small-item"><img src="assets/images/sm13.jpg"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm8.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm9.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm10.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm11.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm12.jpg" onclick="openGallery(this.src)"></div>
+            <div class="gd-interactive-item"><img src="assets/images/sm13.jpg" onclick="openGallery(this.src)"></div>
         </div>
     </div>
 </section>
 
 <style>
-    /* 滑动行基础样式 */
+    /* 滑动行：隐藏滚动条且允许溢出放大显示 */
     .design-row {
         display: flex;
-        gap: 20px;
+        gap: 25px;
         overflow-x: auto;
-        padding: 20px 8% 40px; /* 增加上下 padding，为放大效果留出空间 */
+        padding: 30px 8% 50px; /* 增加 Padding 确保图片放大时不被裁切 */
         scrollbar-width: none;
         -ms-overflow-style: none;
+        position: relative;
     }
 
     .design-row::-webkit-scrollbar {
         display: none;
     }
 
-    /* 每一个图片的容器 */
-    .gd-small-item {
+    /* 每一个图片的交互容器 */
+    .gd-interactive-item {
         flex: 0 0 auto;
-        height: 140px; 
-        border-radius: 8px;
-        overflow: visible; /* 必须为 visible，否则放大时会被容器裁切 */
-        background: transparent;
-        transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        height: 140px;
         cursor: pointer;
+        transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+        position: relative;
+        z-index: 1;
     }
 
-    /* 图片本身 */
-    .gd-small-item img {
+    .gd-interactive-item img {
         height: 100%;
         width: auto;
         border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         display: block;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        transition: all 0.4s ease;
     }
 
-    /* 鼠标滑过：显著放大并增加阴影 */
-    .gd-small-item:hover {
-        transform: scale(1.25); /* 显著放大到 1.25 倍 */
-        z-index: 100; /* 确保放大的图片在最上层 */
+    /* 鼠标滑过放大效果 */
+    .gd-interactive-item:hover {
+        transform: scale(1.3); /* 显著放大 30% */
+        z-index: 999; /* 确保悬停时在最上层 */
     }
 
-    .gd-small-item:hover img {
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        filter: brightness(1.05);
+    .gd-interactive-item:hover img {
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    /* 点击放大遮罩层（通用） */
+    #gallery-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(255,255,255,0.98);
+        z-index: 10000;
+        cursor: zoom-out;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+    }
+
+    #gallery-img {
+        max-width: 90%;
+        max-height: 85vh;
+        border-radius: 6px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.1);
     }
 </style>
+
+<div id="gallery-overlay" onclick="closeGallery()">
+    <img id="gallery-img" src="">
+</div>
+
+<script>
+    // 通用打开弹窗函数
+    function openGallery(imageSrc) {
+        const overlay = document.getElementById('gallery-overlay');
+        const fullImg = document.getElementById('gallery-img');
+        fullImg.src = imageSrc;
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // 锁定滚动
+    }
+
+    // 通用关闭弹窗函数
+    function closeGallery() {
+        const overlay = document.getElementById('gallery-overlay');
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto'; // 恢复滚动
+    }
+</script>
 
 <section class="section-photography" id="photography" style="padding: 100px 8%; background: #ffffff;">
     <h2 style="font-size: 24px; font-weight: 600; margin-bottom: 35px; color: #1d1d1f;">Photography</h2>
