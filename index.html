@@ -253,23 +253,64 @@
         </div>
     </section>
 
-    <section class="section-design" id="design">
-        <h2 style="font-size:32px; margin-bottom:40px;">Graphic Design</h2>
-        <div class="gd-grid">
-            <div class="gd-item"><img src="assets/images/sm1.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm2.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm3.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm4.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm5.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm6.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm7.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm8.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm9.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm10.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm11.jpg"></div>
-            <div class="gd-item"><img src="assets/images/sm12.jpg"></div>
+  <section class="section-design" id="design" style="padding: 100px 0; background: #f5f5f7;">
+    <h2 style="padding: 0 8%; font-size: 32px; margin-bottom: 40px;">Graphic Design</h2>
+
+    <div class="design-scroll-container" style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <div class="design-row" style="display: flex; gap: 20px; overflow-x: auto; padding: 0 8% 10px; scrollbar-width: none; -ms-overflow-style: none;">
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden; background: #ddd;">
+                <img src="assets/images/sm1.jpg" style="height: 100%; width: auto; display: block; transition: 0.4s;">
+            </div>
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm2.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm3.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm4.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm5.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm6.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
         </div>
-    </section>
+
+        <div class="design-row" style="display: flex; gap: 20px; overflow-x: auto; padding: 0 8% 20px; scrollbar-width: none; -ms-overflow-style: none;">
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm7.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm8.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm9.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm10.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm11.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
+            <div class="gd-item" style="flex: 0 0 auto; height: 200px; border-radius: 12px; overflow: hidden;">
+                <img src="assets/images/sm12.jpg" style="height: 100%; width: auto; display: block;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* 隐藏滚动条但保留滚动功能 */
+    .design-row::-webkit-scrollbar {
+        display: none;
+    }
+    .gd-item:hover img {
+        transform: scale(1.05);
+    }
+</style>
 
    <section class="section-photography" id="photography" style="background: #111; padding: 80px 8%; color: #eee;">
     <h2 style="font-size: 32px; margin-bottom: 40px; color: #fff;">Photography</h2>
