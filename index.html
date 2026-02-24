@@ -101,51 +101,64 @@
         </ul>
     </nav>
 
-  .section-intro {
-    /* 确保容器内部所有元素强制左对齐 */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    
-    /* 这里的宽度和内边距应与 article 保持一致 */
-    max-width: 1200px; 
-    margin: 0 auto;
-    padding: 80px 40px; 
-}
+<section class="section-intro" id="about">
+    <div class="intro-container">
+        <h1>Lareina Wu</h1>
+        <p class="intro-text">
+            I’m an International Journalism graduate from the University of Melbourne with expertise in bilingual news production (Mandarin & English) and global media communication. I focus on multimedia storytelling, including video production, feature reporting, social media content creation, and podcasting.
+        </p>
+        <a href="assets/CV.pdf" class="cv-link" target="_blank">View Lareina Wu CV</a>
+    </div>
+</section>
 
-.section-intro h1 {
-    margin: 0 0 20px 0; /* 去掉多余边距，统一底部间距 */
-    padding: 0;
-    font-size: 48px;
-    line-height: 1.1;
-}
+<section class="section-drawer" id="video">
+    <div class="drawer-wrapper">
+        <div class="drawer-group">
+            <div class="drawer-cover">
+                <img src="assets/images/v_long1.jpg">
+                <h3>Long-form Episodes</h3>
+            </div>
+            <div class="drawer-content">
+                <div class="item-track">
+                    <a href="https://peoplesdaily.pdnews.cn/trending/er/30049939401" target="_blank" class="video-card-link">
+                        <div class="video-card">
+                            <img src="assets/images/v_long1.jpg" class="v-poster">
+                            <div class="role-display">
+                                <span>Lead Production</span>
+                                <p>Supervised end-to-end production, on-site coordination, and creative direction.</p>
+                            </div>
+                            <div class="video-hover-state">
+                                <div class="video-title-overlay">Ray Chen | PD Studio</div>
+                                <video muted loop><source src="assets/videos/ray_chen.mp4"></video>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://peoplesdaily.pdnews.cn/pd-cafe/er/30050394825" target="_blank" class="video-card-link">
+                        <div class="video-card">
+                            <img src="assets/images/v_long2.jpg" class="v-poster">
+                            <div class="role-display">
+                                <span>Lead Production</span>
+                                <p>Supervised end-to-end production and high-level project management.</p>
+                            </div>
+                            <div class="video-hover-state">
+                                <div class="video-title-overlay">Jake Miller | PD Café</div>
+                                <video muted loop><source src="assets/videos/jake_miller.mp4"></video>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-.intro-text {
-    margin: 0 0 30px 0; /* 统一文字下方间距 */
-    padding: 0;
-    max-width: 800px;  /* 限制文字宽度，避免单行过长影响阅读 */
-    text-align: left;
-}
-
-.cv-link {
-    /* 关键：确保按钮没有左边距，并消除内联元素的偏移 */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 0; 
-    
-    /* 按钮样式（参考图片中的蓝色按钮） */
-    background-color: #3171e0;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.cv-link:hover {
-    background-color: #2659b8;
-}
+        <div class="drawer-group">
+            <div class="drawer-cover">
+                <img src="assets/images/podcast-cover.jpg">
+                <h3>Podcast: UNCURATED</h3>
+            </div>
+            <div class="drawer-content">
+                <div class="video-card" style="width:500px; height:240px; background:#1d1d1f; border:none;">
+                    <div class="role-display" style="background:none;">
+                        
 
   <section class="section-drawer" id="video">
     <div class="drawer-wrapper">
