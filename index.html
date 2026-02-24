@@ -252,35 +252,32 @@
         </div>
     </section>
 
-    <section class="section-drawer" id="photography">
-        <h2 style="padding:0 8% 30px; font-size:32px;">Photography</h2>
-        <div class="drawer-wrapper">
-            <div class="drawer-group">
-                <div class="drawer-cover"><img src="assets/images/p1.jpg"><h3>New York</h3></div>
-                <div class="drawer-content"><div class="item-track">
-                    <img src="assets/images/p1.jpg" style="height:320px; border-radius:12px;">
-                    <img src="assets/images/p2.jpg" style="height:320px; border-radius:12px;">
-                    <img src="assets/images/p3.jpg" style="height:320px; border-radius:12px;">
-                </div></div>
-            </div>
-            <div class="drawer-group">
-                <div class="drawer-cover"><img src="assets/images/p4.jpg"><h3>Portrait</h3></div>
-                <div class="drawer-content"><div class="item-track">
-                    <img src="assets/images/p4.jpg" style="height:320px; border-radius:12px;">
-                    <img src="assets/images/p5.jpg" style="height:320px; border-radius:12px;">
-                    <img src="assets/images/p6.jpg" style="height:320px; border-radius:12px;">
-                </div></div>
-            </div>
-            <div class="drawer-group">
-                <div class="drawer-cover"><img src="assets/images/p7.jpg"><h3>Melbourne Puppy Club</h3></div>
-                <div class="drawer-content"><div class="item-track">
-                    <img src="assets/images/p7.jpg" style="height:320px; border-radius:12px;">
-                    <img src="assets/images/p8.jpg" style="height:320px; border-radius:12px;">
-                    <img src="assets/images/p9.jpg" style="height:320px; border-radius:12px;">
-                </div></div>
-            </div>
-        </div>
-    </section>
+<section class="section-photography" id="photography">
+    <h2 class="gallery-title">Photography</h2>
+    
+    <div class="photo-grid-full">
+        <div class="photo-item"><img src="assets/images/p1.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p2.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p3.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p4.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p5.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p6.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p7.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p8.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p9.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p10.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p11.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p12.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p13.jpg" onclick="openLightbox(this)"></div>
+        <div class="photo-item"><img src="assets/images/p14.jpg" onclick="openLightbox(this)"></div>
+    </div>
+
+    <div id="photo-lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="full-photo">
+    </div>
+</section>
+    
 
     <footer style="padding:80px; text-align:center; color:#ccc; font-size:12px;">&copy; 2026 Lareina Wu</footer>
 
